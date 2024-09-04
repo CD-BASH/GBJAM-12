@@ -1,5 +1,9 @@
 # GBJAM-12
 
+This repository holds the game project to be submitted at the GBJAM-12, taking place between September 13th and the 23td 2024. Based on the rules, the development must not rely on any AI tools (including GitHub Co-pilot).
+
+The project is built upon the Godot engine, version 4.3, available [here](https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip).
+
 ## Contributing
 
 We use a lightweight convention on top of commit messages.  
