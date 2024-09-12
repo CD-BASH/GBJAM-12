@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0ldlcnd5pxp0"
-path="res://.godot/imported/pixels_transition_1.png-9ac8d4a36c9d3c155b0a829887684304.ctex"
+uid="uid://d0dp27e8b8w8h"
+path="res://.godot/imported/screen-transition_DisolveColor.png-cf055e751cdba02acc1a2b17e275fc1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/pixels_transition_1.png"
-dest_files=["res://.godot/imported/pixels_transition_1.png-9ac8d4a36c9d3c155b0a829887684304.ctex"]
+source_file="res://Assets/UI/ScreenTransitions/screen-transition_DisolveColor.png"
+dest_files=["res://.godot/imported/screen-transition_DisolveColor.png-cf055e751cdba02acc1a2b17e275fc1f.ctex"]
 
 [params]
 

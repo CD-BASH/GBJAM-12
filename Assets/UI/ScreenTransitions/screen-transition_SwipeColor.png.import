@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci6k2j2ck2asd"
-path="res://.godot/imported/pixels_transition.png-ee3c8e275beea6108d8faa1be6db2586.ctex"
+uid="uid://bcp543e1t3v1y"
+path="res://.godot/imported/screen-transition_SwipeColor.png-9ab8ca4a8ddc929ccc3f4bb384d582d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/pixels_transition.png"
-dest_files=["res://.godot/imported/pixels_transition.png-ee3c8e275beea6108d8faa1be6db2586.ctex"]
+source_file="res://Assets/UI/ScreenTransitions/screen-transition_SwipeColor.png"
+dest_files=["res://.godot/imported/screen-transition_SwipeColor.png-9ab8ca4a8ddc929ccc3f4bb384d582d9.ctex"]
 
 [params]
 
