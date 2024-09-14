@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://en1vmhnahux2"]
+
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_e6ohm"]
+[ext_resource type="Material" uid="uid://61gykqahn2lw" path="res://Materials/palette_original_gameboy.tres" id="1_m26d5"]
+[ext_resource type="Texture2D" uid="uid://dtaum18p6ft1c" path="res://Assets/Characters/Character_Proto_SideScroll.png" id="2_f58qp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkt6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f58qp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8srb"]
+size = Vector2(9, 16)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_e6ohm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("1_m26d5")
+sprite_frames = SubResource("SpriteFrames_dkt6p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_l8srb")
