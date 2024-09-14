@@ -1,0 +1,107 @@
+[gd_scene load_steps=18 format=3 uid="uid://2bnoajnc7pcc"]
+
+[ext_resource type="Script" path="res://Scenes/sub_viewport_container.gd" id="1_0ln5a"]
+[ext_resource type="Shader" path="res://Shaders/3dTest.gdshader" id="1_udeg7"]
+[ext_resource type="Script" path="res://Scenes/cube.gd" id="2_gg804"]
+[ext_resource type="Shader" path="res://Shaders/PostProcess.gdshader" id="3_csiyx"]
+[ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="5_ksvjq"]
+[ext_resource type="Texture2D" uid="uid://dx4tajtkawpjx" path="res://Assets/UI/Ghost.png" id="6_hy44b"]
+[ext_resource type="Script" path="res://Scripts/ghost.gd" id="7_eb2uc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4iwf1"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rejfe"]
+size = Vector3(60, 2, 60)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6flt"]
+render_priority = 0
+shader = ExtResource("3_csiyx")
+shader_parameter/palette_light = Color(1, 1, 1, 1)
+shader_parameter/palette_mid_light = Color(0.431373, 0.819608, 0.541176, 1)
+shader_parameter/palette_mid_dark = Color(0.364706, 0.372549, 0.776471, 1)
+shader_parameter/palette_dark = Color(0, 0, 0, 1)
+shader_parameter/error_color = Color(0.960487, 0.000756423, 0.96048, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_3bqf7"]
+material = SubResource("ShaderMaterial_u6flt")
+flip_faces = true
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66l22"]
+render_priority = 0
+shader = ExtResource("1_udeg7")
+shader_parameter/palette_light = Color(0.221665, 0.766294, 7.70092e-07, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_156we"]
+material = SubResource("ShaderMaterial_66l22")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oxywm"]
+render_priority = 0
+shader = ExtResource("5_ksvjq")
+shader_parameter/test_texture = ExtResource("6_hy44b")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_337fb"]
+material = SubResource("ShaderMaterial_oxywm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2r1w8"]
+emission_enabled = true
+emission = Color(0.74978, 0.74978, 0.74978, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_g1sir"]
+material = SubResource("StandardMaterial3D_2r1w8")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_4iwf1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_rejfe")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+script = ExtResource("1_0ln5a")
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(160, 144)
+render_target_update_mode = 4
+
+[node name="CameraPivot" type="Marker3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport/CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8)
+projection = 1
+size = 13.767
+
+[node name="PostProcessQuad" type="MeshInstance3D" parent="SubViewportContainer/SubViewport/CameraPivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 0.997198, -0.0748047, 0, 0.0748047, 0.997198, 0, -3, -8)
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_3bqf7")
+skeleton = NodePath("../../../../..")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.37189, 0, 0, 0, 2.37189, 0, 0, 0, 2.37189, 4.97628, 2.78025, -8.60994)
+mesh = SubResource("BoxMesh_156we")
+script = ExtResource("2_gg804")
+speedy = 0.02
+speedx = 0.05
+
+[node name="Ghost" type="MeshInstance3D" parent="."]
+transform = Transform3D(-2.12446, 0.102822, 0.0338476, -0.0346774, -0.0163541, -2.12687, -0.102545, -2.12467, 0.0180089, -3.78691, 2.87347, -8.80492)
+mesh = SubResource("PlaneMesh_337fb")
+script = ExtResource("7_eb2uc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(24.7172, 0, 0, 0, 24.7172, 0, 0, 0, 24.7172, 0.482211, 4.18408, -14.6766)
+mesh = SubResource("QuadMesh_g1sir")

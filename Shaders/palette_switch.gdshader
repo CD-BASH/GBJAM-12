@@ -7,7 +7,6 @@ uniform vec4 palette_mid_dark: source_color = vec4(1.0);
 uniform vec4 palette_dark: source_color = vec4(1.0);
 group_uniforms;
 
-
 void fragment() 
 {
 	vec4 pixel_color = texture(TEXTURE, UV);
