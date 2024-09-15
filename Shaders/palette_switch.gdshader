@@ -42,4 +42,3 @@ void fragment()
 		COLOR = error_color;
 	}
 }
-
