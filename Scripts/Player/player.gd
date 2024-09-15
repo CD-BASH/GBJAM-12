@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 
 
 func side_movement(delta) -> void:
+	animated_sprite_2d.play("side_idle")
+	
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		if velocity.y > 400.0:
@@ -43,6 +45,8 @@ func side_movement(delta) -> void:
  
 
 func top_view_movement(delta) -> void:
+	animated_sprite_2d.play("top_idle")
+	
 	var horizontal_direction = Input.get_axis("left_dPad", "right_dPad")
 	var vertical_direction = Input.get_axis("ui_up", "down_dPad")
 	
@@ -50,6 +54,3 @@ func top_view_movement(delta) -> void:
 	velocity.y = vertical_direction * movement_speed
 	
 	move_and_slide()
-	
-	
-	

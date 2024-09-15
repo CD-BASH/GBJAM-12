@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtaum18p6ft1c"
-path="res://.godot/imported/Character_Proto_SideScroll.png-78f9ebf7e0f9b650f08f754aac62b279.ctex"
+uid="uid://bcygjlnj5pfhr"
+path="res://.godot/imported/SPOOKO_Down.png-29ce27e53ee85ada027bb302608e3618.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/Character_Proto_SideScroll.png"
-dest_files=["res://.godot/imported/Character_Proto_SideScroll.png-78f9ebf7e0f9b650f08f754aac62b279.ctex"]
+source_file="res://Scenes/Levels/SPOOKO_Down.png"
+dest_files=["res://.godot/imported/SPOOKO_Down.png-29ce27e53ee85ada027bb302608e3618.ctex"]
 
 [params]
 

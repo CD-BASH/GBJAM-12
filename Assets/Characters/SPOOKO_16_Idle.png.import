@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyiet1ju7sl3w"
-path="res://.godot/imported/SPOOKO_SIDE.png-3a08afb6c837a0649008b7c48db9f81c.ctex"
+uid="uid://w5au68fkpc1m"
+path="res://.godot/imported/SPOOKO_16_Idle.png-a556a68c517badc21f17310a25c7b67f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/SPOOKO_SIDE.png"
-dest_files=["res://.godot/imported/SPOOKO_SIDE.png-3a08afb6c837a0649008b7c48db9f81c.ctex"]
+source_file="res://Assets/Characters/SPOOKO_16_Idle.png"
+dest_files=["res://.godot/imported/SPOOKO_16_Idle.png-a556a68c517badc21f17310a25c7b67f.ctex"]
 
 [params]
 
