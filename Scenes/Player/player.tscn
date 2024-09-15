@@ -1,11 +1,27 @@
-[gd_scene load_steps=15 format=3 uid="uid://en1vmhnahux2"]
+[gd_scene load_steps=20 format=3 uid="uid://en1vmhnahux2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_e6ohm"]
 [ext_resource type="Material" uid="uid://61gykqahn2lw" path="res://Materials/palette_original_gameboy.tres" id="1_m26d5"]
-[ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/SPOOKO_16_Idle.png" id="3_hxhrr"]
+[ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="3_hxhrr"]
+[ext_resource type="Shape2D" uid="uid://c0rqt6ufncj7d" path="res://Assets/Characters/main_character_top_collision_shape.tres" id="3_hy8du"]
+[ext_resource type="Shape2D" uid="uid://clbvq40o76grm" path="res://Assets/Characters/main_character_side_collision_shape.tres" id="4_5sk3q"]
+[ext_resource type="Shape2D" uid="uid://bcpimkwpk06d" path="res://Assets/Characters/main_character_down_collision_shape.tres" id="4_66ald"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ubtu"]
-load_path = "res://.godot/imported/SPOOKO_Down.png-7d7e25fa6d746ac514eca83459cea2e0.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_8op8e"]
+atlas = ExtResource("3_hxhrr")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn608"]
+atlas = ExtResource("3_hxhrr")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1m33"]
+atlas = ExtResource("3_hxhrr")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aknou"]
+atlas = ExtResource("3_hxhrr")
+region = Rect2(176, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fa00y"]
 atlas = ExtResource("3_hxhrr")
@@ -43,7 +59,16 @@ region = Rect2(112, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_8ubtu")
+"texture": SubResource("AtlasTexture_8op8e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn608")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1m33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aknou")
 }],
 "loop": true,
 "name": &"down_idle",
@@ -84,20 +109,19 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8srb"]
-size = Vector2(13, 16)
-
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_e6ohm")
+side_collision_shape = ExtResource("4_5sk3q")
+top_collision_shape = ExtResource("3_hy8du")
+down_collision_shape = ExtResource("4_66ald")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("1_m26d5")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_dkt6p")
 animation = &"side_idle"
-frame_progress = 0.0992874
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -8)
-shape = SubResource("RectangleShape2D_l8srb")
+shape = ExtResource("4_5sk3q")
