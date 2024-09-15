@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://w5au68fkpc1m"
-path="res://.godot/imported/SPOOKO_16_Idle.png-a556a68c517badc21f17310a25c7b67f.ctex"
+path="res://.godot/imported/main_character_animation_idle.png-3ea5c1b0b20f8cd7c6f87d86564b1b06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/SPOOKO_16_Idle.png"
-dest_files=["res://.godot/imported/SPOOKO_16_Idle.png-a556a68c517badc21f17310a25c7b67f.ctex"]
+source_file="res://Assets/Characters/main_character_animation_idle.png"
+dest_files=["res://.godot/imported/main_character_animation_idle.png-3ea5c1b0b20f8cd7c6f87d86564b1b06.ctex"]
 
 [params]
 
