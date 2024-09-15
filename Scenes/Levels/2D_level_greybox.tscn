@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://djlmtroecur6u"]
 
-[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_30gpi"]
+[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
 
 [sub_resource type="Gradient" id="Gradient_xu1lo"]
 offsets = PackedFloat32Array(0.539043)
@@ -14,10 +14,11 @@ height = 1
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riuct"]
 size = Vector2(1, 0.999999)
 
-[node name="LEvel Side View" type="Node2D"]
+[node name="2D Level Greybox" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_30gpi")]
+[node name="Player" parent="." instance=ExtResource("1_yre6r")]
 position = Vector2(68, 60)
+player_control_type = 2
 
 [node name="Ground" type="StaticBody2D" parent="."]
 position = Vector2(0, 94)
@@ -30,21 +31,6 @@ texture = SubResource("GradientTexture2D_g4neu")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(80, 25)
-scale = Vector2(160, 50)
-shape = SubResource("RectangleShape2D_riuct")
-
-[node name="Ground2" type="StaticBody2D" parent="."]
-position = Vector2(0, 94)
-collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Ground2"]
-position = Vector2(0, -7.62939e-06)
-scale = Vector2(160, 50)
-texture = SubResource("GradientTexture2D_g4neu")
-centered = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
 position = Vector2(80, 25)
 scale = Vector2(160, 50)
 shape = SubResource("RectangleShape2D_riuct")
