@@ -17,7 +17,11 @@ void fragment()
 	float mid_range = 0.5;
 	float dark_range = 0.1;
 	
-	if (pixel_color.r > light_range)
+	if (pixel_color.a < 0.9)
+	{
+		COLOR.a = 0.0;
+	}
+	else if (pixel_color.r > light_range)
 	{
 		COLOR = palette_light;
 	}
@@ -38,4 +42,3 @@ void fragment()
 		COLOR = error_color;
 	}
 }
-
