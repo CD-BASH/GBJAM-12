@@ -7,5 +7,6 @@ func _ready() -> void:
 	pass
 
 func activate_view(state: bool):
+	visible = state
 	tile_set_background.enabled = state
 	tile_set_platforms.enabled = state

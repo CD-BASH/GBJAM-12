@@ -10,6 +10,7 @@ extends Node2D
 var cell_size := 16.0
 var player_cell_coordinate: Vector2
 var player_depth: float
+var current_view: ViewMode
 
 enum ViewMode
 {
@@ -18,17 +19,16 @@ enum ViewMode
 	DOWN_VIEW
 }
 
+
 func _ready() -> void:
-	set_new_view(starting_view)
+	get_player_position_on_grid()
 	player_depth = starting_depth_position
+	set_new_view(starting_view)
 	
 
 
 func _process(delta: float) -> void:
-	player_cell_coordinate = Vector2(
-		player.global_position.x / cell_size, 
-		player.global_position.y / cell_size
-	) 
+	get_player_position_on_grid()
 	
 	if Input.is_action_just_pressed("a_btn"):
 		set_new_view(ViewMode.TOP_VIEW)
@@ -37,19 +37,30 @@ func _process(delta: float) -> void:
 
 
 func set_new_view(view: ViewMode):
-	player.player_control_type = view
-	
 	match view:
 		ViewMode.SIDE_VIEW:
 			side_view.activate_view(true)
 			top_view.activate_view(false)
-			player.global_position = Vector2(player.global_position.x, 7.5 * cell_size)
-			
+			player.global_position = Vector2(
+				player_cell_coordinate.x * cell_size, 
+				7.5 * cell_size
+			)
 		ViewMode.TOP_VIEW:
 			side_view.activate_view(false)
 			top_view.activate_view(true)
-			player.global_position = Vector2(player.global_position.x, player_depth * cell_size)
+			player.global_position = Vector2(
+				player_cell_coordinate.x * cell_size, 
+				player_depth * cell_size
+			)
+	player.player_control_type = view
+	current_view = view
 
 
-func set_player_position_on_grid():
-	pass
+func get_player_position_on_grid():
+	player_cell_coordinate = Vector2(
+		player.global_position.x / cell_size, 
+		player.global_position.y / cell_size
+	) 
+	
+	if current_view == ViewMode.TOP_VIEW:
+		player_depth = player_cell_coordinate.y
