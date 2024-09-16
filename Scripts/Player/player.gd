@@ -39,8 +39,6 @@ func _physics_process(delta: float) -> void:
 
 
 func side_movement(delta) -> void:
-	animated_sprite_2d.play("side_idle")
-	
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		if velocity.y > 400.0:
@@ -52,22 +50,28 @@ func side_movement(delta) -> void:
 	var direction = Input.get_axis("left_dPad","right_dPad")
 	
 	if direction != 0:
+		animated_sprite_2d.play("side_walk")
 		animated_sprite_2d.flip_h = (direction == -1)
+	else:
+		animated_sprite_2d.play("side_idle")
 	
 	velocity.x = direction * movement_speed
 	move_and_slide()
  
 
 func top_down_view_movement(delta, top_view: bool) -> void:
-	if top_view:
-		animated_sprite_2d.play("top_idle")
-	else:
-		animated_sprite_2d.play("down_idle")
-	
 	var horizontal_direction = Input.get_axis("left_dPad", "right_dPad")
 	var vertical_direction = Input.get_axis("up_dPad", "down_dPad")
 	
 	velocity.x = horizontal_direction * movement_speed
 	velocity.y = vertical_direction * movement_speed
+	
+	if velocity.x != 0 or velocity.y != 0:
+		var animation_name = "top_walk" if top_view else "down_walk"
+		animated_sprite_2d.flip_h = (horizontal_direction == -1)
+		animated_sprite_2d.play(animation_name)
+	else:
+		var animation_name = "top_idle" if top_view else "down_idle"
+		animated_sprite_2d.play(animation_name)
 	
 	move_and_slide()
