@@ -9,7 +9,9 @@ var sound_array = []
 @onready var timer = $Timer
 var num_clics = 0
 var wait_time 
-var total_time = 15
+#total time that you want the level to be
+var total_time = 9
+
 
 func _ready():
 	#Array of sounds if we add some there gonna be more alert sounds
