@@ -24,6 +24,10 @@ window/size/window_height_override=720
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 
+[global_group]
+
+player=""
+
 [input]
 
 a_btn={
@@ -77,6 +81,7 @@ left_dPad={
 
 2d_physics/layer_1="world"
 2d_physics/layer_2="player"
+2d_physics/layer_3="areas"
 
 [rendering]
 

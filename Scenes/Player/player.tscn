@@ -244,7 +244,7 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_e6ohm")
 side_collision_shape = ExtResource("4_5sk3q")
