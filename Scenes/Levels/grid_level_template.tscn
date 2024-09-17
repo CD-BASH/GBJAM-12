@@ -12,7 +12,7 @@ size = Vector2(16, 176)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
 size = Vector2(192, 16)
 
-[node name="GridLevel" type="Node2D" groups=["grid_level"]]
+[node name="GridLevel_X-X" type="Node2D" groups=["grid_level"]]
 script = ExtResource("1_pt76x")
 
 [node name="Player" parent="." instance=ExtResource("2_g3bms")]
