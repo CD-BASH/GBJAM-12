@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://61gykqahn2lw"]
+
+[ext_resource type="Shader" path="res://Shaders/Palette_switch.gdshader" id="1_psaej"]
+
+[resource]
+shader = ExtResource("1_psaej")
+shader_parameter/palette_light = Color(0.607843, 0.737255, 0.0588235, 1)
+shader_parameter/palette_mid_light = Color(0.545098, 0.67451, 0.0588235, 1)
+shader_parameter/palette_mid_dark = Color(0.188235, 0.384314, 0.188235, 1)
+shader_parameter/palette_dark = Color(0.0588235, 0.219608, 0.0588235, 1)
