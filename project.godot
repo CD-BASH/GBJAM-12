@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GBJAM-12"
-run/main_scene="res://Scenes/greybox.tscn"
+run/main_scene="res://Scenes/Levels/2D_level_greybox.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
