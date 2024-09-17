@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://ba57g4wnk3x4o"]
+[gd_scene load_steps=9 format=4 uid="uid://ba57g4wnk3x4o"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_2ifhq"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_283t1"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_7u2d1"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_v7ffa"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_y1sbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdh0c"]
+size = Vector2(48, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
 size = Vector2(16, 176)
@@ -11,7 +15,7 @@ size = Vector2(16, 176)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
 size = Vector2(192, 16)
 
-[node name="Grid Level 1-1" type="Node2D"]
+[node name="Grid Level 1-1" type="Node2D" groups=["grid_level"]]
 script = ExtResource("1_2ifhq")
 
 [node name="Player" parent="." instance=ExtResource("1_283t1")]
@@ -27,6 +31,12 @@ tile_map_data = PackedByteArray("AAAAAAAAAAACAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAI
 [node name="TileSet_Platforms" parent="SideView" instance=ExtResource("4_v7ffa")]
 z_index = -25
 tile_map_data = PackedByteArray("AAAAAAgAAAAGAAEAAAABAAgAAAAGAAEAAAACAAgAAAAGAAEAAAADAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAgAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAIAAgAAAAGAAEAAAAJAAgAAAAGAAEAAAAGAAYAAAAFAAEAAAAGAAcAAAAGAAIAAAAIAAcAAAAHAAIAAAAHAAYAAAAGAAEAAAAHAAcAAAAHAAMAAAAIAAYAAAAGAAEAAAAJAAcAAAAGAAIAAAAJAAYAAAAGAAIAAAAJAAUAAAAGAAIAAAAJAAQAAAAGAAIAAAAJAAMAAAAGAAIAAAAJAAIAAAAGAAIAAAAJAAEAAAAGAAIAAAAJAAAAAAAFAAEAAAA=")
+
+[node name="DetectionArea" parent="SideView" instance=ExtResource("5_y1sbm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/DetectionArea"]
+position = Vector2(120, 86)
+shape = SubResource("RectangleShape2D_tdh0c")
 
 [node name="TopView" type="Node2D" parent="."]
 visible = false
