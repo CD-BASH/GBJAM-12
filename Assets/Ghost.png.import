@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx4tajtkawpjx"
-path.s3tc="res://.godot/imported/Ghost.png-5e6aae15ccad7c9562c8acc89b6907a4.s3tc.ctex"
+path.s3tc="res://.godot/imported/Ghost.png-c37d60734710ecd616e37cb581037c8f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/UI/Ghost.png"
-dest_files=["res://.godot/imported/Ghost.png-5e6aae15ccad7c9562c8acc89b6907a4.s3tc.ctex"]
+source_file="res://Assets/Ghost.png"
+dest_files=["res://.godot/imported/Ghost.png-c37d60734710ecd616e37cb581037c8f.s3tc.ctex"]
 
 [params]
 
