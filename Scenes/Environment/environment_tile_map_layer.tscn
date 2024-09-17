@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmyf8m3a03mr0"]
 
-[ext_resource type="Texture2D" uid="uid://bkdio5n55tmfh" path="res://Assets/TileSets/Environment_Tilesets_Version_A.png" id="1_5vljp"]
+[ext_resource type="Texture2D" uid="uid://cyfda21osd806" path="res://Assets/TileSets/Environment_Tilesets_Version_A.png" id="1_5vljp"]
 [ext_resource type="Material" uid="uid://61gykqahn2lw" path="res://Materials/palette_original_gameboy.tres" id="1_iwuv0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_quvp7"]
@@ -55,6 +55,15 @@ texture = ExtResource("1_5vljp")
 14:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 6.01483, 8, 6.01262, 8, 8, -8, 8)
 15:3/0 = 0
 15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(6.01406, -8, 6.01406, 6.01719, -8, 6.00312, -8, 8, 8, 8, 8, -8)
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+17:3/0 = 0
+18:3/0 = 0
+19:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bq2ue"]
 physics_layer_0/collision_layer = 1

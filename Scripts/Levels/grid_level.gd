@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var starting_view := ViewMode.SIDE_VIEW
-@export_range(0, 8, 1) var starting_depth_position := 7.0
+@export_range(0, 8, 0.5) var ground_level := 7.5
 
 @onready var player: CharacterBody2D = $Player
 @onready var side_view: Node2D = $SideView
@@ -10,6 +10,7 @@ extends Node2D
 var cell_size := 16.0
 var player_cell_coordinate: Vector2
 var player_depth: float
+var player_ground_level: float
 var current_view: ViewMode
 
 enum ViewMode
@@ -22,7 +23,7 @@ enum ViewMode
 
 func _ready() -> void:
 	get_player_position_on_grid()
-	player_depth = starting_depth_position
+	player_depth = ground_level
 	set_new_view(starting_view)
 	
 
@@ -36,7 +37,7 @@ func _process(delta: float) -> void:
 		set_new_view(ViewMode.SIDE_VIEW)
 
 
-func set_new_view(view: ViewMode):
+func set_new_view(view: ViewMode) -> void:
 	match view:
 		ViewMode.SIDE_VIEW:
 			side_view.activate_view(true)
@@ -56,11 +57,15 @@ func set_new_view(view: ViewMode):
 	current_view = view
 
 
+func new_player_position() -> void:
+	var new_position 
+
 func get_player_position_on_grid():
 	player_cell_coordinate = Vector2(
 		player.global_position.x / cell_size, 
 		player.global_position.y / cell_size
 	) 
 	
-	if current_view == ViewMode.TOP_VIEW:
-		player_depth = player_cell_coordinate.y
+	match current_view:
+		ViewMode.TOP_VIEW:
+			player_depth = player_cell_coordinate.y
