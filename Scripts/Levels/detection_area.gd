@@ -24,4 +24,13 @@ func _on_body_entered(body: Node2D) -> void:
 			AreaType.DEPTH_PUSH:
 				grid_level.player_depth = area_depth_push_value
 			AreaType.ALTITUDE_PUSH:
-				grid_level.player_depth = area_altitude_push_value
+				grid_level.player_altitude = area_altitude_push_value
+			AreaType.SAFE_ZONE:
+				grid_level.player_in_safety(true)
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is Player:
+		match area_type:
+			AreaType.ALTITUDE_PUSH:
+				grid_level.player_altitude = grid_level.ground_level
