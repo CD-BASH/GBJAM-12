@@ -1,5 +1,7 @@
 extends CharacterBody2D
+class_name Player
 
+@export var player_coordinate: Vector3
 @export var player_control_type := PlayerControlTypes.SIDE_VIEW
 @export var movement_speed := 100.0
 @export_subgroup("Side View")

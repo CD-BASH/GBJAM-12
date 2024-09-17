@@ -253,11 +253,9 @@ down_collision_shape = ExtResource("4_66ald")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("1_m26d5")
-position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_dkt6p")
-animation = &"top_walk"
-frame_progress = 0.0901574
+animation = &"side_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -8)
+position = Vector2(0.5, 0)
 shape = ExtResource("4_5sk3q")
