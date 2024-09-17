@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://djlmtroecur6u"]
+[gd_scene load_steps=6 format=3 uid="uid://djlmtroecur6u"]
 
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
+[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/game_boy.tscn" id="2_y4kej"]
 
 [sub_resource type="Gradient" id="Gradient_xu1lo"]
 offsets = PackedFloat32Array(0.539043)
@@ -54,3 +55,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0588235, 0.219608, 0.0588235, 1)
+
+[node name="game_boy" parent="." instance=ExtResource("2_y4kej")]
+position = Vector2(125, 68)
