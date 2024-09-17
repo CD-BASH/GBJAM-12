@@ -8,6 +8,7 @@ extends CanvasLayer
 
 #if its in the animation of typing
 var is_typing = false
+var is_changing_msg = false
 
 #array of different texte message that you want to be 
 var text_dialogue = []
@@ -30,17 +31,20 @@ func _ready():
 func _input(event) -> void:
 	if event.is_action_pressed("a_btn") || event.is_action_pressed("b_btn"):
 		if is_typing:
+			is_typing = false
 			letter_timer.stop()
 			#if the message is not complete show the complet message
 			label.text = text_dialogue[0]
-			transition_timer.start()
+			if text_dialogue.size() > 0:
+				transition_timer.start()
 		else: 
 			#if the message is complete and there is another message start the next message animation
-			if text_dialogue.size() > 0:
+			if text_dialogue.size() > 1:
 				_on_transition_timer_timeout()		
 			else:
 				#if there is no other message go to the scene need to be implemented
 				#type code here
+				print("No more message")
 				
 				
 				
@@ -81,6 +85,10 @@ func _on_timer_timeout() -> void:
 			transition_timer.start()
 
 func _on_transition_timer_timeout() -> void:
-	text_dialogue.remove_at(0)
-	show_text(text_dialogue, typing_speed)
+	#if text_dialogue.size() > 0:
+		text_dialogue.remove_at(0)
+		show_text(text_dialogue, typing_speed)
+	
+	
+	
 	
