@@ -33,6 +33,7 @@ func _ready() -> void:
 	player_index_original = player.z_index
 	set_new_view(starting_view)
 
+
 func _process(delta: float) -> void:
 	get_player_position_on_grid()
 	
@@ -43,6 +44,9 @@ func _process(delta: float) -> void:
 		
 	if (player_in_depth_safe_zone && player_in_altitude_safe_zone):
 		player_is_safe = true
+		print("PLAYER IS SAFE")
+	
+	
 
 
 func set_new_view(view: ViewMode) -> void:
@@ -72,6 +76,8 @@ func get_player_position_on_grid():
 		player.global_position.y / cell_size
 	) 
 	match current_view:
+		ViewMode.SIDE_VIEW:
+			player_altitude = player_cell_coordinate.y
 		ViewMode.TOP_VIEW:
 			player_depth = player_cell_coordinate.y
 #endregion
@@ -87,5 +93,11 @@ func track_safe_zone_depth(state: bool) -> void:
 func track_safe_zone_altitude(state: bool) -> void:
 	if current_view != ViewMode.SIDE_VIEW: return
 	player_in_altitude_safe_zone = state
+	if !state: reset_safe_zone_states()
 	#print("Altitude Safe Zone: " + str(state))
+
+func reset_safe_zone_states():
+	player.z_index = player_index_original
+	player_in_depth_safe_zone = false
+	player_depth = ground_level
 #endregion

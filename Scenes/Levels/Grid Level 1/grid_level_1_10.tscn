@@ -1,0 +1,174 @@
+[gd_scene load_steps=15 format=4 uid="uid://cc2dae68kpbxo"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_pjm0t"]
+[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_ocghl"]
+[ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_41al0"]
+[ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_x0rc0"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_gkvra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc1uh"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dms2j"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enx0m"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfn11"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qm1g5"]
+size = Vector2(32, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru7ho"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sso0w"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
+size = Vector2(192, 16)
+
+[node name="GridLevel_X-X" type="Node2D" groups=["grid_level"]]
+script = ExtResource("1_pjm0t")
+
+[node name="Player" parent="." instance=ExtResource("2_ocghl")]
+position = Vector2(40, 120)
+player_control_type = 1
+
+[node name="SideView" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_41al0")
+
+[node name="TileSet_Background" parent="SideView" instance=ExtResource("4_x0rc0")]
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAAFAAAAAAACAAIAAAAGAAAAAAACAAIAAAAHAAAAAAACAAIAAAAIAAAAAAACAAIAAAAJAAAAAAACAAIAAAAJAAEAAAACAAIAAAAJAAIAAAACAAIAAAAJAAMAAAACAAIAAAAJAAQAAAACAAIAAAAJAAUAAAACAAIAAAAJAAYAAAACAAIAAAAJAAcAAAACAAIAAAAJAAgAAAACAAIAAAAIAAgAAAACAAIAAAAHAAgAAAACAAIAAAAGAAgAAAACAAIAAAAFAAgAAAACAAIAAAAEAAgAAAACAAIAAAADAAgAAAACAAIAAAACAAgAAAACAAIAAAABAAgAAAACAAIAAAAAAAgAAAACAAIAAAAAAAcAAAACAAIAAAAAAAYAAAACAAIAAAAAAAUAAAACAAIAAAAAAAQAAAACAAIAAAAAAAMAAAACAAIAAAAAAAIAAAABAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAACAAEAAAADAAMAAAADAAEAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAGAAEAAAACAAIAAAAHAAEAAAADAAIAAAAIAAEAAAACAAIAAAAIAAIAAAACAAIAAAAIAAMAAAACAAIAAAAIAAQAAAACAAMAAAAIAAUAAAACAAIAAAAIAAYAAAACAAIAAAAIAAcAAAACAAIAAAAHAAcAAAACAAIAAAAGAAcAAAACAAIAAAAFAAcAAAACAAIAAAAEAAcAAAACAAIAAAADAAcAAAACAAIAAAACAAcAAAACAAIAAAABAAcAAAACAAIAAAABAAYAAAABAAEAAAABAAUAAAACAAIAAAABAAQAAAACAAIAAAABAAMAAAACAAIAAAABAAIAAAACAAIAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAAEAAIAAAACAAIAAAAFAAIAAAACAAIAAAAGAAIAAAACAAIAAAAHAAIAAAACAAIAAAAHAAMAAAACAAIAAAAHAAQAAAACAAIAAAAHAAUAAAACAAIAAAAHAAYAAAACAAIAAAAGAAYAAAACAAIAAAAFAAYAAAACAAIAAAAEAAYAAAACAAMAAAADAAYAAAACAAIAAAACAAYAAAACAAIAAAACAAUAAAACAAIAAAACAAQAAAACAAIAAAACAAMAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAEAAAAFAAMAAAACAAIAAAAGAAMAAAACAAIAAAAGAAQAAAACAAIAAAAGAAUAAAACAAIAAAAFAAUAAAACAAIAAAAEAAUAAAACAAIAAAADAAUAAAACAAIAAAADAAQAAAABAAMAAAAEAAQAAAACAAIAAAAFAAQAAAACAAIAAAA=")
+
+[node name="TileSet_Platforms" parent="SideView" instance=ExtResource("4_x0rc0")]
+z_index = -25
+tile_map_data = PackedByteArray("AAAAAAgAAAAGAAEAAAABAAgAAAAGAAEAAAACAAgAAAAGAAEAAAADAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAgAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAIAAgAAAAGAAEAAAAJAAgAAAAGAAEAAAABAAYAAAAHAAEAAAAIAAYAAAAFAAEAAAAJAAYAAAAGAAEAAAAAAAYAAAAGAAEAAAABAAcAAAAGAAIAAAAAAAcAAAAFAAMAAAAJAAcAAAAGAAIAAAAIAAcAAAAHAAIAAAA=")
+
+[node name="Depth_DetectionArea_1" parent="SideView" instance=ExtResource("5_gkvra")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/Depth_DetectionArea_1"]
+position = Vector2(136, 89)
+shape = SubResource("RectangleShape2D_qc1uh")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_2" parent="SideView" instance=ExtResource("5_gkvra")]
+area_depth_push_value = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/Depth_DetectionArea_2"]
+position = Vector2(152, 89)
+shape = SubResource("RectangleShape2D_qc1uh")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_3" parent="SideView" instance=ExtResource("5_gkvra")]
+area_depth_push_value = 7.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/Depth_DetectionArea_3"]
+position = Vector2(16, 88)
+shape = SubResource("RectangleShape2D_dms2j")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="SafeZoneAltitude_DetectionArea_1" parent="SideView" instance=ExtResource("5_gkvra")]
+area_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/SafeZoneAltitude_DetectionArea_1"]
+position = Vector2(144, 112)
+shape = SubResource("RectangleShape2D_enx0m")
+debug_color = Color(0, 0.886275, 0.403922, 0.419608)
+
+[node name="SafeZoneAltitude_DetectionArea_2" parent="SideView" instance=ExtResource("5_gkvra")]
+area_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/SafeZoneAltitude_DetectionArea_2"]
+position = Vector2(16, 112)
+shape = SubResource("RectangleShape2D_enx0m")
+debug_color = Color(0, 0.886275, 0.403922, 0.419608)
+
+[node name="TopView" type="Node2D" parent="."]
+script = ExtResource("3_41al0")
+
+[node name="TileSet_Background" parent="TopView" instance=ExtResource("4_x0rc0")]
+tile_map_data = PackedByteArray("AAAAAAAAAAALAAIAAAABAAAAAAAKAAIAAAACAAAAAAAKAAIAAAADAAAAAAAKAAIAAAAEAAAAAAAKAAIAAAAFAAAAAAAKAAIAAAAGAAAAAAAKAAIAAAAHAAAAAAAKAAIAAAAIAAAAAAAKAAIAAAAJAAAAAAAKAAIAAAAJAAEAAAAKAAIAAAAJAAIAAAAKAAIAAAAJAAMAAAAKAAIAAAAJAAQAAAALAAMAAAAJAAUAAAAKAAIAAAAJAAYAAAAKAAIAAAAJAAcAAAAKAAIAAAAJAAgAAAAKAAIAAAAIAAgAAAAKAAIAAAAHAAgAAAAKAAIAAAAGAAgAAAAKAAIAAAAFAAgAAAARAAMAAAAEAAgAAAAKAAMAAAADAAgAAAAKAAIAAAACAAgAAAAKAAIAAAABAAgAAAAKAAIAAAAAAAgAAAAKAAIAAAAAAAcAAAAJAAMAAAAAAAYAAAAKAAIAAAAAAAUAAAAKAAIAAAAAAAQAAAAKAAIAAAAAAAMAAAAKAAIAAAAAAAIAAAAKAAIAAAAAAAEAAAAKAAIAAAABAAEAAAAKAAIAAAACAAEAAAAKAAIAAAADAAEAAAAKAAIAAAAEAAEAAAALAAIAAAAFAAEAAAAKAAIAAAAGAAEAAAAKAAIAAAAHAAEAAAAKAAIAAAAIAAEAAAAJAAEAAAAIAAIAAAAKAAIAAAAIAAMAAAAKAAIAAAAIAAQAAAAKAAIAAAAIAAUAAAAKAAIAAAAIAAYAAAAKAAIAAAAIAAcAAAAKAAIAAAAHAAcAAAAKAAIAAAAFAAcAAAAKAAIAAAAEAAcAAAAKAAIAAAADAAcAAAAKAAIAAAACAAcAAAAKAAIAAAABAAcAAAAKAAIAAAABAAYAAAAKAAIAAAABAAUAAAAKAAIAAAABAAQAAAAJAAEAAAABAAMAAAAKAAIAAAABAAIAAAAKAAIAAAACAAIAAAAKAAIAAAADAAIAAAAKAAIAAAAEAAIAAAAKAAIAAAAFAAIAAAAKAAIAAAAGAAIAAAAKAAIAAAAHAAIAAAAKAAIAAAAHAAMAAAAKAAIAAAAHAAQAAAAKAAIAAAAHAAYAAAAJAAIAAAAFAAYAAAAKAAIAAAAEAAYAAAAKAAIAAAADAAYAAAAKAAIAAAACAAYAAAAKAAIAAAACAAUAAAAKAAIAAAACAAQAAAAKAAIAAAACAAMAAAAKAAEAAAADAAMAAAAKAAIAAAAEAAMAAAAKAAIAAAAFAAMAAAALAAMAAAAFAAUAAAAKAAIAAAAEAAUAAAAKAAIAAAADAAUAAAAKAAMAAAADAAQAAAAKAAIAAAAEAAQAAAAKAAIAAAAFAAQAAAAKAAIAAAAGAAcAAAAKAAIAAAAGAAYAAAAKAAIAAAAGAAUAAAAKAAIAAAAGAAQAAAAKAAIAAAAGAAMAAAAKAAIAAAAHAAUAAAAKAAIAAAA=")
+
+[node name="TileSet_Platforms" parent="TopView" instance=ExtResource("4_x0rc0")]
+z_index = -40
+tile_map_data = PackedByteArray("AAABAAgAAAAPAAIAAAABAAcAAAAPAAIAAAAAAAYAAAAOAAEAAAABAAYAAAAPAAEAAAAAAAcAAAAOAAIAAAAAAAgAAAAOAAIAAAAIAAUAAAASAAIAAAAJAAEAAAASAAIAAAA=")
+
+[node name="Altitude_DetectionArea_1" parent="TopView" instance=ExtResource("5_gkvra")]
+area_type = 1
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/Altitude_DetectionArea_1"]
+position = Vector2(14.5, 121.5)
+shape = SubResource("RectangleShape2D_qfn11")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_2" parent="TopView" instance=ExtResource("5_gkvra")]
+area_type = 1
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/Altitude_DetectionArea_2"]
+position = Vector2(136, 88)
+shape = SubResource("RectangleShape2D_qfn11")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_3" parent="TopView" instance=ExtResource("5_gkvra")]
+area_type = 1
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/Altitude_DetectionArea_3"]
+position = Vector2(152, 24)
+shape = SubResource("RectangleShape2D_qfn11")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="SafeZone_DetectionArea_1" parent="TopView" instance=ExtResource("5_gkvra")]
+area_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/SafeZone_DetectionArea_1"]
+position = Vector2(16, 48)
+shape = SubResource("RectangleShape2D_qm1g5")
+debug_color = Color(2.69532e-06, 0.88757, 0.402031, 0.42)
+
+[node name="SafeZone_DetectionArea_2" parent="TopView" instance=ExtResource("5_gkvra")]
+area_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/SafeZone_DetectionArea_2"]
+position = Vector2(136, 40)
+shape = SubResource("RectangleShape2D_ru7ho")
+debug_color = Color(2.69532e-06, 0.88757, 0.402031, 0.42)
+
+[node name="SafeZone_DetectionArea_3" parent="TopView" instance=ExtResource("5_gkvra")]
+area_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/SafeZone_DetectionArea_3"]
+position = Vector2(152, 8)
+shape = SubResource("RectangleShape2D_sso0w")
+debug_color = Color(2.69532e-06, 0.88757, 0.402031, 0.42)
+
+[node name="EdgeColliders" type="StaticBody2D" parent="."]
+
+[node name="EdgeLeft" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(-8, 72)
+shape = SubResource("RectangleShape2D_l075t")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeRight" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(168, 72)
+shape = SubResource("RectangleShape2D_l075t")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeTop" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(80, -8)
+shape = SubResource("RectangleShape2D_3hmyv")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeBottom" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(80, 152)
+shape = SubResource("RectangleShape2D_3hmyv")
+debug_color = Color(0, 0.6, 0.7, 0.1)
