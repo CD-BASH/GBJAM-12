@@ -1,8 +1,8 @@
 extends Area2D
 
 @export var area_type := AreaType.DEPTH_PUSH
-@export_range(0, 8, 0.5) var area_depth_push_value := 4.5
-@export_range(0, 8, 0.5) var area_altitude_push_value := 4.5
+@export_range(0, 9, 0.5) var area_depth_push_value := 4.5
+@export_range(0, 9, 0.5) var area_altitude_push_value := 4.5
 
 var grid_level: Node2D
 var collider: CollisionShape2D
@@ -35,8 +35,6 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
 		match area_type:
-			AreaType.ALTITUDE_PUSH:
-				grid_level.player_altitude = grid_level.ground_level
 			AreaType.SAFE_ZONE_DEPTH:
 				grid_level.track_safe_zone_depth(false)
 			AreaType.SAFE_ZONE_ALTITUDE:
