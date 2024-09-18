@@ -3,7 +3,8 @@ extends Node2D
 @export var starting_view := ViewMode.SIDE_VIEW
 @export var flash_view := ViewMode.SIDE_VIEW
 @export_range(0, 8, 0.5) var ground_level := 7.5
-@export var player_is_safe := false
+@export var next_level_scene: PackedScene = null
+
 
 @onready var player: CharacterBody2D = $Player
 @onready var side_view: Node2D = $SideView
@@ -21,6 +22,7 @@ var player_index_original
 var player_index_behind_platforms := -30.0
 var player_in_depth_safe_zone := false
 var player_in_altitude_safe_zone := false
+var player_is_safe := false
 
 enum ViewMode
 {
@@ -115,8 +117,10 @@ func _on_gameboy_entity_final_flash() -> void:
 	
 	if player_is_safe:
 		print("Well Done!")
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(wait_time_after_flash).timeout
+		if next_level_scene != null:
+			get_tree().change_scene_to_packed(next_level_scene)
 	else:
 		print("Game Over")
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(wait_time_after_flash).timeout
 		get_tree().reload_current_scene()
