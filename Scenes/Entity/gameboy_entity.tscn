@@ -5,20 +5,20 @@
 [ext_resource type="AudioStream" uid="uid://b5vt5cf0ijm1" path="res://Assets/Audio/SFX/retro-select-236670.mp3" id="3_ykpoy"]
 [ext_resource type="AudioStream" uid="uid://c8uk0txrr05tm" path="res://Assets/Audio/SFX/retro-video-game-death-95730.mp3" id="4_w77lq"]
 
-[node name="game_boy" type="Node2D"]
+[node name="GameboyEntity" type="Node2D"]
 script = ExtResource("1_s02ok")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
-[node name="first_clic" type="AudioStreamPlayer2D" parent="Timer"]
+[node name="FirstClic" type="AudioStreamPlayer2D" parent="Timer"]
 stream = ExtResource("2_e3xso")
 
-[node name="second_clic" type="AudioStreamPlayer2D" parent="Timer"]
+[node name="SecondClic" type="AudioStreamPlayer2D" parent="Timer"]
 stream = ExtResource("3_ykpoy")
 
-[node name="final_clic" type="AudioStreamPlayer2D" parent="Timer"]
+[node name="FinalClic" type="AudioStreamPlayer2D" parent="Timer"]
 stream = ExtResource("4_w77lq")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

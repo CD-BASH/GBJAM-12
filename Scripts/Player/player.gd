@@ -16,6 +16,8 @@ class_name Player
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
+var can_move := true
+
 enum PlayerControlTypes
 {
 	SIDE_VIEW,
@@ -38,15 +40,16 @@ func _physics_process(delta: float) -> void:
 
 
 func side_movement(delta) -> void:
+	var direction = 0.0
 	if !is_on_floor():
 		velocity.y += gravity * delta
 		if velocity.y > 400.0:
 			velocity.y = 400
-	
-	if Input.is_action_just_pressed("up_dPad") && is_on_floor():
-		velocity.y = -jump_force
-	
-	var direction = Input.get_axis("left_dPad","right_dPad")
+			
+	if can_move:
+		if Input.is_action_just_pressed("up_dPad") && is_on_floor():
+			velocity.y = -jump_force
+		direction = Input.get_axis("left_dPad","right_dPad")
 	
 	if direction != 0:
 		animated_sprite_2d.play("side_walk")
@@ -59,8 +62,12 @@ func side_movement(delta) -> void:
  
 
 func top_down_view_movement(delta, top_view: bool) -> void:
-	var horizontal_direction = Input.get_axis("left_dPad", "right_dPad")
-	var vertical_direction = Input.get_axis("up_dPad", "down_dPad")
+	var horizontal_direction = 0.0
+	var vertical_direction = 0.0
+	
+	if can_move:
+		horizontal_direction = Input.get_axis("left_dPad", "right_dPad")
+		vertical_direction = Input.get_axis("up_dPad", "down_dPad")
 	
 	velocity.x = horizontal_direction * movement_speed
 	velocity.y = vertical_direction * movement_speed

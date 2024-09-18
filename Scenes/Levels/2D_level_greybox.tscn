@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/Global/Level/Test_script_level_Geepy.gd" id="1_666du"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
-[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/game_boy.tscn" id="2_y4kej"]
+[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="2_y4kej"]
 [ext_resource type="PackedScene" uid="uid://se3l7y0eejab" path="res://Scenes/UI/canvas_dialogue.tscn" id="3_yabds"]
 
 [sub_resource type="Gradient" id="Gradient_xu1lo"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://ba57g4wnk3x4o"]
+[gd_scene load_steps=14 format=4 uid="uid://ba57g4wnk3x4o"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_2ifhq"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_283t1"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_7u2d1"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_v7ffa"]
 [ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_y1sbm"]
+[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="6_2u5xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdh0c"]
 size = Vector2(48, 20)
@@ -116,3 +117,8 @@ debug_color = Color(0, 0.6, 0.7, 0.1)
 position = Vector2(80, 152)
 shape = SubResource("RectangleShape2D_3hmyv")
 debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="GameboyEntity" parent="." instance=ExtResource("6_2u5xh")]
+total_time = 6
+
+[connection signal="final_flash" from="GameboyEntity" to="." method="_on_gameboy_entity_final_flash"]
