@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1atiatmntqtd"]
+
+[ext_resource type="Script" path="res://Scripts/Enemies/enemie_turret.gd" id="1_kmtd7"]
+[ext_resource type="Texture2D" uid="uid://dx4tajtkawpjx" path="res://Assets/Ghost.png" id="2_8l2nu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht7we"]
+size = Vector2(8, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcfvm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8l2nu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Enemie_turret" type="Area2D"]
+script = ExtResource("1_kmtd7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_ht7we")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hcfvm")
+
+[node name="left_raycast" type="RayCast2D" parent="."]
+visible = false
+enabled = false
+target_position = Vector2(-56, 0)
+collision_mask = 4
+
+[node name="right-raycast" type="RayCast2D" parent="."]
+visible = false
+enabled = false
+target_position = Vector2(56, 0)
+collision_mask = 4
+
+[node name="top_raycast" type="RayCast2D" parent="."]
+visible = false
+enabled = false
+target_position = Vector2(0, -56)
+collision_mask = 4
+
+[node name="down_raycast" type="RayCast2D" parent="."]
+visible = false
+enabled = false
+target_position = Vector2(0, 56)
+collision_mask = 4
