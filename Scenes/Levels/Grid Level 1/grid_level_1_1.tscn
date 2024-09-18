@@ -121,6 +121,5 @@ shape = SubResource("RectangleShape2D_3hmyv")
 debug_color = Color(0, 0.6, 0.7, 0.1)
 
 [node name="GameboyEntity" parent="." instance=ExtResource("6_2u5xh")]
-total_time = 6
 
 [connection signal="final_flash" from="GameboyEntity" to="." method="_on_gameboy_entity_final_flash"]

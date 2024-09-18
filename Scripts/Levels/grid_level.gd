@@ -120,6 +120,8 @@ func _on_gameboy_entity_final_flash() -> void:
 		await get_tree().create_timer(wait_time_after_flash).timeout
 		if next_level_scene != null:
 			get_tree().change_scene_to_packed(next_level_scene)
+		else:
+			get_tree().quit()
 	else:
 		print("Game Over")
 		await get_tree().create_timer(wait_time_after_flash).timeout

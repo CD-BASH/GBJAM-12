@@ -7,6 +7,7 @@
 
 [node name="GameboyEntity" type="Node2D"]
 script = ExtResource("1_s02ok")
+total_time = 6
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
