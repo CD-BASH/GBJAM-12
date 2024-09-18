@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://djlmtroecur6u"]
+[gd_scene load_steps=6 format=3 uid="uid://djlmtroecur6u"]
 
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
-[ext_resource type="PackedScene" uid="uid://c1atiatmntqtd" path="res://Scenes/Enemies/enemie_turret.tscn" id="2_b3nn5"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/game_boy.tscn" id="2_y4kej"]
 
 [sub_resource type="Gradient" id="Gradient_xu1lo"]
@@ -36,9 +35,6 @@ centered = false
 position = Vector2(80, 25)
 scale = Vector2(160, 50)
 shape = SubResource("RectangleShape2D_riuct")
-
-[node name="Enemie_turret" parent="Ground" instance=ExtResource("2_b3nn5")]
-position = Vector2(149, -7)
 
 [node name="Control" type="Control" parent="."]
 z_index = -100
