@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1atiatmntqtd"]
+[gd_scene load_steps=6 format=3 uid="uid://c1atiatmntqtd"]
 
 [ext_resource type="Script" path="res://Scripts/Enemies/enemie_turret.gd" id="1_kmtd7"]
 [ext_resource type="Texture2D" uid="uid://dx4tajtkawpjx" path="res://Assets/Ghost.png" id="2_8l2nu"]
+[ext_resource type="AudioStream" uid="uid://djnhmy6dxw4bm" path="res://Assets/Audio/SFX/retro-blip-236676.mp3" id="3_c7m6m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ht7we"]
 size = Vector2(8, 11)
@@ -31,22 +32,30 @@ sprite_frames = SubResource("SpriteFrames_hcfvm")
 visible = false
 enabled = false
 target_position = Vector2(-56, 0)
-collision_mask = 4
+collision_mask = 2
 
-[node name="right-raycast" type="RayCast2D" parent="."]
+[node name="right_raycast" type="RayCast2D" parent="."]
 visible = false
 enabled = false
 target_position = Vector2(56, 0)
-collision_mask = 4
+collision_mask = 2
 
-[node name="top_raycast" type="RayCast2D" parent="."]
+[node name="up_raycast" type="RayCast2D" parent="."]
 visible = false
 enabled = false
 target_position = Vector2(0, -56)
-collision_mask = 4
+collision_mask = 2
 
 [node name="down_raycast" type="RayCast2D" parent="."]
 visible = false
 enabled = false
 target_position = Vector2(0, 56)
-collision_mask = 4
+collision_mask = 2
+
+[node name="seen_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_c7m6m")
+pitch_scale = 0.4
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
