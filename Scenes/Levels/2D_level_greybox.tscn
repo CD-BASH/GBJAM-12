@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
 [ext_resource type="PackedScene" uid="uid://c1atiatmntqtd" path="res://Scenes/Enemies/enemie_turret.tscn" id="5_sx705"]
 
+
 [sub_resource type="Gradient" id="Gradient_xu1lo"]
 offsets = PackedFloat32Array(0.539043)
 colors = PackedColorArray(0.188235, 0.384314, 0.188235, 1)

@@ -1,16 +1,19 @@
 extends Node2D
 
+signal final_flash
+
+## Total time that you want the level to be.
+@export var total_time = 9
+
 #sounds asset
-@onready var first_clic = $Timer/first_clic
-@onready var second_clic = $Timer/second_clic
-@onready var final_clic = $Timer/final_clic
-var sound_array = []
-#timer variables
+@onready var first_clic = $Timer/FirstClic
+@onready var second_clic = $Timer/SecondClic
+@onready var final_clic = $Timer/FinalClic
 @onready var timer = $Timer
+
 var num_clics = 0
 var wait_time 
-#total time that you want the level to be
-var total_time = 9
+var sound_array = []
 
 
 func _ready():
@@ -32,13 +35,10 @@ func _on_timer_timeout():
 	else :
 		#when the timer is completely done
 		final_clic.play()
+		final_flash.emit()
 		#do the flash here and the reset of the camera here
 
 #Can be adding other behavior in the timer
 func timer_handler () -> void:
 	timer.wait_time = wait_time
 	timer.start()
-	
-	
-
-	

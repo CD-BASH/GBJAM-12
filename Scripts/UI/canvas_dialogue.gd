@@ -88,7 +88,3 @@ func _on_transition_timer_timeout() -> void:
 	#if text_dialogue.size() > 0:
 		text_dialogue.remove_at(0)
 		show_text(text_dialogue, typing_speed)
-	
-	
-	
-	

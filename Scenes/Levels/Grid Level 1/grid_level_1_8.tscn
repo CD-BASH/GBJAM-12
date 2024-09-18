@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://dxld43i3qe1vn"]
+[gd_scene load_steps=12 format=4 uid="uid://dxld43i3qe1vn"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_gu3wa"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_i2xut"]
+[ext_resource type="PackedScene" uid="uid://b45fj3sp0t7bm" path="res://Scenes/Levels/Grid Level 1/grid_level_1_9.tscn" id="2_lsgct"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_3y7bp"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_vypye"]
 [ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_3k7lm"]
+[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="7_qp3a7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enx0m"]
 size = Vector2(32, 36)
@@ -18,8 +20,9 @@ size = Vector2(16, 176)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
 size = Vector2(192, 16)
 
-[node name="GridLevel_X-X" type="Node2D" groups=["grid_level"]]
+[node name="GridLevel_1-8" type="Node2D" groups=["grid_level"]]
 script = ExtResource("1_gu3wa")
+next_level_scene = ExtResource("2_lsgct")
 
 [node name="Player" parent="." instance=ExtResource("2_i2xut")]
 position = Vector2(40, 120)
@@ -84,3 +87,7 @@ debug_color = Color(0, 0.6, 0.7, 0.1)
 position = Vector2(80, 152)
 shape = SubResource("RectangleShape2D_3hmyv")
 debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="GameboyEntity" parent="." instance=ExtResource("7_qp3a7")]
+
+[connection signal="final_flash" from="GameboyEntity" to="." method="_on_gameboy_entity_final_flash"]
