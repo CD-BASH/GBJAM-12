@@ -56,6 +56,8 @@ func _process(delta: float) -> void:
 	if (player_in_depth_safe_zone && player_in_altitude_safe_zone):
 		player_is_safe = true
 		print("PLAYER IS SAFE")
+	else:
+		player_is_safe = false
 
 
 #region Change View

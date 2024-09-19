@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=4 uid="uid://dfu5c2yyp5r4p"]
+
+[ext_resource type="PackedScene" uid="uid://k01xokc321v8" path="res://Scenes/Levels/Components/top_view_template.tscn" id="1_uad0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3uw2"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_71234"]
+size = Vector2(48, 48)
+
+[node name="TopView_1-1" instance=ExtResource("1_uad0u")]
+
+[node name="TileSet_Platforms" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAJAAgAAAANAAEAAAAGAAMAAAANAAEAAAAIAAMAAAAPAAEAAAAIAAUAAAAPAAMAAAAGAAUAAAANAAMAAAAHAAUAAAAOAAMAAAAGAAQAAAANAAIAAAAHAAMAAAAOAAEAAAAIAAQAAAAPAAIAAAAHAAQAAAAOAAIAAAAFAAQAAAARAAIAAAAFAAUAAAARAAIAAAAFAAMAAAARAAIAAAAFAAIAAAARAAEAAAAGAAIAAAASAAEAAAAHAAIAAAASAAEAAAAIAAIAAAASAAEAAAAJAAIAAAATAAEAAAAJAAMAAAATAAIAAAAJAAQAAAATAAIAAAAJAAUAAAATAAIAAAAJAAYAAAATAAMAAAAIAAYAAAASAAMAAAAHAAYAAAASAAMAAAAGAAYAAAASAAMAAAAIAAgAAAARAAIAAAAIAAcAAAARAAEAAAAJAAcAAAASAAEAAAA=")
+
+[node name="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1" index="0"]
+position = Vector2(120, 72)
+shape = SubResource("RectangleShape2D_v3uw2")
+
+[node name="CollisionShape2D" parent="SafeAreas/SafeZone_DetectionArea_1" index="0"]
+position = Vector2(120, 24)
+shape = SubResource("RectangleShape2D_71234")
