@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bg2ctqo2p0r3g"]
+
+[ext_resource type="Script" path="res://Scripts/Collectibles/pumkins.gd" id="1_yw705"]
+[ext_resource type="Texture2D" uid="uid://dvcvvcg20p0jw" path="res://Assets/Collectibles/New Piskel (1).png" id="2_k171a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccodl"]
+atlas = ExtResource("2_k171a")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7w6b"]
+atlas = ExtResource("2_k171a")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qr6fn"]
+atlas = ExtResource("2_k171a")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e21xt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccodl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7w6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qr6fn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r4wxu"]
+radius = 4.0
+
+[node name="Pumkin" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_yw705")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_e21xt")
+autoplay = "default"
+frame_progress = 0.426738
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_r4wxu")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
