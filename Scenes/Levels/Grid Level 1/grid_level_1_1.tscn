@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://x8th7qrqwt2q" path="res://Scenes/Levels/Grid Level 1/grid_level_1_2.tscn" id="2_8wa17"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_7u2d1"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_v7ffa"]
-[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_y1sbm"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="5_y1sbm"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="6_2u5xh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tdh0c"]
@@ -36,6 +36,7 @@ next_level_scene = ExtResource("2_8wa17")
 [node name="Player" parent="." instance=ExtResource("1_283t1")]
 position = Vector2(40, 120)
 player_control_type = 1
+jump_force = 140.0
 
 [node name="SideView" type="Node2D" parent="."]
 script = ExtResource("3_7u2d1")

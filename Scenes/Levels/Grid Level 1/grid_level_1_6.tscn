@@ -5,14 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dxs1vi3drvatj" path="res://Scenes/Levels/Grid Level 1/grid_level_1_7.tscn" id="2_lasu1"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_gqc7v"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_mtste"]
-[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_npan2"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="5_npan2"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="6_drc2f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc1uh"]
 size = Vector2(80, 9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a00y1"]
-size = Vector2(94, 9)
+size = Vector2(87, 5.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enx0m"]
 size = Vector2(160, 17)
@@ -65,7 +65,7 @@ debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
 [node name="Depth_DetectionArea_2" parent="SideView" instance=ExtResource("5_npan2")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/Depth_DetectionArea_2"]
-position = Vector2(47, 73)
+position = Vector2(43.5, 71.25)
 shape = SubResource("RectangleShape2D_a00y1")
 debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
 

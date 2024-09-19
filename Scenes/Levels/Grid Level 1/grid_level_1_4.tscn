@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_sm7o5"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_gm7ev"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_60feh"]
-[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_hdppb"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="5_hdppb"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="7_rvmrn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc1uh"]
@@ -63,7 +63,7 @@ z_index = -25
 tile_map_data = PackedByteArray("AAAAAAgAAAAGAAEAAAABAAgAAAAGAAEAAAACAAgAAAAGAAEAAAADAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAgAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAIAAgAAAAGAAEAAAAJAAgAAAAGAAEAAAACAAYAAAAGAAEAAAADAAYAAAAGAAEAAAAEAAYAAAAGAAEAAAAFAAYAAAAGAAEAAAAGAAYAAAAGAAEAAAAHAAYAAAAGAAEAAAAIAAYAAAAHAAEAAAABAAYAAAAFAAEAAAABAAcAAAAGAAIAAAACAAcAAAAGAAIAAAADAAcAAAAHAAIAAAAEAAcAAAAGAAIAAAAFAAcAAAAGAAIAAAAGAAcAAAAGAAMAAAAHAAcAAAAGAAIAAAAIAAcAAAAFAAMAAAA=")
 
 [node name="Depth_DetectionArea_1" parent="SideView" instance=ExtResource("5_hdppb")]
-area_depth_push_value = 6.0
+area_depth_push_value = 5.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/Depth_DetectionArea_1"]
 position = Vector2(64, 86)

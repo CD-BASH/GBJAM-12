@@ -2,9 +2,10 @@ extends Node2D
 
 @export var starting_view := ViewMode.SIDE_VIEW
 @export var flash_view := ViewMode.SIDE_VIEW
+@export_range(0, 8, 0.5) var starting_altitude := 7.5
+@export_range(0, 8, 0.5) var starting_depth := 7.5
 @export_range(0, 8, 0.5) var ground_level := 7.5
 @export var next_level_scene: PackedScene = null
-
 
 @onready var player: CharacterBody2D = $Player
 @onready var side_view: Node2D = $SideView
@@ -34,8 +35,8 @@ enum ViewMode
 
 func _ready() -> void:
 	get_player_position_on_grid()
-	player_altitude = ground_level
-	player_depth = ground_level
+	player_altitude = starting_altitude
+	player_depth = starting_depth
 	player_index_original = player.z_index
 	set_new_view(starting_view)
 
@@ -77,7 +78,7 @@ func new_player_position(y_cell_position: float) -> void:
 		y_cell_position * cell_size
 	)
 
-func get_player_position_on_grid():
+func get_player_position_on_grid() -> void:
 	player_cell_coordinate = Vector2(
 		player.global_position.x / cell_size, 
 		player.global_position.y / cell_size
@@ -85,8 +86,15 @@ func get_player_position_on_grid():
 	match current_view:
 		ViewMode.SIDE_VIEW:
 			player_altitude = player_cell_coordinate.y
+			if (player_altitude > ground_level - 0.5):
+				player_on_ground_level()
 		ViewMode.TOP_VIEW:
 			player_depth = player_cell_coordinate.y
+
+func player_on_ground_level() -> void:
+	if player_in_depth_safe_zone: return
+	player_depth = ground_level
+	
 #endregion
 
 
@@ -94,35 +102,41 @@ func get_player_position_on_grid():
 func track_safe_zone_depth(state: bool) -> void:
 	if current_view != ViewMode.TOP_VIEW: return
 	player_in_depth_safe_zone = state
-	player.z_index = player_index_behind_platforms if state else player_index_original
-	#print("Depth Safe Zone: " + str(state))
+	player.z_index = player_index_behind_platforms
+	print("player depth safe " + str(state))
 
 func track_safe_zone_altitude(state: bool) -> void:
 	if current_view != ViewMode.SIDE_VIEW: return
 	player_in_altitude_safe_zone = state
+	print("player altitude safe " + str(state))
 	if !state: reset_safe_zone_states()
-	#print("Altitude Safe Zone: " + str(state))
 
 func reset_safe_zone_states():
 	player.z_index = player_index_original
 	player_in_depth_safe_zone = false
-	player_depth = ground_level
 #endregion
 
 
+#region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
+	set_new_view(flash_view)
+	if player_is_safe: level_completed()
+	else: level_failed()
+
+func level_completed() -> void:
 	listen_to_player_inputs = false
 	player.can_move = false
-	set_new_view(flash_view)
-	
-	if player_is_safe:
-		print("Well Done!")
-		await get_tree().create_timer(wait_time_after_flash).timeout
-		if next_level_scene != null:
-			get_tree().change_scene_to_packed(next_level_scene)
-		else:
-			get_tree().quit()
+	print("Well Done!")
+	await get_tree().create_timer(wait_time_after_flash).timeout
+	if next_level_scene != null:
+		get_tree().change_scene_to_packed(next_level_scene)
 	else:
-		print("Game Over")
-		await get_tree().create_timer(wait_time_after_flash).timeout
-		get_tree().reload_current_scene()
+		get_tree().quit()
+
+func level_failed() -> void:
+	listen_to_player_inputs = false
+	player.can_move = false
+	print("Game Over")
+	await get_tree().create_timer(wait_time_after_flash).timeout
+	get_tree().reload_current_scene()
+#endregion

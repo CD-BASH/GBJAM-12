@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://cc2dae68kpbxo"]
+[gd_scene load_steps=17 format=4 uid="uid://cc2dae68kpbxo"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_pjm0t"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_ocghl"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_41al0"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_x0rc0"]
-[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_gkvra"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="5_gkvra"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="7_1inq8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc1uh"]
@@ -15,6 +15,9 @@ size = Vector2(32, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enx0m"]
 size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e7to4"]
+size = Vector2(28, 45)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qfn11"]
 size = Vector2(10, 10)
@@ -106,8 +109,8 @@ area_type = 1
 area_altitude_push_value = 5.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopView/Altitude_DetectionArea_1"]
-position = Vector2(14.5, 121.5)
-shape = SubResource("RectangleShape2D_qfn11")
+position = Vector2(14, 121.5)
+shape = SubResource("RectangleShape2D_e7to4")
 debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
 
 [node name="Altitude_DetectionArea_2" parent="TopView" instance=ExtResource("5_gkvra")]

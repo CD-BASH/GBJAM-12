@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_vtk5c"]
 [ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="3_3rx6o"]
 [ext_resource type="PackedScene" uid="uid://dmyf8m3a03mr0" path="res://Scenes/Environment/environment_tile_map_layer.tscn" id="4_f2i3n"]
-[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Areas/detection_area.tscn" id="5_xwcpv"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="5_xwcpv"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="7_sx3su"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc1uh"]
