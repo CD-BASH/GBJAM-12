@@ -25,6 +25,7 @@ enum PlayerControlTypes
 	DOWN_VIEW
 }
 
+
 func _physics_process(delta: float) -> void:
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:

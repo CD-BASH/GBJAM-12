@@ -53,6 +53,7 @@ func _process(delta: float) -> void:
 		player_is_safe = true
 		print("PLAYER IS SAFE")
 
+
 #region Change View
 func set_new_view(view: ViewMode) -> void:
 	match view:
