@@ -11,6 +11,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enx0m"]
 size = Vector2(32, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atroe"]
+size = Vector2(29, 61)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qm1g5"]
 size = Vector2(32, 80)
 
@@ -19,9 +22,6 @@ size = Vector2(16, 176)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
 size = Vector2(192, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_atroe"]
-size = Vector2(29, 61)
 
 [node name="GridLevel_1-8" type="Node2D" groups=["grid_level"]]
 script = ExtResource("1_gu3wa")
@@ -32,6 +32,7 @@ position = Vector2(40, 120)
 player_control_type = 1
 
 [node name="SideView" type="Node2D" parent="."]
+visible = false
 script = ExtResource("3_3y7bp")
 
 [node name="TileSet_Background" parent="SideView" instance=ExtResource("4_vypye")]
@@ -48,6 +49,15 @@ area_type = 3
 position = Vector2(144, 108)
 shape = SubResource("RectangleShape2D_enx0m")
 debug_color = Color(0, 0.886275, 0.403922, 0.419608)
+
+[node name="Altitude_DetectionArea_1" parent="SideView" instance=ExtResource("5_3k7lm")]
+visible = false
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SideView/Altitude_DetectionArea_1"]
+position = Vector2(145.5, 113.5)
+shape = SubResource("RectangleShape2D_atroe")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
 
 [node name="TopView" type="Node2D" parent="."]
 script = ExtResource("3_3y7bp")
@@ -90,13 +100,5 @@ shape = SubResource("RectangleShape2D_3hmyv")
 debug_color = Color(0, 0.6, 0.7, 0.1)
 
 [node name="GameboyEntity" parent="." instance=ExtResource("7_qp3a7")]
-
-[node name="Altitude_DetectionArea_1" parent="GameboyEntity" instance=ExtResource("5_3k7lm")]
-area_type = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GameboyEntity/Altitude_DetectionArea_1"]
-position = Vector2(145.5, 113.5)
-shape = SubResource("RectangleShape2D_atroe")
-debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
 
 [connection signal="final_flash" from="GameboyEntity" to="." method="_on_gameboy_entity_final_flash"]

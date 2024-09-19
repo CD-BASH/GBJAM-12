@@ -6,7 +6,6 @@ extends Area2D
 
 var grid_level: Node2D
 var collider: CollisionShape2D
-var player
 
 enum AreaType {
 	DEPTH_PUSH,
@@ -19,12 +18,6 @@ enum AreaType {
 
 func _ready() -> void:
 	grid_level = get_tree().get_first_node_in_group("grid_level")
-	player = get_tree().get_first_node_in_group("player")
-
-
-func _physics_process(delta: float) -> void:
-	if has_overlapping_areas():
-		print("Hello!")
 
 
 #region Signals

@@ -1,15 +1,18 @@
 extends Node2D
 
 @export var starting_view := ViewMode.SIDE_VIEW
-@export var flash_view := ViewMode.SIDE_VIEW
-@export_range(0, 8, 0.5) var starting_altitude := 7.5
-@export_range(0, 8, 0.5) var starting_depth := 7.5
-@export_range(0, 8, 0.5) var ground_level := 7.5
+@export var flash_view := ViewMode.TOP_VIEW
 @export var next_level_scene: PackedScene = null
+@export_category("Views")
+@export var side_view: Node2D
+@export var top_view: Node2D
+@export var down_view: Node2D
+@export_category("Position Parameters")
+@export_range(0, 9, 0.5) var starting_altitude := 7.5
+@export_range(0, 9, 0.5) var starting_depth := 7.5
+@export_range(0, 9, 0.5) var ground_level := 7.5
 
 @onready var player: CharacterBody2D = $Player
-@onready var side_view: Node2D = $SideView
-@onready var top_view: Node2D = $TopView
 
 var cell_size := 16.0
 var current_view: ViewMode
@@ -22,7 +25,7 @@ var player_altitude: float
 var player_index_original
 var player_index_behind_platforms := -30.0
 var player_in_depth_safe_zone := false
-var player_in_altitude_safe_zone := false
+var player_in_altitude_safe_zone := true
 var player_is_safe := false
 
 enum ViewMode
@@ -59,13 +62,15 @@ func _process(delta: float) -> void:
 func set_new_view(view: ViewMode) -> void:
 	match view:
 		ViewMode.SIDE_VIEW:
-			side_view.activate_view(true)
-			top_view.activate_view(false)
+			if side_view != null:
+				side_view.activate_view(true)
+				top_view.activate_view(false)
 			new_player_position(player_altitude)
 		ViewMode.TOP_VIEW:
-			side_view.activate_view(false)
-			top_view.activate_view(true)
-			new_player_position(player_depth)
+			if top_view != null:
+				side_view.activate_view(false)
+				top_view.activate_view(true)
+				new_player_position(player_depth)
 	player.player_control_type = view
 	current_view = view
 #endregion
@@ -94,7 +99,6 @@ func get_player_position_on_grid() -> void:
 func player_on_ground_level() -> void:
 	if player_in_depth_safe_zone: return
 	player_depth = ground_level
-	
 #endregion
 
 

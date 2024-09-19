@@ -28,8 +28,8 @@ size = Vector2(192, 16)
 
 [node name="GridLevel_1-2" type="Node2D" groups=["grid_level"]]
 script = ExtResource("1_g330d")
-starting_altitude = 5.5
 next_level_scene = ExtResource("2_gluxs")
+starting_altitude = 5.5
 
 [node name="Player" parent="." instance=ExtResource("2_ixn57")]
 position = Vector2(40, 88)
@@ -66,7 +66,6 @@ shape = SubResource("RectangleShape2D_i1haw")
 debug_color = Color(0, 0.886275, 0.403922, 0.419608)
 
 [node name="TopView" type="Node2D" parent="."]
-visible = false
 script = ExtResource("3_40u5d")
 
 [node name="TileSet_Background" parent="TopView" instance=ExtResource("4_bjvee")]

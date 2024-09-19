@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=4 uid="uid://ddh8e0lt2u5oa"]
+
+[ext_resource type="PackedScene" uid="uid://k01xokc321v8" path="res://Scenes/Levels/top_view_template.tscn" id="1_uj7h4"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_jjof3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ogmou"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4it2"]
+size = Vector2(80, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aapt1"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j4dtm"]
+size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_886eq"]
+size = Vector2(48, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubmvc"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iud8w"]
+size = Vector2(16, 32)
+
+[node name="TopView_1-3" instance=ExtResource("1_uj7h4")]
+
+[node name="TileSet_Platforms" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAFAAYAAAANAAEAAAAIAAYAAAAPAAEAAAAIAAcAAAAPAAMAAAAFAAcAAAANAAMAAAAGAAcAAAAOAAMAAAAHAAcAAAAOAAMAAAAGAAYAAAAOAAEAAAAHAAYAAAAOAAEAAAAFAAUAAAAPAAMAAAAEAAUAAAAOAAMAAAADAAUAAAAOAAMAAAACAAUAAAAOAAMAAAABAAUAAAANAAMAAAABAAQAAAANAAIAAAABAAMAAAANAAIAAAABAAIAAAANAAEAAAACAAEAAAANAAEAAAADAAAAAAANAAEAAAAEAAAAAAAOAAEAAAAFAAAAAAAPAAEAAAAFAAEAAAAPAAIAAAAFAAIAAAAPAAIAAAAFAAMAAAAPAAIAAAAFAAQAAAAPAAIAAAAEAAQAAAAOAAIAAAADAAQAAAAOAAIAAAACAAQAAAAOAAIAAAACAAMAAAAOAAIAAAACAAIAAAAOAAIAAAADAAIAAAAOAAIAAAADAAEAAAAOAAIAAAAEAAEAAAAOAAIAAAAEAAIAAAASAAIAAAAEAAMAAAAOAAIAAAADAAMAAAAOAAIAAAA=")
+
+[node name="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1" index="0"]
+position = Vector2(112, 112)
+shape = SubResource("RectangleShape2D_ogmou")
+
+[node name="Altitude_DetectionArea_2" parent="AltitudeAreas" index="1" instance=ExtResource("2_jjof3")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_2" index="0"]
+position = Vector2(56, 72)
+shape = SubResource("RectangleShape2D_e4it2")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_3" parent="AltitudeAreas" index="2" instance=ExtResource("2_jjof3")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_3" index="0"]
+position = Vector2(40, 40)
+shape = SubResource("RectangleShape2D_aapt1")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_4" parent="AltitudeAreas" index="3" instance=ExtResource("2_jjof3")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="0"]
+position = Vector2(64, 24)
+shape = SubResource("RectangleShape2D_j4dtm")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_5" parent="AltitudeAreas" index="4" instance=ExtResource("2_jjof3")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_5" index="0"]
+position = Vector2(72, 8)
+shape = SubResource("RectangleShape2D_886eq")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_6" parent="AltitudeAreas" index="5" instance=ExtResource("2_jjof3")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_6" index="0"]
+position = Vector2(88, 40)
+shape = SubResource("RectangleShape2D_ubmvc")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_7" parent="AltitudeAreas" index="6" instance=ExtResource("2_jjof3")]
+area_type = 1
+area_altitude_push_value = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_7" index="0"]
+position = Vector2(72, 40)
+shape = SubResource("RectangleShape2D_ubmvc")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D" parent="SafeAreas/SafeZone_DetectionArea_1" index="0"]
+position = Vector2(72, 16)
+shape = SubResource("RectangleShape2D_iud8w")

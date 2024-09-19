@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://5yhr7mi138be"]
+
+[ext_resource type="PackedScene" uid="uid://bmk5c7p7binxt" path="res://Scenes/Levels/grid_level_template.tscn" id="1_s12xo"]
+[ext_resource type="PackedScene" uid="uid://vwlo1hhwluaa" path="res://Scenes/Levels/GridLevels_1/top_view_1_8.tscn" id="2_uwvas"]
+[ext_resource type="PackedScene" uid="uid://caagbfh68royf" path="res://Scenes/Levels/GridLevels_1/side_view_1_8.tscn" id="3_r31gn"]
+
+[node name="GridLevel_1-8" node_paths=PackedStringArray("side_view", "top_view") instance=ExtResource("1_s12xo")]
+side_view = NodePath("SideView_1-8")
+top_view = NodePath("TopView_1-8")
+
+[node name="SideView_1-8" parent="." index="1" instance=ExtResource("3_r31gn")]
+
+[node name="TopView_1-8" parent="." index="2" instance=ExtResource("2_uwvas")]
+visible = false
