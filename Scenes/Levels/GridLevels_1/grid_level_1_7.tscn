@@ -31,4 +31,5 @@ ground_level = 8.5
 [node name="SideView_1-7" parent="." index="1" instance=ExtResource("2_kse0p")]
 
 [node name="TopView_1-7" parent="." index="2" instance=ExtResource("3_oplmc")]
+visible = false
 script = SubResource("GDScript_lt660")
