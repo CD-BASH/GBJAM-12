@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmk5c7p7binxt"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_pt76x"]
+[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_g3bms"]
+[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="3_h4evd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
+size = Vector2(192, 16)
+
+[node name="GridLevel_X-X" type="Node2D" groups=["grid_level"]]
+script = ExtResource("1_pt76x")
+flash_view = 0
+
+[node name="Player" parent="." instance=ExtResource("2_g3bms")]
+position = Vector2(40, 120)
+player_control_type = 1
+
+[node name="EdgeColliders" type="StaticBody2D" parent="."]
+
+[node name="EdgeLeft" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(-8, 72)
+shape = SubResource("RectangleShape2D_l075t")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeRight" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(168, 72)
+shape = SubResource("RectangleShape2D_l075t")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeTop" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(80, -8)
+shape = SubResource("RectangleShape2D_3hmyv")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeBottom" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(80, 152)
+shape = SubResource("RectangleShape2D_3hmyv")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="GameboyEntity" parent="." instance=ExtResource("3_h4evd")]
+
+[connection signal="final_flash" from="GameboyEntity" to="." method="_on_gameboy_entity_final_flash"]

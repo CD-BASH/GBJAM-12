@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://djlmtroecur6u"]
+
+[ext_resource type="Script" path="res://Scripts/Global/Level/Test_script_level_Geepy.gd" id="1_666du"]
+[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
+[ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="2_y4kej"]
+[ext_resource type="PackedScene" uid="uid://se3l7y0eejab" path="res://Scenes/UI/canvas_dialogue.tscn" id="3_yabds"]
+
+[sub_resource type="Gradient" id="Gradient_xu1lo"]
+offsets = PackedFloat32Array(0.539043)
+colors = PackedColorArray(0.188235, 0.384314, 0.188235, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4neu"]
+gradient = SubResource("Gradient_xu1lo")
+width = 1
+height = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riuct"]
+size = Vector2(1, 0.999999)
+
+[node name="2D Level Greybox" type="Node2D"]
+script = ExtResource("1_666du")
+
+[node name="Player" parent="." instance=ExtResource("1_yre6r")]
+position = Vector2(68, 60)
+player_control_type = 2
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(0, 94)
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+position = Vector2(0, -7.62939e-06)
+scale = Vector2(160, 50)
+texture = SubResource("GradientTexture2D_g4neu")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(80, 25)
+scale = Vector2(160, 50)
+shape = SubResource("RectangleShape2D_riuct")
+
+[node name="Control" type="Control" parent="."]
+z_index = -100
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 160.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.219608, 0.0588235, 1)
+
+[node name="game_boy" parent="." instance=ExtResource("2_y4kej")]
+position = Vector2(112, 29)
+
+[node name="canvas_dialogue" parent="." instance=ExtResource("3_yabds")]
