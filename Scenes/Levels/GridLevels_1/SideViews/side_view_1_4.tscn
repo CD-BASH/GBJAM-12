@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=4 uid="uid://b3swr38cv0us0"]
+
+[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_xwxhb"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_0pbgm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_imuw6"]
+size = Vector2(96, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0fjn"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjo00"]
+size = Vector2(96, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pyjax"]
+size = Vector2(16, 32)
+
+[node name="SideView_1-4" instance=ExtResource("1_xwxhb")]
+
+[node name="TileSet_Platforms" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAgAAAAGAAEAAAABAAgAAAAGAAEAAAACAAgAAAAGAAEAAAADAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAgAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAIAAgAAAAGAAEAAAAJAAgAAAAGAAEAAAABAAYAAAAFAAEAAAAHAAYAAAAGAAEAAAAGAAYAAAAGAAEAAAAFAAYAAAAGAAEAAAAEAAYAAAAGAAEAAAADAAYAAAAGAAEAAAACAAYAAAAGAAEAAAABAAcAAAAHAAMAAAACAAcAAAAGAAIAAAADAAcAAAAFAAIAAAAEAAcAAAAGAAIAAAAFAAcAAAAHAAIAAAAGAAcAAAAGAAIAAAAHAAcAAAAGAAIAAAAIAAYAAAAHAAEAAAAIAAcAAAAHAAMAAAA=")
+
+[node name="Depth_DetectionArea_1" parent="DepthAreas" index="0"]
+area_depth_push_value = 5.0
+
+[node name="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_1" index="0"]
+position = Vector2(64, 88)
+shape = SubResource("RectangleShape2D_imuw6")
+
+[node name="Depth_DetectionArea_2" parent="DepthAreas" index="1" instance=ExtResource("2_0pbgm")]
+area_depth_push_value = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_2" index="0"]
+position = Vector2(120, 88)
+shape = SubResource("RectangleShape2D_a0fjn")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_3" parent="DepthAreas" index="2" instance=ExtResource("2_0pbgm")]
+area_depth_push_value = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_3" index="0"]
+position = Vector2(136, 88)
+shape = SubResource("RectangleShape2D_a0fjn")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="CollisionShape2D" parent="SafeZoneAreas/SafeZoneAltitude_DetectionArea_1" index="0"]
+position = Vector2(64, 112)
+shape = SubResource("RectangleShape2D_gjo00")
+
+[node name="SafeZoneAltitude_DetectionArea_2" parent="SafeZoneAreas" index="1" instance=ExtResource("2_0pbgm")]
+area_type = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeZoneAreas/SafeZoneAltitude_DetectionArea_2" index="0"]
+position = Vector2(136, 112)
+shape = SubResource("RectangleShape2D_pyjax")
+debug_color = Color(0, 0.886275, 0.403922, 0.419608)

@@ -11,7 +11,8 @@ enum AreaType {
 	DEPTH_PUSH,
 	ALTITUDE_PUSH,
 	SAFE_ZONE_DEPTH,
-	SAFE_ZONE_ALTITUDE
+	SAFE_ZONE_ALTITUDE,
+	VOID_SPACE
 }
 
 
@@ -22,6 +23,7 @@ func _ready() -> void:
 #region Signals
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
+		print("Body entered")
 		match area_type:
 			AreaType.DEPTH_PUSH:
 				grid_level.player_depth = area_depth_push_value
@@ -31,6 +33,8 @@ func _on_body_entered(body: Node2D) -> void:
 				grid_level.track_safe_zone_depth(true)
 			AreaType.SAFE_ZONE_ALTITUDE:
 				grid_level.track_safe_zone_altitude(true)
+			AreaType.VOID_SPACE:
+				grid_level.level_failed()
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Player:
