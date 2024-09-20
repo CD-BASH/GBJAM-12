@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjvqj3m7yw6mt"
-path="res://.godot/imported/LeftArrow.png-9cb549e2779174409f40e0f6a614c4f4.ctex"
+uid="uid://ie0l3c1yjjk6"
+path="res://.godot/imported/DownArrow.png-0900bd95002575aa676646317836d7b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/misc/LeftArrow.png"
-dest_files=["res://.godot/imported/LeftArrow.png-9cb549e2779174409f40e0f6a614c4f4.ctex"]
+source_file="res://Assets/UI/misc/Arrows/DownArrow.png"
+dest_files=["res://.godot/imported/DownArrow.png-0900bd95002575aa676646317836d7b2.ctex"]
 
 [params]
 

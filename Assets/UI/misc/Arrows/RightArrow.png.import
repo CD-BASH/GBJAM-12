@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ie0l3c1yjjk6"
-path="res://.godot/imported/DownArrow.png-51ae7590fc32d0971a428952b4b2d019.ctex"
+uid="uid://x8shlhe40jbu"
+path="res://.godot/imported/RightArrow.png-e1fbc4992766a2924dfa627202ecee7a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/misc/DownArrow.png"
-dest_files=["res://.godot/imported/DownArrow.png-51ae7590fc32d0971a428952b4b2d019.ctex"]
+source_file="res://Assets/UI/misc/Arrows/RightArrow.png"
+dest_files=["res://.godot/imported/RightArrow.png-e1fbc4992766a2924dfa627202ecee7a.ctex"]
 
 [params]
 

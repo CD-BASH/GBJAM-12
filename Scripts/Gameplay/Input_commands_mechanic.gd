@@ -42,7 +42,7 @@ func _process(delta):
 			current_arrow = "LEFT"
 		if Input.is_action_just_pressed("right_dPad"):
 			current_arrow = "RIGHT"
-		if  screen_container.get_child(index_Current_array) != screen_container.get_child(screen_container.get_child_count()):
+		if  index_Current_array != screen_container.get_child_count():
 			#if the input is equal to the dpad on the screen 
 			var first_image = screen_container.get_child(index_Current_array)
 			if first_image.get_meta("arrow_type") == current_arrow :
