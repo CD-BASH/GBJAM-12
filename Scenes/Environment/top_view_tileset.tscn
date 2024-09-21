@@ -69,5 +69,6 @@ physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_0k0r5")
 
 [node name="TopView_Tileset" type="TileMapLayer"]
+z_index = -40
 material = ExtResource("1_0hmu1")
 tile_set = SubResource("TileSet_pqhmx")
