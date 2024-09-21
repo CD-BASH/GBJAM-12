@@ -1,5 +1,7 @@
 extends Node2D
 
+signal first_flash
+signal second_flash
 signal final_flash
 
 ## Total time that you want the level to be.
@@ -31,6 +33,10 @@ func _on_timer_timeout():
 		sound_array[num_clics].play()
 		#go to the next sound
 		num_clics += 1
+		if num_clics == 1:
+			first_flash.emit()
+		elif num_clics == 2:
+			second_flash.emit()
 		timer_handler()
 	else :
 		#when the timer is completely done

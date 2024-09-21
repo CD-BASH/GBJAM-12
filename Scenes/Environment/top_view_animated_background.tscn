@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b44r7daj3lnfu"]
+
+[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="1_hi0ii"]
+[ext_resource type="Texture2D" uid="uid://cp8j8sh6b0urc" path="res://Assets/Environments/TopView_PixelBackground/top_view_background_1.png" id="2_2uac4"]
+
+[node name="TopView_AnimatedBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+material = ExtResource("1_hi0ii")
+texture = ExtResource("2_2uac4")
+centered = false

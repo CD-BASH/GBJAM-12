@@ -29,6 +29,7 @@ window/stretch/scale_mode="integer"
 player=""
 side_view=""
 top_view=""
+gameboy_entity=""
 
 [input]
 
