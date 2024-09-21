@@ -10,7 +10,9 @@ next_level_scene = ExtResource("2_ibkyy")
 side_view = NodePath("SideView_1-1")
 top_view = NodePath("TopView_1-1")
 
-[node name="SideView_1-1" parent="." index="1" instance=ExtResource("2_rpql5")]
+[node name="SideView_1-1" parent="." index="1" node_paths=PackedStringArray("tilemaps") instance=ExtResource("2_rpql5")]
+tilemaps = []
 
-[node name="TopView_1-1" parent="." index="2" instance=ExtResource("3_lk02r")]
+[node name="TopView_1-1" parent="." index="2" node_paths=PackedStringArray("tilemaps") instance=ExtResource("3_lk02r")]
 visible = false
+tilemaps = []

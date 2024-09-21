@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://gcroly2buysm" path="res://Scenes/Environment/side_view_animated_background.tscn" id="3_agn2c"]
 [ext_resource type="PackedScene" uid="uid://c5tohbairhbsp" path="res://Scenes/Environment/side_view_tileset.tscn" id="4_7i8ph"]
 
-[node name="SideView_X-X" type="Node2D" groups=["side_view"]]
+[node name="SideView_X-X" type="Node2D" node_paths=PackedStringArray("background", "tilemaps") groups=["side_view"]]
 script = ExtResource("1_pgl23")
+background = NodePath("SideView_AnimatedBackground")
+tilemaps = [NodePath("SideView_Platforms_Tileset"), NodePath("SideView_Masks_Tileset"), NodePath("SideView_Details_Tileset")]
 
 [node name="TileSet_Background" parent="." instance=ExtResource("2_b83ea")]
 visible = false
