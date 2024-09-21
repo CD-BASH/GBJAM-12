@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b5vt5cf0ijm1" path="res://Assets/Audio/SFX/retro-select-236670.mp3" id="3_ykpoy"]
 [ext_resource type="AudioStream" uid="uid://c8uk0txrr05tm" path="res://Assets/Audio/SFX/retro-video-game-death-95730.mp3" id="4_w77lq"]
 
-[node name="GameboyEntity" type="Node2D"]
+[node name="GameboyEntity" type="Node2D" groups=["gameboy_entity"]]
 script = ExtResource("1_s02ok")
 total_time = 6
 
