@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://gcroly2buysm"]
+
+[ext_resource type="Script" path="res://Scripts/Environments/side_view_animated_background.gd" id="1_id4pd"]
+[ext_resource type="Texture2D" uid="uid://cs4m6o4jdl4ui" path="res://Assets/Environments/SideView_BinaryBackground/side_view_background_binary_2.png" id="2_00ypx"]
+[ext_resource type="Texture2D" uid="uid://dchymf3k6heep" path="res://Assets/Environments/SideView_BinaryBackground/side_view_background_binary_1.png" id="3_366i6"]
+[ext_resource type="Texture2D" uid="uid://cox5ttx463lj0" path="res://Assets/Environments/SideView_BinaryBackground/side_view_background_binary_3.png" id="3_es842"]
+[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="3_ts2fx"]
+[ext_resource type="Texture2D" uid="uid://bb1xin5m5mxt3" path="res://Assets/Environments/SideView_BinaryBackground/side_view_background_binary_6.png" id="5_d7h0x"]
+
+[node name="SideView_AnimatedBackground" type="ParallaxBackground"]
+script = ExtResource("1_id4pd")
+starting_scroll_speed = 20
+starting_bg_texture = ExtResource("3_366i6")
+first_flash_scroll_speed = 30
+first_flash_bg_texture = ExtResource("2_00ypx")
+second_flash_scroll_speed = 50
+second_flash_bg_texture = ExtResource("3_es842")
+final_flash_scroll_speed = 0
+final_flash_bg_texture = ExtResource("5_d7h0x")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_repeat = 2
+material = ExtResource("3_ts2fx")
+texture = ExtResource("2_00ypx")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 160, 144)
