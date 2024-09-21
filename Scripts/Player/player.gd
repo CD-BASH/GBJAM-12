@@ -39,6 +39,20 @@ func _physics_process(delta: float) -> void:
 			top_down_view_movement(delta, false)
 			collision_shape_2d.shape = down_collision_shape
 
+func spawn_top_animation():
+	animated_sprite_2d.play("spawn_top")
+	
+func spawn_side_animation():
+	animated_sprite_2d.play("spawn_side")
+	
+func jump_animation():
+	animated_sprite_2d.play("jump")
+
+func death_top_animation():
+	animated_sprite_2d.play("death_top")
+
+func death_side_animation():
+	animated_sprite_2d.play("death_sideS")
 
 func side_movement(delta) -> void:
 	var direction = 0.0
