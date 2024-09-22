@@ -33,7 +33,7 @@ func _ready() -> void:
 	spawn()
 
 func _physics_process(delta: float) -> void:
-	if is_spawn or !is_dead:
+	if is_spawn && !is_dead:
 		match player_control_type:
 			PlayerControlTypes.SIDE_VIEW:
 				side_view_movement(delta)
@@ -62,10 +62,8 @@ func death():
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:
 			animated_sprite_2d.play("death_side")
-			print("side view")
 		PlayerControlTypes.TOP_VIEW:
 			animated_sprite_2d.play("death_top")
-			print("top view")
 
 func side_view_movement(delta) -> void:
 	var direction = 0.0
