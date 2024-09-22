@@ -19,6 +19,7 @@ class_name Player
 
 var can_move := true
 var is_spawn = false
+var is_dead = false
 
 enum PlayerControlTypes
 {
@@ -29,12 +30,10 @@ enum PlayerControlTypes
 
 func _ready() -> void:
 	player_control_type = PlayerControlTypes.SIDE_VIEW
-	#print(player_control_type)
 	spawn()
 
 func _physics_process(delta: float) -> void:
-	#print(player_control_type)
-	if is_spawn:
+	if is_spawn or !is_dead:
 		match player_control_type:
 			PlayerControlTypes.SIDE_VIEW:
 				side_view_movement(delta)
@@ -59,6 +58,7 @@ func jump_animation():
 	animated_sprite_2d.play("jump")
 
 func death():
+	is_dead = true
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:
 			animated_sprite_2d.play("death_side")
@@ -88,7 +88,6 @@ func side_view_movement(delta) -> void:
 				animated_sprite_2d.play("jump_up")
 			else:
 				animated_sprite_2d.play("jump_down")
-					
 				
 	if direction != 0:
 		animated_sprite_2d.flip_h = (direction == -1)
