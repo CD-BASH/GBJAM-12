@@ -3,7 +3,7 @@ extends Marker3D
 const FOLLOW_SPEED = 4.0
 var target_rotation: Quaternion
 var current_rotation: Quaternion
-var rotation_speed: float = 14  # Control the speed of the slerp
+@export var rotation_speed: float = 14  # Control the speed of the slerp
 var is_rotating: bool = false
 
 func _ready():
@@ -22,15 +22,19 @@ func _process(delta):
 			is_rotating = false
 
 func _input(event):
-	## and not is_rotating
 	if Input.is_action_just_pressed("a_btn"):
-		# On button press, add 90 degrees to the X-axis
-		var rotation_90_degrees = Quaternion(Vector3(1, 0, 0), deg_to_rad(90))
-		target_rotation = target_rotation * rotation_90_degrees
-		is_rotating = true
-		
+		pass
+		##RotateUp()
 	if Input.is_action_just_pressed("b_btn"):
-		# On button press, add 90 degrees to the X-axis
-		var rotation_90_degrees = Quaternion(Vector3(1, 0, 0), deg_to_rad(-90))
-		target_rotation = target_rotation * rotation_90_degrees
-		is_rotating = true
+		pass
+		##RotateDown()
+
+func RotateUp ()-> void : 
+	var rotation_90_degrees = Quaternion(Vector3(1, 0, 0), deg_to_rad(90))
+	target_rotation = target_rotation * rotation_90_degrees
+	is_rotating = true
+	
+func RotateDown ()-> void : 
+	var rotation_90_degrees = Quaternion(Vector3(1, 0, 0), deg_to_rad(-90))
+	target_rotation = target_rotation * rotation_90_degrees
+	is_rotating = true
