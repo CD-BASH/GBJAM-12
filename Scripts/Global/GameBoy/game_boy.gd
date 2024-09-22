@@ -34,9 +34,7 @@ func _ready():
 
 func _on_timer_timeout():
 	if num_clics < sound_array.size() - 1:
-		#play the sound in order
 		sound_array[num_clics].play()
-		#go to the next sound
 		num_clics += 1
 		if num_clics == 1:
 			first_flash.emit()
@@ -47,17 +45,13 @@ func _on_timer_timeout():
 		#when the timer is completely done
 		final_clic.play()
 		final_flash.emit()
-		#do the flash here and the reset of the camera here
 
-#when the player turn a switch on
 func switch_signal():
 	print("switch turn off")
 	switch += 1
 	if switch >= num_switch_needed:
 		game_boy_off.emit()
-		#print("game_boy signal off")
 
-#Can be adding other behavior in the timer
 func timer_handler () -> void:
 	timer.wait_time = wait_time
 	timer.start()

@@ -37,24 +37,14 @@ enum ViewMode
 	TOP_VIEW,
 	DOWN_VIEW
 }
-
-func _enter_tree():
-	gameboy_entity = get_tree().get_first_node_in_group("gameboy_entity")
-	if gameboy_entity != null:
-		gameboy_entity.game_boy_off.connect(turn_gameboy_off)
-		print("game boy entity")
-		
-func turn_gameboy_off():
-	print( "turn game boy off")
-	gameboy_off = true
-
+	
 func _ready() -> void:
+	initialize_gameboy_entity()
 	get_player_position_on_grid()
 	player_altitude = starting_altitude
 	player_depth = starting_depth
 	player_index_original = player.z_index
 	set_new_view(starting_view)
-
 
 func _process(delta: float) -> void:
 	get_player_position_on_grid()
@@ -71,6 +61,14 @@ func _process(delta: float) -> void:
 	else:
 		player_is_safe = false
 
+func turn_gameboy_off():
+	gameboy_off = true
+	level_completed()
+
+func initialize_gameboy_entity():
+	gameboy_entity = get_tree().get_first_node_in_group("gameboy_entity")
+	if gameboy_entity != null:
+		gameboy_entity.game_boy_off.connect(turn_gameboy_off)
 
 #region Change View
 func set_new_view(view: ViewMode) -> void:
