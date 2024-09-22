@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://thcs0fum17au" path="res://Scenes/Levels/3dTransitionLevel.tscn" id="2_c2btj"]
 [ext_resource type="Texture2D" uid="uid://dk88vikfvc6t4" path="res://Assets/UI/Screenshot_50.png" id="2_grudm"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0uytp"]
-viewport_path = NodePath("CanvasLayer/SubViewportContainer2/SubViewportCurentGame")
+[sub_resource type="ViewportTexture" id="ViewportTexture_vtcgp"]
+viewport_path = NodePath("Front/SubViewportCurentGame")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ef5vq"]
-viewport_path = NodePath("SubViewportContainer2/SubViewportCurentGame")
+[sub_resource type="ViewportTexture" id="ViewportTexture_ukxsy"]
+viewport_path = NodePath("Top/SubViewportCurentGame")
 
 [node name="PostProcess" type="Node2D"]
 
@@ -53,5 +53,5 @@ size = Vector2i(160, 146)
 render_target_update_mode = 4
 
 [node name="3dTransitionLevel" parent="CanvasLayer/SubViewportContainer/SubViewport2" instance=ExtResource("2_c2btj")]
-subviewport_front = SubResource("ViewportTexture_0uytp")
-subviewport_top = SubResource("ViewportTexture_ef5vq")
+subviewport_texture_front = SubResource("ViewportTexture_vtcgp")
+subviewport_texture_top = SubResource("ViewportTexture_ukxsy")

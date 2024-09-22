@@ -49,5 +49,3 @@ void fragment(){
 		ALBEDO = error_color;
 	}
 }
-
-

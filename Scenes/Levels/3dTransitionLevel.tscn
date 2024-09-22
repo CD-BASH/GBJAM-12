@@ -5,11 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ba57g4wnk3x4o" path="res://Scenes/Levels/Grid Level 1/grid_level_1_1.tscn" id="2_b2npp"]
 [ext_resource type="Shader" path="res://Shaders/Video.gdshader" id="3_eu7xj"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4likc"]
-viewport_path = NodePath("SubViewportContainer2/SubViewportCurentGame")
+[sub_resource type="ViewportTexture" id="ViewportTexture_maoi5"]
+viewport_path = NodePath("Front/ActiveGameViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_liwvn"]
-viewport_path = NodePath("SubViewportContainer2/SubViewportCurentGame")
+[sub_resource type="ViewportTexture" id="ViewportTexture_861cj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vpnfv"]
 render_priority = 0
@@ -27,10 +26,10 @@ material = SubResource("ShaderMaterial_yid2r")
 
 [node name="3dTransitionLevel" type="Node3D"]
 script = ExtResource("1_14o83")
-subviewport_front = SubResource("ViewportTexture_4likc")
-subviewport_top = SubResource("ViewportTexture_liwvn")
+subviewport_texture_front = SubResource("ViewportTexture_maoi5")
+subviewport_texture_top = SubResource("ViewportTexture_861cj")
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+[node name="Front" type="SubViewportContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -42,12 +41,17 @@ scale = Vector2(0.440921, 0.440921)
 stretch = true
 metadata/_edit_use_anchors_ = true
 
-[node name="SubViewportCurentGame" type="SubViewport" parent="SubViewportContainer2"]
+[node name="ActiveGameViewport" type="SubViewport" parent="Front"]
 handle_input_locally = false
 size = Vector2i(160, 144)
 render_target_update_mode = 4
 
-[node name="Grid Level 1-1" parent="SubViewportContainer2/SubViewportCurentGame" instance=ExtResource("2_b2npp")]
+[node name="Grid Level 1-1" parent="Front/ActiveGameViewport" instance=ExtResource("2_b2npp")]
+
+[node name="FreezeViewport" type="SubViewport" parent="Front"]
+handle_input_locally = false
+size = Vector2i(160, 144)
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0.000424798, 0.000398798, -0.000424312, 0.999999, -0.00121903, -0.000399316, 0.00121886, 0.999999, 0, 0, 4.462)
