@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=3 uid="uid://thcs0fum17au"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/3d_transition_level.gd" id="1_14o83"]
+[ext_resource type="Script" path="res://Scripts/Gameplay/CubeRotationTransition.gd" id="1_r1qs3"]
+[ext_resource type="PackedScene" uid="uid://ba57g4wnk3x4o" path="res://Scenes/Levels/Grid Level 1/grid_level_1_1.tscn" id="2_b2npp"]
+[ext_resource type="Shader" path="res://Shaders/Video.gdshader" id="3_eu7xj"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_4likc"]
+viewport_path = NodePath("SubViewportContainer2/SubViewportCurentGame")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_liwvn"]
+viewport_path = NodePath("SubViewportContainer2/SubViewportCurentGame")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vpnfv"]
+render_priority = 0
+shader = ExtResource("3_eu7xj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_ocly2"]
+material = SubResource("ShaderMaterial_vpnfv")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yid2r"]
+render_priority = 0
+shader = ExtResource("3_eu7xj")
+
+[sub_resource type="QuadMesh" id="QuadMesh_fpmlr"]
+material = SubResource("ShaderMaterial_yid2r")
+
+[node name="3dTransitionLevel" type="Node3D"]
+script = ExtResource("1_14o83")
+subviewport_front = SubResource("ViewportTexture_4likc")
+subviewport_top = SubResource("ViewportTexture_liwvn")
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 81.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.440921, 0.440921)
+stretch = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewportCurentGame" type="SubViewport" parent="SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(160, 144)
+render_target_update_mode = 4
+
+[node name="Grid Level 1-1" parent="SubViewportContainer2/SubViewportCurentGame" instance=ExtResource("2_b2npp")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0.000424798, 0.000398798, -0.000424312, 0.999999, -0.00121903, -0.000399316, 0.00121886, 0.999999, 0, 0, 4.462)
+fov = 15.0
+size = 0.895
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.99956, -0.0296662, 0, 0.0296662, 0.99956, 0, 0, 0)
+script = ExtResource("1_r1qs3")
+
+[node name="Front" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+mesh = SubResource("QuadMesh_ocly2")
+skeleton = NodePath("../..")
+
+[node name="Top" type="MeshInstance3D" parent="Marker3D"]
+transform = Transform3D(1, 0, 0, 0, -4.28408e-08, 1, 0, -1, -4.28408e-08, 0, 0.5, 0)
+mesh = SubResource("QuadMesh_fpmlr")

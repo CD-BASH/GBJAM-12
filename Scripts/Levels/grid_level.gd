@@ -20,13 +20,11 @@ enum ViewMode
 	DOWN_VIEW
 }
 
-
 func _ready() -> void:
 	get_player_position_on_grid()
 	player_depth = ground_level
 	set_new_view(starting_view)
 	
-
 
 func _process(delta: float) -> void:
 	get_player_position_on_grid()

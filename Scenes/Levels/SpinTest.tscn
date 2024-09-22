@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://wh77t81avmol"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/cube.gd" id="1_hdrdt"]
+[ext_resource type="Shader" path="res://Shaders/Unlit.gdshader" id="2_dlpb5"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_dnmeu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jawi6"]
+render_priority = 0
+shader = ExtResource("2_dlpb5")
+shader_parameter/palette_light = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_c0lui"]
+material = SubResource("ShaderMaterial_jawi6")
+
+[node name="SpinTest" type="Node3D"]
+
+[node name="TestSpinning" type="Marker3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestSpinning"]
+transform = Transform3D(0.375918, -0.161936, -0.79372, 0.0240581, 0.291653, -0.507539, 0.926341, 0.0581405, 0.335281, 0, 0, -1.96215)
+mesh = SubResource("CylinderMesh_dnmeu")
+skeleton = NodePath("../..")
+script = ExtResource("1_hdrdt")
+speedy = 0.1
+speedx = 0.1
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="TestSpinning"]
+transform = Transform3D(2.47601, 0.00368527, 0.0727596, -0.0466996, 0.341336, 0.135074, -0.159844, -0.0426384, 1.0876, 0.16, -0.707, -1.082)
+mesh = SubResource("QuadMesh_c0lui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="TestSpinning"]
+transform = Transform3D(0.0466995, -0.341336, -0.135073, 2.47601, 0.00368528, 0.0727595, -0.159844, -0.0426384, 1.0876, 0.844, -0.014, -0.867)
+mesh = SubResource("QuadMesh_c0lui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="TestSpinning"]
+transform = Transform3D(0.0466995, -0.341336, -0.135073, 2.47601, 0.00368528, 0.0727595, -0.159844, -0.0426384, 1.0876, -0.688, -0.014, -0.698)
+mesh = SubResource("QuadMesh_c0lui")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="TestSpinning"]
+transform = Transform3D(2.48044, 0.00808722, 0.0215557, -0.0691544, 0.331612, 0.290587, -0.0315131, -0.0911573, 1.05901, 0.307, 0.955, -1.229)
+mesh = SubResource("QuadMesh_c0lui")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="TestSpinning"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0394044, 0.0987983, 0)
+projection = 1
+size = 1.525
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TestSpinning"]
+transform = Transform3D(1, 0, 0, 0, 0.769656, 0.638459, 0, -0.638459, 0.769656, 0, 0, 0)

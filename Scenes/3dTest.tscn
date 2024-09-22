@@ -14,7 +14,7 @@ size = Vector3(60, 2, 60)
 [sub_resource type="BoxMesh" id="BoxMesh_rejfe"]
 size = Vector3(60, 2, 60)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u6flt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uslvy"]
 render_priority = 0
 shader = ExtResource("3_csiyx")
 shader_parameter/palette_light = Color(1, 1, 1, 1)
@@ -24,7 +24,7 @@ shader_parameter/palette_dark = Color(0, 0, 0, 1)
 shader_parameter/error_color = Color(0.960487, 0.000756423, 0.96048, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_3bqf7"]
-material = SubResource("ShaderMaterial_u6flt")
+material = SubResource("ShaderMaterial_uslvy")
 flip_faces = true
 size = Vector2(2, 2)
 

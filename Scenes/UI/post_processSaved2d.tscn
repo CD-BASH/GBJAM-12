@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://c10t8dtyerr4c"]
+
+[ext_resource type="Script" path="res://Scripts/UI/Canvas_Post.gd" id="1_x8gcx"]
+[ext_resource type="Texture2D" uid="uid://dk88vikfvc6t4" path="res://Assets/UI/Screenshot_50.png" id="3_w0n4g"]
+[ext_resource type="Shader" path="res://Shaders/2dPostProcess.gdshader" id="4_anq2c"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tep2t"]
+resource_local_to_scene = true
+shader = ExtResource("4_anq2c")
+shader_parameter/rotation_angle = 0.0
+shader_parameter/render_target = ExtResource("3_w0n4g")
+
+[sub_resource type="GDScript" id="GDScript_yj2y0"]
+script/source = "extends ColorRect
+var time : float
+var rotationFormula : float
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
+func _process(delta):
+		time += delta
+		rotationFormula = clamp(sin(time),-1.0,1.0)
+		material.set_shader_parameter(\"rotation_angle\",rotationFormula)
+"
+
+[node name="PostProcess" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_x8gcx")
+sliderValueTransition = -4.44
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.031)
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(160, 146)
+render_target_update_mode = 4
+
+[node name="Marker2D" type="Marker2D" parent="CanvasLayer"]
+
+[node name="Polygon2D8" type="Polygon2D" parent="CanvasLayer/Marker2D"]
+position = Vector2(-55, -63)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(230, 45, 55, 43, -13, 41, -16, 71, 28, 71, 95, 69, 230, 70)
+
+[node name="Polygon2D9" type="Polygon2D" parent="CanvasLayer/Marker2D"]
+position = Vector2(54, 6)
+rotation = 1.58006
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(230, 45, 55, 43, -13, 41, -16, 71, 28, 71, 95, 69, 230, 70)
+
+[node name="Polygon2D10" type="Polygon2D" parent="CanvasLayer/Marker2D"]
+position = Vector2(-38, 95)
+rotation = -0.00465469
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(230, 45, 55, 43, -13, 41, -16, 71, 28, 71, 95, 69, 230, 70)
+
+[node name="Polygon2D11" type="Polygon2D" parent="CanvasLayer/Marker2D"]
+position = Vector2(114, 144)
+rotation = -1.59765
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(230, 45, 55, 43, -13, 41, -16, 71, 28, 71, 95, 69, 230, 70)
+
+[node name="Polygon2D2" type="Polygon2D" parent="CanvasLayer"]
+position = Vector2(-7, -7)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(76, 36, 44, 69, 71, 68, 69, 122, 100, 121, 95, 69, 121, 68)
+
+[node name="PostMaterial" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_tep2t")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_yj2y0")
+metadata/_edit_use_anchors_ = true
