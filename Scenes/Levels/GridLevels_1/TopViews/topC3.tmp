@@ -24,4 +24,5 @@ shape = SubResource("RectangleShape2D_cdv6r")
 
 [node name="Enemie_turret" parent="." index="5" instance=ExtResource("2_hvy0d")]
 position = Vector2(73, 106)
+angle = 0
 enemy = 1

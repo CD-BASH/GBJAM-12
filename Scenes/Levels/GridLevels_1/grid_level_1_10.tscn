@@ -7,8 +7,12 @@
 [node name="GridLevel_1-10" node_paths=PackedStringArray("side_view", "top_view") instance=ExtResource("1_evyh5")]
 side_view = NodePath("SideView_1-10")
 top_view = NodePath("TopView_1-10")
+gameboy_off = false
 
 [node name="SideView_1-10" parent="." index="1" instance=ExtResource("2_2jlsk")]
 
 [node name="TopView_1-10" parent="." index="2" instance=ExtResource("3_w5xmk")]
 visible = false
+
+[node name="GameboyEntity" parent="." index="4"]
+num_switch_needed = 2

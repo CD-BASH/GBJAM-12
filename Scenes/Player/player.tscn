@@ -575,7 +575,9 @@ down_collision_shape = ExtResource("4_66ald")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("5_aaetp")
 sprite_frames = SubResource("SpriteFrames_dkt6p")
-animation = &"death_top"
+animation = &"spawn_side"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://djlmtroecur6u"]
+[gd_scene load_steps=7 format=3 uid="uid://djlmtroecur6u"]
 
-[ext_resource type="Script" path="res://Scripts/Global/Level/Test_script_level_Geepy.gd" id="1_666du"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="1_yre6r"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="2_y4kej"]
-[ext_resource type="PackedScene" uid="uid://se3l7y0eejab" path="res://Scenes/UI/canvas_dialogue.tscn" id="3_yabds"]
+[ext_resource type="PackedScene" path="res://Scenes/UI/canvas_dialogue.tscn" id="3_yabds"]
 
 [sub_resource type="Gradient" id="Gradient_xu1lo"]
 offsets = PackedFloat32Array(0.539043)
@@ -18,7 +17,6 @@ height = 1
 size = Vector2(1, 0.999999)
 
 [node name="2D Level Greybox" type="Node2D"]
-script = ExtResource("1_666du")
 
 [node name="Player" parent="." instance=ExtResource("1_yre6r")]
 position = Vector2(68, 60)
