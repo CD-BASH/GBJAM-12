@@ -9,7 +9,6 @@
 next_level_scene = ExtResource("2_i5dan")
 side_view = NodePath("SideView_1-10")
 top_view = NodePath("TopView_1-10")
-gameboy_off = false
 
 [node name="SideView_1-10" parent="." index="1" instance=ExtResource("2_2jlsk")]
 
@@ -18,3 +17,4 @@ visible = false
 
 [node name="GameboyEntity" parent="." index="4"]
 num_switch_needed = 2
+is_boss_level = true
