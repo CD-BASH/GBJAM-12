@@ -13,11 +13,12 @@ class_name Player
 @export var top_collision_shape: RectangleShape2D
 @export_subgroup("Down View")
 @export var down_collision_shape: RectangleShape2D
-
+@export var controle_view: PlayerControlTypes
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 var can_move := true
+var is_spawn = false
 
 enum PlayerControlTypes
 {
@@ -26,35 +27,47 @@ enum PlayerControlTypes
 	DOWN_VIEW
 }
 
+func _ready() -> void:
+	player_control_type = PlayerControlTypes.SIDE_VIEW
+	#print(player_control_type)
+	spawn()
 
 func _physics_process(delta: float) -> void:
+	#print(player_control_type)
+	if is_spawn:
+		match player_control_type:
+			PlayerControlTypes.SIDE_VIEW:
+				side_view_movement(delta)
+				collision_shape_2d.shape = side_collision_shape
+			PlayerControlTypes.TOP_VIEW:
+				top_down_view_movement(delta, true)
+				collision_shape_2d.shape = top_collision_shape
+			PlayerControlTypes.DOWN_VIEW:
+				top_down_view_movement(delta, false)
+				collision_shape_2d.shape = down_collision_shape
+
+func spawn():
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:
-			side_movement(delta)
-			collision_shape_2d.shape = side_collision_shape
+			animated_sprite_2d.play("spawn_side")
 		PlayerControlTypes.TOP_VIEW:
-			top_down_view_movement(delta, true)
-			collision_shape_2d.shape = top_collision_shape
-		PlayerControlTypes.DOWN_VIEW:
-			top_down_view_movement(delta, false)
-			collision_shape_2d.shape = down_collision_shape
+			animated_sprite_2d.play("spawn_top")
+	await animated_sprite_2d.animation_finished
+	is_spawn = true
 
-func spawn_top_animation():
-	animated_sprite_2d.play("spawn_top")
-	
-func spawn_side_animation():
-	animated_sprite_2d.play("spawn_side")
-	
 func jump_animation():
 	animated_sprite_2d.play("jump")
 
-func death_top_animation():
-	animated_sprite_2d.play("death_top")
+func death():
+	match player_control_type:
+		PlayerControlTypes.SIDE_VIEW:
+			animated_sprite_2d.play("death_side")
+			print("side view")
+		PlayerControlTypes.TOP_VIEW:
+			animated_sprite_2d.play("death_top")
+			print("top view")
 
-func death_side_animation():
-	animated_sprite_2d.play("death_sideS")
-
-func side_movement(delta) -> void:
+func side_view_movement(delta) -> void:
 	var direction = 0.0
 	if !is_on_floor():
 		velocity.y += gravity * delta
@@ -62,15 +75,23 @@ func side_movement(delta) -> void:
 			velocity.y = 900
 			
 	if can_move:
-		if Input.is_action_just_pressed("up_dPad") && is_on_floor():
-			velocity.y = -jump_force
 		direction = Input.get_axis("left_dPad","right_dPad")
-	
+		if is_on_floor():
+			if Input.is_action_just_pressed("up_dPad"):
+				velocity.y = -jump_force
+			if direction == 0:
+				animated_sprite_2d.play("side_idle")
+			else:
+				animated_sprite_2d.play("side_walk")
+		else:
+			if velocity.y < 0:
+				animated_sprite_2d.play("jump_up")
+			else:
+				animated_sprite_2d.play("jump_down")
+					
+				
 	if direction != 0:
-		animated_sprite_2d.play("side_walk")
 		animated_sprite_2d.flip_h = (direction == -1)
-	else:
-		animated_sprite_2d.play("side_idle")
 	
 	velocity.x = direction * movement_speed
 	move_and_slide()
