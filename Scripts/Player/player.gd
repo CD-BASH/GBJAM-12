@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-
+@export var spawn_animation_on_start := true
 @export var player_control_type := PlayerControlTypes.SIDE_VIEW
 @export var movement_speed := 100.0
 @export_subgroup("Side View")
@@ -30,7 +30,10 @@ enum PlayerControlTypes
 
 func _ready() -> void:
 	player_control_type = PlayerControlTypes.SIDE_VIEW
-	spawn()
+	if spawn_animation_on_start:
+		spawn()
+	else:
+		is_spawn = true
 
 func _physics_process(delta: float) -> void:
 	if is_spawn && !is_dead:

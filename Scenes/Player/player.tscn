@@ -565,6 +565,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+material = ExtResource("5_aaetp")
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_e6ohm")
@@ -573,7 +574,7 @@ top_collision_shape = ExtResource("3_hy8du")
 down_collision_shape = ExtResource("4_66ald")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-material = ExtResource("5_aaetp")
+use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_dkt6p")
 animation = &"spawn_side"
 frame = 5
