@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgjn366jd3kh"]
 
 [ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="1_lrkmc"]
-[ext_resource type="Script" path="res://Scripts/UI/button.gd" id="1_osklk"]
+[ext_resource type="Script" path="res://Scripts/UI/switch.gd" id="1_osklk"]
 [ext_resource type="Texture2D" uid="uid://ba2sw7tc0hww1" path="res://Assets/UI/misc/On_Off_switch.png" id="2_kj2eo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n15w"]

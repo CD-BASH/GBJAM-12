@@ -11,6 +11,8 @@ extends Node2D
 @export_range(0, 9, 0.5) var starting_altitude := 7.5
 @export_range(0, 9, 0.5) var starting_depth := 7.5
 @export_range(0, 9, 0.5) var ground_level := 7.5
+#need to be turn to false on the levels with switch
+@export var gameboy_off := true
 
 @onready var player: CharacterBody2D = $Player
 
@@ -27,6 +29,7 @@ var player_index_behind_platforms := -30.0
 var player_in_depth_safe_zone := false
 var player_in_altitude_safe_zone := true
 var player_is_safe := false
+var gameboy_entity
 
 enum ViewMode
 {
@@ -35,6 +38,15 @@ enum ViewMode
 	DOWN_VIEW
 }
 
+func _enter_tree():
+	gameboy_entity = get_tree().get_first_node_in_group("gameboy_entity")
+	if gameboy_entity != null:
+		gameboy_entity.game_boy_off.connect(turn_gameboy_off)
+		print("game boy entity")
+		
+func turn_gameboy_off():
+	print( "turn game boy off")
+	gameboy_off = true
 
 func _ready() -> void:
 	get_player_position_on_grid()
@@ -126,7 +138,7 @@ func reset_safe_zone_states():
 #region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
 	set_new_view(flash_view)
-	if player_is_safe: level_completed()
+	if player_is_safe and gameboy_off: level_completed()
 	else: level_failed()
 
 func level_completed() -> void:

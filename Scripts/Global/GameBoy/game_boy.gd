@@ -51,9 +51,11 @@ func _on_timer_timeout():
 
 #when the player turn a switch on
 func switch_signal():
+	print("switch turn off")
 	switch += 1
 	if switch >= num_switch_needed:
 		game_boy_off.emit()
+		#print("game_boy signal off")
 
 #Can be adding other behavior in the timer
 func timer_handler () -> void:
