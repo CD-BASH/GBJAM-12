@@ -1,11 +1,66 @@
-[gd_scene load_steps=2 format=4 uid="uid://dq2e8p3x6o01g"]
+[gd_scene load_steps=7 format=4 uid="uid://bbctba2jd4n6f"]
 
-[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_rxg21"]
+[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_rp317"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_hgijg"]
 
-[node name="SideView_2-2" instance=ExtResource("1_rxg21")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhsgj"]
+size = Vector2(64, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqbby"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pw3k6"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cb5vs"]
+size = Vector2(32, 8)
+
+[node name="SideView_2-2" instance=ExtResource("1_rp317")]
 
 [node name="SideView_Platforms_Tileset" parent="." index="1"]
-tile_map_data = PackedByteArray("AAAAAAgAAAAKAAEAAAABAAgAAAAJAAEAAAACAAgAAAAKAAMAAAADAAgAAAAJAAEAAAAEAAgAAAAJAAEAAAAFAAgAAAAJAAEAAAAGAAgAAAAJAAEAAAAHAAgAAAAKAAUAAAAIAAgAAAAJAAEAAAAJAAgAAAAJAAEAAAABAAYAAAABAAEAAAADAAYAAAADAAEAAAACAAYAAAACAAEAAAABAAcAAAAFAAIAAAADAAcAAAAHAAIAAAACAAcAAAAGAAMAAAADAAQAAAADAAMAAAADAAIAAAACAAEAAAADAAAAAAANAAEAAAADAAMAAAAGAAEAAAADAAUAAAAGAAEAAAADAAEAAAANAAMAAAACAAQAAAABAAEAAAACAAUAAAAFAAEAAAA=")
+tile_map_data = PackedByteArray("AAAAAAgAAAAKAAEAAAABAAgAAAAKAAEAAAACAAgAAAAJAAEAAAADAAgAAAAJAAEAAAAEAAgAAAAJAAEAAAAFAAgAAAAKAAUAAAAGAAgAAAAJAAEAAAAHAAgAAAAJAAEAAAAIAAgAAAAKAAMAAAAJAAgAAAAJAAEAAAABAAYAAAANAAUAAAAEAAYAAAAOAAUAAAACAAYAAAAOAAEAAAADAAYAAAAOAAEAAAABAAcAAAANAAcAAAAEAAcAAAAOAAcAAAAEAAQAAAANAAEAAAAEAAIAAAANAAEAAAAEAAUAAAANAAMAAAAEAAMAAAANAAMAAAAHAAMAAAABAAEAAAAHAAQAAAAFAAEAAAAHAAUAAAAFAAEAAAAHAAYAAAAFAAQAAAAHAAcAAAAFAAEAAAAIAAMAAAAGAAEAAAAJAAMAAAAGAAEAAAAIAAUAAAAGAAEAAAAIAAYAAAAFAAEAAAAJAAcAAAAGAAEAAAAJAAQAAAAGAAEAAAAIAAQAAAAFAAIAAAAJAAUAAAAGAAEAAAAJAAYAAAAGAAEAAAAIAAcAAAAFAAUAAAAIAAEAAAABAAEAAAAJAAEAAAACAAEAAAAIAAIAAAAFAAIAAAAJAAIAAAAGAAQAAAA=")
 
 [node name="SideView_Masks_Tileset" parent="." index="2"]
-tile_map_data = PackedByteArray("AAABAAYAAAAJAAMAAAACAAYAAAAJAAMAAAADAAYAAAAJAAMAAAADAAcAAAAJAAMAAAACAAcAAAAJAAMAAAABAAcAAAAJAAMAAAACAAUAAAAJAAMAAAACAAQAAAAJAAMAAAADAAQAAAAJAAMAAAADAAUAAAAJAAMAAAADAAMAAAAJAAMAAAADAAIAAAAJAAMAAAA=")
+tile_map_data = PackedByteArray("AAAHAAMAAAAJAAMAAAAIAAMAAAABAAEAAAAJAAMAAAACAAEAAAAJAAQAAAAJAAMAAAAJAAUAAAAJAAMAAAAJAAYAAAAJAAMAAAAJAAcAAAAJAAMAAAAIAAcAAAAJAAMAAAAHAAcAAAAJAAMAAAAHAAYAAAAJAAMAAAAHAAUAAAAJAAMAAAAHAAQAAAAJAAMAAAAIAAQAAAAJAAMAAAAIAAUAAAAJAAMAAAAIAAYAAAAJAAMAAAAJAAIAAAAJAAMAAAAJAAEAAAAJAAMAAAAIAAEAAAAJAAMAAAAIAAIAAAAJAAMAAAA=")
+
+[node name="SideView_Details_Tileset" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAJAAcAAAAKAAcAAAAIAAcAAAAGAAcAAAAHAAcAAAAKAAAAAAAGAAcAAAAKAAAAAAAFAAcAAAAKAAAAAAAEAAcAAAAKAAAAAAADAAcAAAAGAAgAAAACAAcAAAAKAAAAAAABAAcAAAAGAAgAAAAAAAcAAAAKAAAAAAAJAAAAAAAKAAAAAAAHAAIAAAABAAIAAAAIAAAAAAABAAIAAAA=")
+
+[node name="Depth_DetectionArea_1" parent="DepthAreas" index="0"]
+area_depth_push_value = 6.0
+
+[node name="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_1" index="0"]
+position = Vector2(48, 92)
+shape = SubResource("RectangleShape2D_rhsgj")
+
+[node name="Depth_DetectionArea_2" parent="DepthAreas" index="1" instance=ExtResource("2_hgijg")]
+area_depth_push_value = 3.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_2" index="0"]
+position = Vector2(72, 60)
+shape = SubResource("RectangleShape2D_dqbby")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_3" parent="DepthAreas" index="2" instance=ExtResource("2_hgijg")]
+area_depth_push_value = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_3" index="0"]
+position = Vector2(72, 28)
+shape = SubResource("RectangleShape2D_dqbby")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_4" parent="DepthAreas" index="3" instance=ExtResource("2_hgijg")]
+area_depth_push_value = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_4" index="0"]
+position = Vector2(120, 44)
+shape = SubResource("RectangleShape2D_pw3k6")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_5" parent="DepthAreas" index="4" instance=ExtResource("2_hgijg")]
+area_depth_push_value = 3.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_5" index="0"]
+position = Vector2(144, 12)
+shape = SubResource("RectangleShape2D_cb5vs")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)

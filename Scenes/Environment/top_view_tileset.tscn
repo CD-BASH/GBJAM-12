@@ -132,6 +132,10 @@ texture = ExtResource("2_6osns")
 17:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, 6.00362, 6.05653, 5.97787, 5.95635, -8)
 9:6/0 = 0
 18:4/0 = 0
+18:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.99244, 8, -6.04205, 8, -8, -8, -8)
+18:4/0/physics_layer_0/polygon_1/points = PackedVector2Array(6.15625, 8, 6.03125, -8, 8, -8, 8, 8)
+18:4/0/physics_layer_0/polygon_2/points = PackedVector2Array(-8, 5.97711, -8, 8, 8, 8, 8, 5.97711)
+18:4/0/physics_layer_0/polygon_3/points = PackedVector2Array(-6.06831, -8, -8, -8, -8, 8, -5.99816, 8)
 
 [sub_resource type="TileSet" id="TileSet_pqhmx"]
 physics_layer_0/collision_layer = 1

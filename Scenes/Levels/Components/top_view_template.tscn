@@ -8,14 +8,11 @@
 [node name="TopView_X-X" type="Node2D" node_paths=PackedStringArray("background", "tilemaps") groups=["top_view"]]
 script = ExtResource("1_7acs2")
 background = NodePath("TopView_AnimatedBackground")
-tilemaps = [NodePath("TopView_Tileset"), NodePath("TopView_Mask")]
+tilemaps = [NodePath("TopView_Tileset")]
 
 [node name="TopView_AnimatedBackground" parent="." instance=ExtResource("2_n3llr")]
 
 [node name="TopView_Tileset" parent="." instance=ExtResource("3_vi7u4")]
-
-[node name="TopView_Mask" parent="." instance=ExtResource("3_vi7u4")]
-z_index = -50
 
 [node name="AltitudeAreas" type="Node2D" parent="."]
 

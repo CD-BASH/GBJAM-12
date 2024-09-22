@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cixn0g5jf1bdn"]
+
+[ext_resource type="PackedScene" uid="uid://bmk5c7p7binxt" path="res://Scenes/Levels/Components/grid_level_template.tscn" id="1_gld4c"]
+[ext_resource type="PackedScene" uid="uid://bcu3w73kqic6y" path="res://Scenes/Levels/GridLevels_2/side_view_2_6.tscn" id="2_4nm74"]
+[ext_resource type="PackedScene" uid="uid://dsyxg5nvfoqi8" path="res://Scenes/Levels/GridLevels_2/top_view_2_6.tscn" id="3_r6q2k"]
+
+[node name="GridLevel_2-6" node_paths=PackedStringArray("side_view", "top_view") instance=ExtResource("1_gld4c")]
+starting_view = 1
+side_view = NodePath("SideView_2-6")
+top_view = NodePath("TopView_2-6")
+starting_depth = 1.5
+
+[node name="Player" parent="." index="0"]
+position = Vector2(144, 24)
+
+[node name="SideView_2-6" parent="." index="1" instance=ExtResource("2_4nm74")]
+visible = false
+
+[node name="TopView_2-6" parent="." index="2" instance=ExtResource("3_r6q2k")]

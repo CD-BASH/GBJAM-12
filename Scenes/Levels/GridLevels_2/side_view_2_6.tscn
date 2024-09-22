@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=4 uid="uid://bcu3w73kqic6y"]
+
+[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_e1gvf"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_bsot8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h3ca"]
+size = Vector2(128, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gca3"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht6lb"]
+size = Vector2(32, 16)
+
+[node name="SideView_2-6" instance=ExtResource("1_e1gvf")]
+
+[node name="SideView_Platforms_Tileset" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAgAAAAJAAEAAAABAAgAAAAJAAEAAAACAAgAAAAJAAEAAAADAAgAAAAJAAEAAAAEAAgAAAAJAAEAAAAFAAgAAAAJAAEAAAAGAAgAAAAJAAEAAAAHAAgAAAAJAAEAAAAIAAgAAAAJAAEAAAAJAAgAAAAJAAEAAAAAAAcAAAACAAEAAAABAAcAAAACAAEAAAACAAcAAAACAAEAAAADAAcAAAACAAEAAAAEAAcAAAACAAEAAAAFAAcAAAACAAEAAAAGAAcAAAACAAEAAAAHAAcAAAADAAEAAAACAAYAAAADAAEAAAABAAYAAAABAAMAAAAAAAYAAAANAAcAAAAAAAEAAAANAAUAAAACAAEAAAAOAAEAAAABAAEAAAAOAAEAAAAAAAIAAAANAAcAAAAAAAMAAAANAAcAAAAAAAQAAAANAAcAAAAAAAUAAAANAAcAAAADAAEAAAAOAAUAAAAEAAIAAAANAAUAAAAHAAIAAAAOAAUAAAAGAAIAAAAOAAEAAAAFAAIAAAAOAAEAAAADAAIAAAAOAAcAAAADAAMAAAAOAAcAAAADAAQAAAAOAAcAAAADAAUAAAAOAAcAAAADAAYAAAAOAAcAAAAEAAMAAAANAAcAAAAEAAQAAAANAAcAAAAEAAUAAAANAAcAAAAEAAYAAAANAAcAAAAHAAMAAAAOAAcAAAAHAAQAAAAOAAcAAAAHAAUAAAAOAAcAAAAHAAYAAAAOAAcAAAA=")
+
+[node name="Depth_DetectionArea_1" parent="DepthAreas" index="0"]
+area_depth_push_value = 6.5
+
+[node name="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_1" index="0"]
+position = Vector2(64, 108)
+shape = SubResource("RectangleShape2D_7h3ca")
+
+[node name="Depth_DetectionArea_2" parent="DepthAreas" index="1" instance=ExtResource("2_bsot8")]
+area_depth_push_value = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_2" index="0"]
+position = Vector2(32, 92)
+shape = SubResource("RectangleShape2D_0gca3")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="CollisionShape2D" parent="SafeZoneAreas/SafeZoneAltitude_DetectionArea_1" index="0"]
+position = Vector2(32, 104)
+shape = SubResource("RectangleShape2D_ht6lb")
