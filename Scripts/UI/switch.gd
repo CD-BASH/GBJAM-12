@@ -9,7 +9,8 @@ func _enter_tree():
 	game_boy_entity = get_tree().get_first_node_in_group("gameboy_entity")
 	
 func _on_body_entered(body):
-	game_boy_entity.switch_signal()
-	animated_sprite_2d.frame = 1
-	is_on = false
+	if is_on:
+		game_boy_entity.switch_signal()
+		animated_sprite_2d.frame = 1
+		is_on = false
 	
