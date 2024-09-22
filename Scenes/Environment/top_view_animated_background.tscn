@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://b44r7daj3lnfu"]
+[gd_scene load_steps=7 format=3 uid="uid://b44r7daj3lnfu"]
 
 [ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="1_hi0ii"]
+[ext_resource type="Script" path="res://Scripts/Environments/top_view_animated_background.gd" id="1_u65by"]
 [ext_resource type="Texture2D" uid="uid://cp8j8sh6b0urc" path="res://Assets/Environments/TopView_PixelBackground/top_view_background_1.png" id="2_2uac4"]
+[ext_resource type="Texture2D" uid="uid://obmfymh70raq" path="res://Assets/Environments/TopView_PixelBackground/top_view_background_3.png" id="3_tl70w"]
+[ext_resource type="Texture2D" uid="uid://dakv72d2t414w" path="res://Assets/Environments/TopView_PixelBackground/top_view_background_4.png" id="4_f48qp"]
+[ext_resource type="Texture2D" uid="uid://dmtrr7kxq3df0" path="res://Assets/Environments/TopView_PixelBackground/top_view_background_5.png" id="5_3maoy"]
 
 [node name="TopView_AnimatedBackground" type="ParallaxBackground"]
+script = ExtResource("1_u65by")
+starting_bg_texture = ExtResource("2_2uac4")
+first_flash_bg_texture = ExtResource("3_tl70w")
+second_flash_bg_texture = ExtResource("4_f48qp")
+final_flash_bg_texture = ExtResource("5_3maoy")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 

@@ -19,7 +19,7 @@ extends Node2D
 var cell_size := 16.0
 var current_view: ViewMode
 var listen_to_player_inputs := true
-var wait_time_after_flash := 1.0
+var wait_time_after_flash := 2.0
 
 var player_cell_coordinate: Vector2
 var player_depth: float
@@ -154,6 +154,7 @@ func level_completed() -> void:
 func level_failed() -> void:
 	listen_to_player_inputs = false
 	player.can_move = false
+	player.death()
 	print("Game Over")
 	await get_tree().create_timer(wait_time_after_flash).timeout
 	get_tree().reload_current_scene()
