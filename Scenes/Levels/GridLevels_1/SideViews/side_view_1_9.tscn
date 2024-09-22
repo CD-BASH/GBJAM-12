@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=4 uid="uid://0fcpdwcca7m0"]
+
+[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_q5anc"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_o1cdy"]
+[ext_resource type="PackedScene" uid="uid://c1atiatmntqtd" path="res://Scenes/Enemies/gamion_turret.tscn" id="3_ci7sd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lf8bw"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vno6i"]
+size = Vector2(48, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nejx"]
+size = Vector2(16, 32)
+
+[node name="SideView_1-9" instance=ExtResource("1_q5anc")]
+
+[node name="SideView_Platforms_Tileset" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAgAAAAKAAMAAAABAAgAAAAJAAEAAAACAAgAAAAJAAEAAAADAAgAAAAJAAEAAAAEAAgAAAAKAAUAAAAFAAgAAAAJAAEAAAAGAAgAAAAKAAMAAAAHAAgAAAAJAAEAAAAIAAgAAAAKAAEAAAAJAAgAAAAJAAEAAAAHAAMAAAABAAMAAAAIAAMAAAACAAEAAAAJAAMAAAACAAEAAAAJAAQAAAAGAAEAAAAIAAQAAAAGAAQAAAAHAAQAAAAGAAEAAAAGAAQAAAABAAEAAAAGAAUAAAAGAAEAAAAFAAUAAAABAAEAAAAHAAUAAAAGAAEAAAAIAAUAAAAGAAEAAAAJAAUAAAAGAAEAAAAEAAYAAAABAAEAAAAFAAYAAAAGAAUAAAAGAAYAAAAGAAEAAAAHAAYAAAAGAAIAAAAIAAYAAAAGAAEAAAAJAAYAAAAGAAEAAAAEAAcAAAAGAAMAAAAFAAcAAAAGAAEAAAAGAAcAAAAGAAEAAAAHAAcAAAAGAAEAAAAIAAcAAAAGAAEAAAAJAAcAAAAGAAEAAAADAAcAAAABAAEAAAAJAAEAAAABAAUAAAAJAAIAAAAFAAMAAAA=")
+
+[node name="SideView_Masks_Tileset" parent="." index="2"]
+tile_map_data = PackedByteArray("AAAJAAEAAAAJAAMAAAAJAAIAAAAJAAMAAAAJAAMAAAAJAAMAAAAHAAMAAAAJAAMAAAAIAAMAAAAJAAMAAAAGAAQAAAAJAAMAAAAHAAQAAAAJAAMAAAAIAAQAAAAJAAMAAAAJAAQAAAAJAAMAAAAFAAUAAAAJAAMAAAAGAAUAAAAJAAMAAAAHAAUAAAAJAAMAAAAIAAUAAAAJAAMAAAAJAAUAAAAJAAMAAAAEAAYAAAAJAAMAAAAFAAYAAAAJAAMAAAAGAAYAAAAJAAMAAAAHAAYAAAAJAAMAAAAIAAYAAAAJAAMAAAAJAAYAAAAJAAMAAAADAAcAAAAJAAMAAAAEAAcAAAAJAAMAAAAFAAcAAAAJAAMAAAAGAAcAAAAJAAMAAAAHAAcAAAAJAAMAAAAIAAcAAAAJAAMAAAAJAAcAAAAJAAMAAAA=")
+
+[node name="SideView_Details_Tileset" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAAAAcAAAAKAAAAAAABAAcAAAAKAAAAAAACAAcAAAAIAAgAAAADAAcAAAAKAAAAAAAEAAcAAAAKAAAAAAAFAAcAAAAGAAgAAAAGAAcAAAAKAAAAAAAHAAcAAAAKAAAAAAAIAAcAAAAGAAcAAAAJAAcAAAAKAAAAAAADAAYAAAABAAAAAAAEAAUAAAABAAIAAAAFAAQAAAABAAAAAAAGAAMAAAABAAAAAAAHAAIAAAABAAAAAAAIAAIAAAAGAAcAAAAJAAIAAAAIAAcAAAAJAAAAAAABAAIAAAA=")
+
+[node name="Depth_DetectionArea_1" parent="DepthAreas" index="0"]
+area_depth_push_value = 7.5
+
+[node name="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_1" index="0"]
+position = Vector2(56, 100)
+shape = SubResource("RectangleShape2D_lf8bw")
+
+[node name="Depth_DetectionArea_2" parent="DepthAreas" index="1" instance=ExtResource("2_o1cdy")]
+area_depth_push_value = 6.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_2" index="0"]
+position = Vector2(72, 84)
+shape = SubResource("RectangleShape2D_lf8bw")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_3" parent="DepthAreas" index="2" instance=ExtResource("2_o1cdy")]
+area_depth_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_3" index="0"]
+position = Vector2(88, 68)
+shape = SubResource("RectangleShape2D_lf8bw")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_4" parent="DepthAreas" index="3" instance=ExtResource("2_o1cdy")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_4" index="0"]
+position = Vector2(104, 52)
+shape = SubResource("RectangleShape2D_lf8bw")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_5" parent="DepthAreas" index="4" instance=ExtResource("2_o1cdy")]
+area_depth_push_value = 3.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_5" index="0"]
+position = Vector2(136, 36)
+shape = SubResource("RectangleShape2D_vno6i")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_6" parent="DepthAreas" index="5" instance=ExtResource("2_o1cdy")]
+area_depth_push_value = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_6" index="0"]
+position = Vector2(152, 4)
+shape = SubResource("RectangleShape2D_lf8bw")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="CollisionShape2D" parent="SafeZoneAreas/SafeZoneAltitude_DetectionArea_1" index="0"]
+position = Vector2(152, 32)
+shape = SubResource("RectangleShape2D_7nejx")
+
+[node name="Enemie_turret" parent="." index="6" instance=ExtResource("3_ci7sd")]
+position = Vector2(104, 55)
+angle = 270
+
+[node name="Enemie_turret2" parent="." index="7" instance=ExtResource("3_ci7sd")]
+position = Vector2(72, 88)
+angle = 270

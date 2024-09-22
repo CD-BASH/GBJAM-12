@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://k01xokc321v8"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/grid_view.gd" id="1_7acs2"]
+[ext_resource type="PackedScene" uid="uid://b44r7daj3lnfu" path="res://Scenes/Environment/top_view_animated_background.tscn" id="2_n3llr"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="3_fphc2"]
+[ext_resource type="PackedScene" uid="uid://bsyuenpaatpf6" path="res://Scenes/Environment/top_view_tileset.tscn" id="3_vi7u4"]
+
+[node name="TopView_X-X" type="Node2D" node_paths=PackedStringArray("background", "tilemaps") groups=["top_view"]]
+script = ExtResource("1_7acs2")
+background = NodePath("TopView_AnimatedBackground")
+tilemaps = [NodePath("TopView_Tileset")]
+
+[node name="TopView_AnimatedBackground" parent="." instance=ExtResource("2_n3llr")]
+
+[node name="TopView_Tileset" parent="." instance=ExtResource("3_vi7u4")]
+
+[node name="AltitudeAreas" type="Node2D" parent="."]
+
+[node name="Altitude_DetectionArea_1" parent="AltitudeAreas" instance=ExtResource("3_fphc2")]
+area_type = 1
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1"]
+position = Vector2(56, -40.5)
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="VoidAreas" type="Node2D" parent="."]
+
+[node name="Void_DetectionArea_1" parent="VoidAreas" instance=ExtResource("3_fphc2")]
+area_type = 4
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1"]
+position = Vector2(56, -40.5)
+debug_color = Color(0.504347, 0.000480249, 0.57704, 0.419608)
+
+[node name="SafeAreas" type="Node2D" parent="."]
+process_mode = 3
+
+[node name="SafeZone_DetectionArea_1" parent="SafeAreas" instance=ExtResource("3_fphc2")]
+area_type = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SafeAreas/SafeZone_DetectionArea_1"]
+position = Vector2(88, -40)
+debug_color = Color(2.69532e-06, 0.88757, 0.402031, 0.42)

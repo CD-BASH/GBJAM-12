@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=4 uid="uid://5gjit4yika2g"]
+
+[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_x23u6"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_8askh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3j2ce"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1xal"]
+size = Vector2(48, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nggo5"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnwxi"]
+size = Vector2(32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81b4h"]
+size = Vector2(16, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xb87"]
+size = Vector2(16, 16)
+
+[node name="SideView_2-7" instance=ExtResource("1_x23u6")]
+
+[node name="SideView_Platforms_Tileset" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAAAAgAAAAKAAUAAAABAAgAAAAJAAEAAAACAAgAAAAJAAEAAAADAAgAAAAKAAEAAAAEAAgAAAAJAAEAAAAFAAgAAAAJAAEAAAAGAAgAAAAKAAMAAAAHAAgAAAAJAAEAAAAIAAgAAAAKAAMAAAAJAAgAAAAJAAEAAAAGAAYAAAANAAUAAAAHAAYAAAAOAAUAAAAGAAcAAAANAAcAAAAHAAcAAAANAAMAAAAHAAUAAAANAAcAAAAHAAQAAAANAAUAAAAJAAQAAAAOAAUAAAAIAAQAAAAOAAEAAAAJAAUAAAAOAAcAAAAJAAYAAAAOAAcAAAAJAAcAAAAOAAcAAAAEAAMAAAANAAEAAAAEAAQAAAANAAMAAAAEAAUAAAANAAMAAAAEAAYAAAANAAMAAAAEAAcAAAANAAMAAAACAAIAAAADAAEAAAABAAIAAAABAAEAAAACAAMAAAAHAAEAAAACAAQAAAAHAAEAAAACAAUAAAAHAAEAAAACAAYAAAAHAAEAAAACAAcAAAAHAAEAAAABAAMAAAAFAAEAAAABAAQAAAAFAAEAAAABAAUAAAAFAAEAAAABAAYAAAAFAAEAAAABAAcAAAAFAAEAAAABAAEAAAACAAMAAAA=")
+
+[node name="SideView_Masks_Tileset" parent="." index="2"]
+tile_map_data = PackedByteArray("AAABAAEAAAAJAAMAAAABAAIAAAAJAAMAAAABAAMAAAAJAAMAAAABAAQAAAAJAAMAAAABAAUAAAAJAAMAAAABAAYAAAAJAAMAAAABAAcAAAAJAAMAAAACAAcAAAAJAAMAAAACAAYAAAAJAAMAAAACAAUAAAAJAAMAAAACAAQAAAAJAAMAAAACAAMAAAAJAAMAAAACAAIAAAAJAAMAAAA=")
+
+[node name="SideView_Details_Tileset" parent="." index="3"]
+tile_map_data = PackedByteArray("AAAAAAcAAAAIAAcAAAABAAcAAAAKAAAAAAACAAcAAAAKAAAAAAADAAcAAAAGAAcAAAAEAAcAAAAIAAcAAAAFAAcAAAAKAAAAAAAGAAcAAAAGAAgAAAAHAAcAAAAKAAAAAAAIAAcAAAAKAAgAAAAJAAcAAAAKAAAAAAABAAEAAAABAAAAAAABAAAAAAABAAAAAAACAAEAAAADAAIAAAA=")
+
+[node name="Depth_DetectionArea_1" parent="DepthAreas" index="0"]
+area_depth_push_value = 6.5
+
+[node name="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_1" index="0"]
+position = Vector2(112, 92)
+shape = SubResource("RectangleShape2D_3j2ce")
+
+[node name="Depth_DetectionArea_2" parent="DepthAreas" index="1" instance=ExtResource("2_8askh")]
+area_depth_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_2" index="0"]
+position = Vector2(136, 60)
+shape = SubResource("RectangleShape2D_i1xal")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_3" parent="DepthAreas" index="2" instance=ExtResource("2_8askh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_3" index="0"]
+position = Vector2(72, 44)
+shape = SubResource("RectangleShape2D_nggo5")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_4" parent="DepthAreas" index="3" instance=ExtResource("2_8askh")]
+area_depth_push_value = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_4" index="0"]
+position = Vector2(32, 28)
+shape = SubResource("RectangleShape2D_tnwxi")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="Depth_DetectionArea_5" parent="DepthAreas" index="4" instance=ExtResource("2_8askh")]
+area_depth_push_value = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_5" index="0"]
+position = Vector2(24, 12)
+shape = SubResource("RectangleShape2D_81b4h")
+debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
+
+[node name="CollisionShape2D" parent="SafeZoneAreas/SafeZoneAltitude_DetectionArea_1" index="0"]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_6xb87")

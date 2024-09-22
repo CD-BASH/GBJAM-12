@@ -1,0 +1,131 @@
+[gd_scene load_steps=13 format=4 uid="uid://7irngwcnqvcn"]
+
+[ext_resource type="PackedScene" uid="uid://k01xokc321v8" path="res://Scenes/Levels/Components/top_view_template.tscn" id="1_82d7e"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_qsgeu"]
+[ext_resource type="PackedScene" uid="uid://c1atiatmntqtd" path="res://Scenes/Enemies/gamion_turret.tscn" id="3_5c47x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uyrog"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oho3x"]
+size = Vector2(32, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gekaa"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15m0v"]
+size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r71cb"]
+size = Vector2(8, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5g072"]
+size = Vector2(8, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xiwe"]
+size = Vector2(8, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bdl35"]
+size = Vector2(8, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83qj0"]
+size = Vector2(16, 32)
+
+[node name="TopView_1-9" instance=ExtResource("1_82d7e")]
+
+[node name="TopView_Tileset" parent="." index="1"]
+tile_map_data = PackedByteArray("AAADAAcAAAAHAAMAAAAEAAYAAAAHAAMAAAAFAAUAAAAHAAMAAAAGAAQAAAAHAAMAAAAHAAMAAAACAAQAAAAIAAMAAAADAAQAAAAJAAMAAAADAAQAAAAHAAIAAAACAAMAAAAHAAEAAAACAAMAAAAHAAAAAAACAAMAAAAIAAIAAAADAAMAAAAJAAIAAAAHAAMAAAAJAAEAAAADAAMAAAAIAAEAAAADAAMAAAAIAAAAAAADAAMAAAAJAAAAAAADAAMAAAAHAAQAAAAHAAYAAAAGAAUAAAAHAAYAAAAFAAYAAAAHAAYAAAAEAAcAAAAHAAYAAAADAAgAAAAHAAQAAAACAAcAAAABAAMAAAAIAAQAAAACAAUAAAAJAAQAAAACAAUAAAADAAYAAAAGAAEAAAADAAUAAAAGAAEAAAADAAQAAAAGAAEAAAADAAMAAAAGAAEAAAADAAIAAAAGAAEAAAADAAEAAAAGAAEAAAADAAAAAAAGAAEAAAAEAAAAAAAGAAEAAAAEAAEAAAAGAAEAAAAEAAIAAAAGAAEAAAAEAAMAAAAGAAEAAAAEAAQAAAAGAAEAAAAEAAUAAAAGAAEAAAAFAAQAAAAGAAEAAAAFAAMAAAAGAAEAAAAFAAIAAAAGAAEAAAAFAAEAAAAGAAEAAAAFAAAAAAAGAAEAAAAGAAAAAAAGAAEAAAAGAAEAAAAGAAEAAAAGAAIAAAAGAAEAAAAGAAMAAAAGAAEAAAA=")
+
+[node name="Altitude_DetectionArea_1" parent="AltitudeAreas" index="0"]
+area_altitude_push_value = 6.5
+
+[node name="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1" index="0"]
+position = Vector2(56, 120)
+shape = SubResource("RectangleShape2D_uyrog")
+
+[node name="Altitude_DetectionArea_2" parent="AltitudeAreas" index="1" instance=ExtResource("2_qsgeu")]
+area_type = 1
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_2" index="0"]
+position = Vector2(72, 104)
+shape = SubResource("RectangleShape2D_uyrog")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_3" parent="AltitudeAreas" index="2" instance=ExtResource("2_qsgeu")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_3" index="0"]
+position = Vector2(88, 88)
+shape = SubResource("RectangleShape2D_uyrog")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_4" parent="AltitudeAreas" index="3" instance=ExtResource("2_qsgeu")]
+area_type = 1
+area_altitude_push_value = 3.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="0"]
+position = Vector2(104, 72)
+shape = SubResource("RectangleShape2D_uyrog")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_5" parent="AltitudeAreas" index="4" instance=ExtResource("2_qsgeu")]
+area_type = 1
+area_altitude_push_value = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_5" index="0"]
+position = Vector2(152, 40)
+shape = SubResource("RectangleShape2D_uyrog")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_6" parent="AltitudeAreas" index="5" instance=ExtResource("2_qsgeu")]
+area_type = 1
+area_altitude_push_value = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_6" index="0"]
+position = Vector2(128, 32)
+shape = SubResource("RectangleShape2D_oho3x")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_6" index="1"]
+position = Vector2(152, 56)
+shape = SubResource("RectangleShape2D_gekaa")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_6" index="2"]
+position = Vector2(152, 16)
+shape = SubResource("RectangleShape2D_15m0v")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="0"]
+position = Vector2(52, 48)
+shape = SubResource("RectangleShape2D_r71cb")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="1"]
+position = Vector2(68, 40)
+shape = SubResource("RectangleShape2D_5g072")
+debug_color = Color(0.504347, 0.000480249, 0.57704, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="2"]
+position = Vector2(84, 32)
+shape = SubResource("RectangleShape2D_6xiwe")
+debug_color = Color(0.504347, 0.000480249, 0.57704, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="3"]
+position = Vector2(100, 24)
+shape = SubResource("RectangleShape2D_bdl35")
+debug_color = Color(0.504347, 0.000480249, 0.57704, 0.419608)
+
+[node name="CollisionShape2D" parent="SafeAreas/SafeZone_DetectionArea_1" index="0"]
+position = Vector2(152, 16)
+shape = SubResource("RectangleShape2D_83qj0")
+
+[node name="Enemie_turret" parent="." index="5" instance=ExtResource("3_5c47x")]
+position = Vector2(104, 73)
+angle = 270
+enemy = 1
+
+[node name="Enemie_turret2" parent="." index="6" instance=ExtResource("3_5c47x")]
+position = Vector2(72, 104)
+angle = 270
+enemy = 1
