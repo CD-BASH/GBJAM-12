@@ -6,6 +6,7 @@ extends Node2D
 @onready var down_raycast = $down_raycast
 @onready var seen_sound = $seen_sound
 #@onready var timer = $Timer
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 #variables in the inspector choose the direction that can see the player
 @export_group("Raycast direction")
@@ -13,13 +14,29 @@ extends Node2D
 @export var left = false
 @export var down = false
 @export var up = false
+@export_group("Enemy Type")
+@export var enemy: EnemyChoice
 
 #if we want the player to be seen only once
 var player_seen = false
 
+enum EnemyChoice
+{
+	GAMION_SIDE,
+	GAMION_TOP	
+}
+
 func _ready():
 	chose_raycast_direction()
+	change_enemy_animation()
 
+func change_enemy_animation():
+	match enemy:
+		EnemyChoice.GAMION_SIDE:
+			animated_sprite_2d.play("gamion_side")
+		EnemyChoice.GAMION_TOP:
+			animated_sprite_2d.play("gamion_top")
+	
 func _process(delta):
 	if (left_raycast.is_colliding() || right_raycast.is_colliding() || up_raycast.is_colliding() || down_raycast.is_colliding()) && !player_seen:
 		#debbugging feature can be erase 
