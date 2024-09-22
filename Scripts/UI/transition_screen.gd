@@ -12,8 +12,7 @@ enum AnimationType {
 	SWIPE_CONTENT,
 }
 
-func _ready() -> void:
-	play_transition_screen()
+
 
 func play_transition_screen() -> void:
 	animated_sprite_2d.modulate = transition_color;

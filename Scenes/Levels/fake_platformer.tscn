@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://ca6mt5f3l8nrl"]
+[gd_scene load_steps=13 format=4 uid="uid://ca6mt5f3l8nrl"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/fake_platformer.gd" id="1_c7eok"]
 [ext_resource type="Script" path="res://Scripts/Levels/game_manager_Fake_Platformer.gd" id="2_um8bw"]
@@ -8,8 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://bg2ctqo2p0r3g" path="res://Scenes/Collectibles/pumkins.tscn" id="6_7qfnx"]
 [ext_resource type="PackedScene" uid="uid://34288j0numi1" path="res://Scenes/Environment/fake_platformer_tileset.tscn" id="7_4nk0s"]
 [ext_resource type="PackedScene" uid="uid://dfrea1cmc4qfj" path="res://Scenes/Enemies/fake_enemy.tscn" id="8_qbpq1"]
+[ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="9_ooicy"]
+
+[sub_resource type="Theme" id="Theme_jlanm"]
+default_font = ExtResource("3_u0rim")
+default_font_size = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75ngr"]
 size = Vector2(16, 176)
 
 [node name="Fake Platformer" type="Node2D" groups=["grid_level"]]
@@ -31,6 +39,36 @@ theme_override_fonts/font = ExtResource("3_u0rim")
 theme_override_font_sizes/font_size = 8
 text = "Score: 0"
 
+[node name="GameBoySpeech" type="Control" parent="GameManager/CanvasLayer"]
+material = ExtResource("5_ubykv")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_jlanm")
+
+[node name="Label" type="Label" parent="GameManager/CanvasLayer/GameBoySpeech"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -22.5
+offset_right = 72.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "STOP"
+horizontal_alignment = 1
+
 [node name="Player" parent="." instance=ExtResource("4_qfs85")]
 material = ExtResource("5_ubykv")
 position = Vector2(52, 120)
@@ -42,6 +80,13 @@ limit_top = 0
 limit_right = 1007
 limit_bottom = 144
 drag_horizontal_enabled = true
+
+[node name="FirstTransitionScreen" parent="Player" instance=ExtResource("9_ooicy")]
+transition_color = Color(0.129412, 0.0431373, 0.105882, 1)
+animation_type = 2
+
+[node name="SecondTransitionScreen" parent="Player" instance=ExtResource("9_ooicy")]
+transition_color = Color(0.0627451, 0.0784314, 0.0470588, 1)
 
 [node name="FakePlatformer_Tileset" parent="." instance=ExtResource("7_4nk0s")]
 z_index = -50
@@ -237,3 +282,19 @@ position = Vector2(824, 120)
 
 [node name="FakeEnemy15" parent="Enemies" instance=ExtResource("8_qbpq1")]
 position = Vector2(840, 120)
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true
+
+[node name="EndLevelTrigger" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndLevelTrigger"]
+position = Vector2(760, 64)
+shape = SubResource("RectangleShape2D_75ngr")
+
+[connection signal="timeout" from="LevelTimer" to="." method="_on_level_timer_timeout"]
+[connection signal="body_entered" from="EndLevelTrigger" to="." method="_on_end_level_trigger_body_entered"]

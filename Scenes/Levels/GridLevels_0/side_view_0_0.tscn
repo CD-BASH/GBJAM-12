@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqygl0qwmu1hc"]
+
+[ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_ggfwk"]
+
+[node name="SideView_0-0" instance=ExtResource("1_ggfwk")]
