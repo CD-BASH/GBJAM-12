@@ -19,6 +19,7 @@ func _enter_tree() -> void:
 		gameboy_entity.first_flash.connect(first_flash_effect)
 		gameboy_entity.second_flash.connect(second_flash_effect)
 		gameboy_entity.final_flash.connect(final_flash_effect)
+		gameboy_entity.game_boy_start.connect(_ready)
 
 
 func _ready() -> void:

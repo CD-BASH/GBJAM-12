@@ -1,35 +1,36 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgjn366jd3kh"]
+[gd_scene load_steps=8 format=3 uid="uid://bo5jaq8humfyt"]
 
 [ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="1_lrkmc"]
 [ext_resource type="Script" path="res://Scripts/UI/switch.gd" id="1_osklk"]
-[ext_resource type="Texture2D" uid="uid://ba2sw7tc0hww1" path="res://Assets/UI/misc/On_Off_switch.png" id="2_kj2eo"]
+[ext_resource type="Texture2D" uid="uid://dimihbp4w3d7u" path="res://Assets/UI/misc/button_on_off.png" id="3_bp5iy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3n15w"]
 size = Vector2(14, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5h8l1"]
-atlas = ExtResource("2_kj2eo")
-region = Rect2(0, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr4hx"]
+atlas = ExtResource("3_bp5iy")
+region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bluwv"]
-atlas = ExtResource("2_kj2eo")
+[sub_resource type="AtlasTexture" id="AtlasTexture_afk2p"]
+atlas = ExtResource("3_bp5iy")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13xrk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5h8l1")
+"texture": SubResource("AtlasTexture_lr4hx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bluwv")
+"texture": SubResource("AtlasTexture_afk2p")
 }],
-"loop": true,
+"loop": false,
 "name": &"Change",
 "speed": 5.0
 }]
 
 [node name="Switch" type="Area2D"]
+z_index = -40
 material = ExtResource("1_lrkmc")
 collision_mask = 2
 script = ExtResource("1_osklk")

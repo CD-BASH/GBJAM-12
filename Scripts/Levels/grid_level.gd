@@ -12,7 +12,7 @@ extends Node2D
 @export_range(0, 9, 0.5) var starting_depth := 7.5
 @export_range(0, 9, 0.5) var ground_level := 7.5
 #need to be turn to false on the levels with switch
-@export var gameboy_off := true
+#@export var gameboy_off := true
 
 @onready var player: CharacterBody2D = $Player
 
@@ -30,6 +30,7 @@ var player_in_depth_safe_zone := false
 var player_in_altitude_safe_zone := true
 var player_is_safe := false
 var gameboy_entity
+
 
 enum ViewMode
 {
@@ -61,9 +62,10 @@ func _process(delta: float) -> void:
 	else:
 		player_is_safe = false
 
+
 func turn_gameboy_off():
-	gameboy_off = true
 	level_completed()
+	gameboy_entity.timer.stop()
 
 func initialize_gameboy_entity():
 	gameboy_entity = get_tree().get_first_node_in_group("gameboy_entity")
@@ -136,9 +138,17 @@ func reset_safe_zone_states():
 #region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
 	set_new_view(flash_view)
-	if player_is_safe and gameboy_off: level_completed()
-	else: level_failed()
-
+	if !gameboy_entity.is_boss_level:
+		if player_is_safe: level_completed()
+		else: level_failed()
+	else:
+		if player_is_safe:
+			gameboy_entity._ready()
+			gameboy_entity.num_clics = 0
+		else:
+			level_failed() 
+		
+		
 func level_completed() -> void:
 	listen_to_player_inputs = false
 	player.can_move = false
