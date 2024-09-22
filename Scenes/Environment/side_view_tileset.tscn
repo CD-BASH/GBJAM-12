@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5tohbairhbsp"]
 
 [ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="1_6pd4w"]
-[ext_resource type="Texture2D" uid="uid://ce4au1l4aerxf" path="res://Assets/TileSets/Tileset_SideView_SpreadSheet.png" id="2_cjyr8"]
+[ext_resource type="Texture2D" uid="uid://413udse37ttw" path="res://Assets/TileSets/Tileset_SideView_SpreadSheet.png" id="2_cjyr8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ht6w0"]
 texture = ExtResource("2_cjyr8")
@@ -103,6 +103,18 @@ texture = ExtResource("2_cjyr8")
 9:1/0 = 0
 9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:3/0 = 0
+13:1/0 = 0
+13:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5.03245, 8, -8, -8, -8, -8, -4.94416)
+13:1/0/physics_layer_0/polygon_0/one_way = true
+13:3/0 = 0
+13:5/0 = 0
+13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5.03245, 8, -8, -8, -8, -8, -5.03399)
+13:5/0/physics_layer_0/polygon_0/one_way = true
+14:5/0 = 0
+14:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -5.03245, 8, -8, -8, -8, -8, -5.03399)
+14:5/0/physics_layer_0/polygon_0/one_way = true
+13:7/0 = 0
+14:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_kvde7"]
 physics_layer_0/collision_layer = 1
