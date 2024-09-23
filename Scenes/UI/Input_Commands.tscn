@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp0mkd3e5brsc"]
+
+[ext_resource type="Script" path="res://Scripts/Gameplay/Input_commands_mechanic.gd" id="1_1y6mh"]
+[ext_resource type="Texture2D" uid="uid://bksv45dcr0747" path="res://Assets/UI/misc/Arrows/upArrow.png" id="2_pn2yr"]
+[ext_resource type="Texture2D" uid="uid://ie0l3c1yjjk6" path="res://Assets/UI/misc/Arrows/DownArrow.png" id="3_ykevm"]
+[ext_resource type="Texture2D" uid="uid://x8shlhe40jbu" path="res://Assets/UI/misc/Arrows/RightArrow.png" id="4_pd6o1"]
+[ext_resource type="Texture2D" uid="uid://cjvqj3m7yw6mt" path="res://Assets/UI/misc/Arrows/LeftArrow.png" id="5_t7gb8"]
+
+[node name="Input_command" type="Node2D" node_paths=PackedStringArray("UP_Dpad", "down_pad1", "left_pad1", "right_pad1")]
+script = ExtResource("1_1y6mh")
+UP_Dpad = NodePath("Arrows/up_dpad")
+down_pad1 = NodePath("Arrows/down_dpad")
+left_pad1 = NodePath("Arrows/left_dpad")
+right_pad1 = NodePath("Arrows/right_dpad")
+number_arrow = 10
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="image_container" type="HBoxContainer" parent="CanvasLayer"]
+offset_top = 69.0
+offset_right = 160.0
+offset_bottom = 109.0
+alignment = 1
+
+[node name="Arrows" type="Node" parent="."]
+
+[node name="up_dpad" type="TextureRect" parent="Arrows"]
+visible = false
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_pn2yr")
+stretch_mode = 5
+
+[node name="down_dpad" type="TextureRect" parent="Arrows"]
+visible = false
+offset_left = 72.0
+offset_right = 88.0
+offset_bottom = 16.0
+texture = ExtResource("3_ykevm")
+stretch_mode = 5
+
+[node name="right_dpad" type="TextureRect" parent="Arrows"]
+visible = false
+offset_left = 26.0
+offset_right = 42.0
+offset_bottom = 16.0
+texture = ExtResource("4_pd6o1")
+stretch_mode = 5
+
+[node name="left_dpad" type="TextureRect" parent="Arrows"]
+visible = false
+offset_left = 49.0
+offset_right = 65.0
+offset_bottom = 16.0
+texture = ExtResource("5_t7gb8")
+stretch_mode = 5

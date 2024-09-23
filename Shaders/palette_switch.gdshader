@@ -8,15 +8,15 @@ uniform vec4 palette_dark: source_color = vec4(1.0);
 group_uniforms;
 
 
-void fragment() 
+void fragment()
 {
 	vec4 pixel_color = texture(TEXTURE, UV);
 	vec4 error_color = vec4(1.0, 0.0, 0.0, 1.0);
-	
+
 	float light_range = 0.9;
 	float mid_range = 0.5;
 	float dark_range = 0.1;
-	
+
 	if (pixel_color.a < 0.9)
 	{
 		COLOR.a = 0.0;

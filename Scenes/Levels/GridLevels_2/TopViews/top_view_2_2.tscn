@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=4 uid="uid://dku3ybpkrunos"]
+
+[ext_resource type="PackedScene" uid="uid://k01xokc321v8" path="res://Scenes/Levels/Components/top_view_template.tscn" id="1_dqmwc"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_kiobx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0rq7"]
+size = Vector2(64, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1i2f"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swqp4"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnygj"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umgra"]
+size = Vector2(32, 32)
+
+[node name="TopView_2-2" instance=ExtResource("1_dqmwc")]
+
+[node name="TopView_Tileset" parent="." index="1"]
+tile_map_data = PackedByteArray("AAAHAAIAAAACAAQAAAAIAAIAAAACAAIAAAAJAAIAAAADAAIAAAAHAAEAAAACAAMAAAAHAAAAAAACAAMAAAAJAAMAAAADAAQAAAAIAAMAAAACAAQAAAAJAAQAAAACAAUAAAAIAAQAAAACAAUAAAAHAAMAAAAGAAYAAAAGAAIAAAABAAMAAAAGAAEAAAABAAMAAAAGAAAAAAABAAMAAAAIAAEAAAADAAMAAAAIAAAAAAADAAMAAAAJAAAAAAADAAMAAAAJAAEAAAADAAMAAAACAAUAAAAMAAEAAAACAAYAAAAMAAcAAAADAAUAAAAQAAEAAAADAAYAAAAQAAMAAAAEAAUAAAANAAUAAAAEAAYAAAANAAcAAAABAAUAAAALAAUAAAABAAYAAAAPAAcAAAAEAAEAAAASAAQAAAAEAAMAAAASAAQAAAA=")
+
+[node name="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1" index="0"]
+position = Vector2(48, 96)
+shape = SubResource("RectangleShape2D_r0rq7")
+
+[node name="Altitude_DetectionArea_2" parent="AltitudeAreas" index="1" instance=ExtResource("2_kiobx")]
+area_type = 1
+area_altitude_push_value = 3.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_2" index="0"]
+position = Vector2(72, 56)
+shape = SubResource("RectangleShape2D_g1i2f")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_3" parent="AltitudeAreas" index="2" instance=ExtResource("2_kiobx")]
+area_type = 1
+area_altitude_push_value = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_3" index="0"]
+position = Vector2(72, 24)
+shape = SubResource("RectangleShape2D_g1i2f")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_4" parent="AltitudeAreas" index="3" instance=ExtResource("2_kiobx")]
+area_type = 1
+area_altitude_push_value = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="0"]
+position = Vector2(120, 40)
+shape = SubResource("RectangleShape2D_g1i2f")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="1"]
+position = Vector2(136, 16)
+shape = SubResource("RectangleShape2D_swqp4")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="2"]
+position = Vector2(136, 16)
+shape = SubResource("RectangleShape2D_swqp4")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_5" parent="AltitudeAreas" index="4" instance=ExtResource("2_kiobx")]
+area_type = 1
+area_altitude_push_value = 0.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_5" index="0"]
+position = Vector2(144, 48)
+shape = SubResource("RectangleShape2D_hnygj")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D" parent="SafeAreas/SafeZone_DetectionArea_1" index="0"]
+position = Vector2(144, 16)
+shape = SubResource("RectangleShape2D_umgra")

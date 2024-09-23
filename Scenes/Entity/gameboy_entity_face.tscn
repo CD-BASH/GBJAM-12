@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://7e3ky3n0yicq"]
+
+[ext_resource type="Texture2D" uid="uid://cgtsek6hmqmr8" path="res://Assets/GameboyEntity/gemboy_entity.png" id="1_p6di4"]
+[ext_resource type="Script" path="res://Scripts/Global/GameBoy/gameboy_entity_face.gd" id="2_2tjcy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orpkf"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(960, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8qah"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(1120, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctupf"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(1280, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbube"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(0, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmrhm"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(160, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moyvw"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(320, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prwti"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(480, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlriw"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(1440, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_co2ci"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(1600, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc645"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(1760, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ky0p"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(1920, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h164m"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(480, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5a72c"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(640, 0, 160, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy8pt"]
+atlas = ExtResource("1_p6di4")
+region = Rect2(800, 0, 160, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fxc44"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orpkf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8qah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctupf")
+}],
+"loop": true,
+"name": &"found",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbube")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmrhm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moyvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_prwti")
+}],
+"loop": true,
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlriw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_co2ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc645")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ky0p")
+}],
+"loop": true,
+"name": &"search",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h164m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5a72c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy8pt")
+}],
+"loop": true,
+"name": &"speak_left",
+"speed": 15.0
+}]
+
+[node name="GameboyEntityFace" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fxc44")
+animation = &"found"
+autoplay = "idle"
+frame_progress = 0.558343
+centered = false
+script = ExtResource("2_2tjcy")

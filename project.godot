@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="GBJAM-12"
-run/main_scene="res://Scenes/Levels/GridLevels_1/grid_level_1_1.tscn"
+run/main_scene="res://Scenes/Levels/splash_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/image="res://Assets/UI/splash_screen_godot-load.png"
 config/icon="res://icon.svg"
 
 [display]
@@ -29,6 +30,7 @@ window/stretch/scale_mode="integer"
 player=""
 side_view=""
 top_view=""
+gameboy_entity=""
 
 [input]
 

@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://cechx6wtk5qjh"]
+
+[ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="1_38bya"]
+[ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="2_ijquj"]
+[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="2_wnirk"]
+
+[node name="EndScreen" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 144.0
+theme = ExtResource("1_38bya")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0784314, 0.0470588, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 128.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0.443137, 0.501961, 0.427451, 1)
+text = "Thank you for playing"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 128.0
+offset_bottom = 50.0
+theme_override_colors/font_color = Color(0.0823529, 0.109804, 0.0666667, 1)
+text = "a game by:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 56.0
+offset_right = 160.0
+offset_bottom = 105.0
+text = "Charles Doucet
+Kevin Chiasson
+J.P. Dandeneault 
+FELIX GAGNE"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("2_wnirk")
+position = Vector2(80, 120)
+texture = ExtResource("2_ijquj")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)

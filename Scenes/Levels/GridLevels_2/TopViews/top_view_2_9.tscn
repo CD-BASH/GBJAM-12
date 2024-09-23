@@ -1,0 +1,128 @@
+[gd_scene load_steps=13 format=4 uid="uid://c3pgb56awwd0e"]
+
+[ext_resource type="PackedScene" uid="uid://k01xokc321v8" path="res://Scenes/Levels/Components/top_view_template.tscn" id="1_bo0ou"]
+[ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_qqp8i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blgxp"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy26l"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjogf"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bj8ed"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akhb3"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gsi3"]
+size = Vector2(32, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6lyq5"]
+size = Vector2(20, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2gdum"]
+size = Vector2(5, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2w41"]
+size = Vector2(18.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73tfj"]
+size = Vector2(16, 16)
+
+[node name="TopView_2-9" instance=ExtResource("1_bo0ou")]
+
+[node name="TopView_Tileset" parent="." index="1"]
+tile_map_data = PackedByteArray("AAACAAYAAAAEAAQAAAABAAYAAAACAAQAAAABAAUAAAACAAIAAAACAAUAAAAHAAMAAAABAAMAAAASAAQAAAAAAAMAAAASAAQAAAADAAMAAAASAAQAAAAFAAMAAAASAAQAAAAHAAUAAAASAAQAAAAIAAUAAAASAAQAAAAJAAMAAAADAAQAAAAIAAIAAAACAAMAAAAIAAEAAAACAAMAAAAIAAAAAAACAAMAAAAJAAAAAAADAAMAAAAJAAEAAAAHAAMAAAAJAAIAAAADAAMAAAAJAAQAAAACAAUAAAAIAAQAAAACAAUAAAAAAAUAAAABAAMAAAAAAAYAAAABAAMAAAABAAcAAAACAAUAAAACAAcAAAACAAUAAAADAAUAAAAFAAMAAAADAAYAAAAFAAMAAAABAAQAAAAGAAEAAAACAAQAAAAGAAEAAAACAAMAAAAGAAEAAAACAAIAAAAGAAEAAAABAAIAAAAGAAEAAAABAAEAAAAGAAEAAAACAAEAAAAGAAEAAAACAAAAAAAGAAEAAAABAAAAAAAGAAEAAAAIAAMAAAACAAQAAAAHAAEAAAABAAMAAAAHAAIAAAABAAQAAAAHAAMAAAABAAQAAAAHAAAAAAABAAIAAAA=")
+
+[node name="Altitude_DetectionArea_1" parent="AltitudeAreas" index="0"]
+area_altitude_push_value = 6.5
+
+[node name="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1" index="0"]
+position = Vector2(32, 104)
+shape = SubResource("RectangleShape2D_blgxp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_1" index="1"]
+position = Vector2(24, 88)
+shape = SubResource("RectangleShape2D_wy26l")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_2" parent="AltitudeAreas" index="1" instance=ExtResource("2_qqp8i")]
+area_type = 1
+area_altitude_push_value = 5.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_2" index="0"]
+position = Vector2(40, 88)
+shape = SubResource("RectangleShape2D_wy26l")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_3" parent="AltitudeAreas" index="2" instance=ExtResource("2_qqp8i")]
+area_type = 1
+area_altitude_push_value = 2.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_3" index="0"]
+position = Vector2(56, 56)
+shape = SubResource("RectangleShape2D_wy26l")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_4" parent="AltitudeAreas" index="3" instance=ExtResource("2_qqp8i")]
+area_type = 1
+area_altitude_push_value = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="0"]
+position = Vector2(88, 56)
+shape = SubResource("RectangleShape2D_wy26l")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="1"]
+position = Vector2(144, 48)
+shape = SubResource("RectangleShape2D_mjogf")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="2"]
+position = Vector2(144, 8)
+shape = SubResource("RectangleShape2D_bj8ed")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_4" index="3"]
+position = Vector2(136, 24)
+shape = SubResource("RectangleShape2D_akhb3")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_5" parent="AltitudeAreas" index="4" instance=ExtResource("2_qqp8i")]
+area_type = 1
+area_altitude_push_value = 3.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_5" index="0"]
+position = Vector2(16, 56)
+shape = SubResource("RectangleShape2D_0gsi3")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="Altitude_DetectionArea_6" parent="AltitudeAreas" index="5" instance=ExtResource("2_qqp8i")]
+area_type = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AltitudeAreas/Altitude_DetectionArea_6" index="0"]
+position = Vector2(128, 88)
+shape = SubResource("RectangleShape2D_0gsi3")
+debug_color = Color(0.67451, 0.67451, 0.67451, 0.419608)
+
+[node name="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="0"]
+position = Vector2(32, 24)
+shape = SubResource("RectangleShape2D_6lyq5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="1"]
+position = Vector2(40, 56)
+shape = SubResource("RectangleShape2D_2gdum")
+debug_color = Color(0.504347, 0.000480249, 0.57704, 0.419608)
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="VoidAreas/Void_DetectionArea_1" index="2"]
+position = Vector2(33.25, 72)
+shape = SubResource("RectangleShape2D_f2w41")
+debug_color = Color(0.504347, 0.000480249, 0.57704, 0.419608)
+
+[node name="CollisionShape2D" parent="SafeAreas/SafeZone_DetectionArea_1" index="0"]
+position = Vector2(152, 8)
+shape = SubResource("RectangleShape2D_73tfj")
