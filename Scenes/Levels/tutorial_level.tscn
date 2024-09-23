@@ -1,0 +1,115 @@
+[gd_scene load_steps=11 format=4 uid="uid://rssru0311xa3"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/tutorial_level.gd" id="1_xvuk4"]
+[ext_resource type="PackedScene" uid="uid://8msdgk75qfd" path="res://Scenes/Levels/GridLevels_1/grid_level_1_1.tscn" id="2_0y2jx"]
+[ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="2_2cf5g"]
+[ext_resource type="PackedScene" uid="uid://c5tohbairhbsp" path="res://Scenes/Environment/side_view_tileset.tscn" id="3_0q260"]
+[ext_resource type="Texture2D" uid="uid://f34u21vw68c4" path="res://Assets/UI/next_arrow.png" id="3_sbv88"]
+[ext_resource type="PackedScene" uid="uid://bsyuenpaatpf6" path="res://Scenes/Environment/top_view_tileset.tscn" id="4_fojac"]
+[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="4_j7ifd"]
+[ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="5_alghf"]
+[ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="8_0sdr4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07jit"]
+atlas = ExtResource("5_alghf")
+region = Rect2(80, 0, 16, 16)
+
+[node name="TutorialLevel" type="Node2D"]
+script = ExtResource("1_xvuk4")
+next_scene_to_load = ExtResource("2_0y2jx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 160.0
+offset_bottom = 144.0
+theme = ExtResource("2_2cf5g")
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0627451, 0.0784314, 0.0470588, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 155.7
+offset_bottom = 36.785
+theme_override_constants/line_spacing = -1
+text = "Hide from the parental control"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 96.76
+offset_bottom = 73.66
+theme_override_constants/line_spacing = -1
+text = "use input a
+to switch in top view"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 88.0
+offset_right = 96.76
+offset_bottom = 121.605
+theme_override_constants/line_spacing = -1
+text = "use input b
+to switch in side view"
+vertical_alignment = 2
+autowrap_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -8.0
+offset_right = -76.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_sbv88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("4_j7ifd")
+position = Vector2(144, 112)
+texture = SubResource("AtlasTexture_07jit")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = ExtResource("4_j7ifd")
+position = Vector2(128, 48)
+texture = SubResource("AtlasTexture_07jit")
+
+[node name="SideView_Tileset" parent="." instance=ExtResource("3_0q260")]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAAIAAYAAAADAAIAAAAIAAcAAAADAAMAAAAHAAcAAAABAAMAAAA=")
+
+[node name="TopView_Tileset" parent="." instance=ExtResource("4_fojac")]
+position = Vector2(0, -8)
+tile_map_data = PackedByteArray("AAAHAAQAAAACAAIAAAAIAAQAAAAEAAIAAAA=")
+
+[node name="Background_Tileset" parent="." instance=ExtResource("3_0q260")]
+z_index = -50
+tile_map_data = PackedByteArray("AAAHAAUAAAAJAAMAAAAHAAYAAAAJAAMAAAAIAAYAAAAJAAMAAAAAAAAAAAAJAAMAAAABAAAAAAAJAAMAAAACAAAAAAAJAAMAAAADAAAAAAAJAAMAAAAEAAAAAAAJAAMAAAAFAAAAAAAJAAMAAAAGAAAAAAAJAAMAAAAHAAAAAAAJAAMAAAAIAAAAAAAJAAMAAAAJAAAAAAAJAAMAAAAAAAEAAAAJAAMAAAAAAAIAAAAJAAMAAAAAAAMAAAAJAAMAAAAAAAQAAAAJAAMAAAAAAAUAAAAJAAMAAAAAAAYAAAAJAAMAAAAAAAcAAAAJAAMAAAAAAAgAAAAJAAMAAAAAAAkAAAAJAAMAAAABAAEAAAAJAAMAAAABAAIAAAAJAAMAAAABAAMAAAAJAAMAAAABAAQAAAAJAAMAAAABAAUAAAAJAAMAAAABAAYAAAAJAAMAAAABAAcAAAAJAAMAAAABAAgAAAAJAAMAAAABAAkAAAAJAAMAAAACAAEAAAAJAAMAAAACAAIAAAAJAAMAAAACAAMAAAAJAAMAAAACAAQAAAAJAAMAAAACAAUAAAAJAAMAAAACAAYAAAAJAAMAAAACAAcAAAAJAAMAAAACAAgAAAAJAAMAAAACAAkAAAAJAAMAAAADAAEAAAAJAAMAAAADAAIAAAAJAAMAAAADAAMAAAAJAAMAAAADAAQAAAAJAAMAAAADAAUAAAAJAAMAAAADAAYAAAAJAAMAAAADAAcAAAAJAAMAAAADAAgAAAAJAAMAAAADAAkAAAAJAAMAAAAEAAEAAAAJAAMAAAAEAAIAAAAJAAMAAAAEAAMAAAAJAAMAAAAEAAQAAAAJAAMAAAAEAAUAAAAJAAMAAAAEAAYAAAAJAAMAAAAEAAcAAAAJAAMAAAAEAAgAAAAJAAMAAAAEAAkAAAAJAAMAAAAFAAEAAAAJAAMAAAAFAAIAAAAJAAMAAAAFAAMAAAAJAAMAAAAFAAQAAAAJAAMAAAAFAAUAAAAJAAMAAAAFAAYAAAAJAAMAAAAFAAcAAAAJAAMAAAAFAAgAAAAJAAMAAAAFAAkAAAAJAAMAAAAGAAEAAAAJAAMAAAAGAAIAAAAJAAMAAAAGAAMAAAAJAAMAAAAGAAQAAAAJAAMAAAAGAAUAAAAJAAMAAAAGAAYAAAAJAAMAAAAGAAcAAAAJAAMAAAAGAAgAAAAJAAMAAAAGAAkAAAAJAAMAAAAHAAEAAAAJAAMAAAAHAAIAAAAJAAMAAAAHAAMAAAAJAAMAAAAHAAQAAAAJAAMAAAAHAAcAAAAJAAMAAAAHAAgAAAAJAAMAAAAHAAkAAAAJAAMAAAAIAAEAAAAJAAMAAAAIAAIAAAAJAAMAAAAIAAMAAAAJAAMAAAAIAAQAAAAJAAMAAAAIAAUAAAAJAAMAAAAIAAcAAAAJAAMAAAAIAAgAAAAJAAMAAAAIAAkAAAAJAAMAAAAJAAEAAAAJAAMAAAAJAAIAAAAJAAMAAAAJAAMAAAAJAAMAAAAJAAQAAAAJAAMAAAAJAAUAAAAJAAMAAAAJAAYAAAAJAAMAAAAJAAcAAAAJAAMAAAAJAAgAAAAJAAMAAAAJAAkAAAAJAAMAAAAKAAEAAAAJAAMAAAAKAAIAAAAJAAMAAAAKAAMAAAAJAAMAAAAKAAQAAAAJAAMAAAAKAAUAAAAJAAMAAAAKAAYAAAAJAAMAAAAKAAcAAAAJAAMAAAAKAAgAAAAJAAMAAAAKAAkAAAAJAAMAAAD//wAAAAAJAAMAAAD//wEAAAAJAAMAAAD//wIAAAAJAAMAAAD//wMAAAAJAAMAAAD//wQAAAAJAAMAAAD//wUAAAAJAAMAAAD//wYAAAAJAAMAAAD//wcAAAAJAAMAAAD//wgAAAAJAAMAAAD//wkAAAAJAAMAAAAKAAAAAAAJAAMAAAD+////AAAJAAMAAAD+/wAAAAAJAAMAAAD+/wEAAAAJAAMAAAD+/wIAAAAJAAMAAAD+/wMAAAAJAAMAAAD+/wQAAAAJAAMAAAD+/wUAAAAJAAMAAAD+/wYAAAAJAAMAAAD+/wcAAAAJAAMAAAD+/wgAAAAJAAMAAAD+/wkAAAAJAAMAAAD+/woAAAAJAAMAAAD/////AAAJAAMAAAD//woAAAAJAAMAAAAAAP//AAAJAAMAAAAAAAoAAAAJAAMAAAABAP//AAAJAAMAAAABAAoAAAAJAAMAAAACAP//AAAJAAMAAAACAAoAAAAJAAMAAAADAP//AAAJAAMAAAADAAoAAAAJAAMAAAAEAP//AAAJAAMAAAAEAAoAAAAJAAMAAAAFAP//AAAJAAMAAAAFAAoAAAAJAAMAAAAGAP//AAAJAAMAAAAGAAoAAAAJAAMAAAAHAP//AAAJAAMAAAAHAAoAAAAJAAMAAAAIAP//AAAJAAMAAAAIAAoAAAAJAAMAAAAJAP//AAAJAAMAAAAJAAoAAAAJAAMAAAAKAP//AAAJAAMAAAAKAAoAAAAJAAMAAAALAP//AAAJAAMAAAALAAAAAAAJAAMAAAALAAEAAAAJAAMAAAALAAIAAAAJAAMAAAALAAMAAAAJAAMAAAALAAQAAAAJAAMAAAALAAUAAAAJAAMAAAALAAYAAAAJAAMAAAALAAcAAAAJAAMAAAALAAgAAAAJAAMAAAALAAkAAAAJAAMAAAALAAoAAAAJAAMAAAA=")
+
+[node name="OpeningTransitionScreen" parent="." instance=ExtResource("8_0sdr4")]
+transition_color = Color(0.0627451, 0.0784314, 0.0470588, 1)
+animation_type = 1
+
+[node name="ClosingTransitionScreen" parent="." instance=ExtResource("8_0sdr4")]
+transition_color = Color(0.0627451, 0.0784314, 0.0470588, 1)
+animation_type = 1

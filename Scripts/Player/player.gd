@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Player
 
-
+@export var spawn_animation_on_start := true
 @export var player_control_type := PlayerControlTypes.SIDE_VIEW
 @export var movement_speed := 100.0
 @export_subgroup("Side View")
@@ -25,6 +25,8 @@ class_name Player
 
 ## sounds 
 @onready var jump_sound = $Jump
+@onready var spawn_sound: AudioStreamPlayer2D = $SpawnSound
+
 
 var can_move := true
 var is_spawn = false
@@ -39,7 +41,10 @@ enum PlayerControlTypes
 
 func _ready() -> void:
 	player_control_type = PlayerControlTypes.SIDE_VIEW
-	spawn()
+	if spawn_animation_on_start:
+		spawn()
+	else:
+		is_spawn = true
 
 func _physics_process(delta: float) -> void:
 	if is_spawn && !is_dead:
@@ -55,6 +60,7 @@ func _physics_process(delta: float) -> void:
 				collision_shape_2d.shape = down_collision_shape
 
 func spawn():
+	spawn_sound.play()
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:
 			animated_sprite_2d.play("spawn_side")

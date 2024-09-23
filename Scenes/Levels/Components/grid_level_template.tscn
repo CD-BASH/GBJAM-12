@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmk5c7p7binxt"]
+[gd_scene load_steps=8 format=3 uid="uid://bmk5c7p7binxt"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level.gd" id="1_pt76x"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_g3bms"]
 [ext_resource type="PackedScene" uid="uid://ywm5h8dkpwjh" path="res://Scenes/Entity/gameboy_entity.tscn" id="3_h4evd"]
+[ext_resource type="AudioStream" uid="uid://c2aj2tjdp2hj3" path="res://Assets/Audio/Music/SpookyTrapSong_varient_01.mp3" id="4_nihl0"]
+[ext_resource type="PackedScene" uid="uid://7e3ky3n0yicq" path="res://Scenes/Entity/gameboy_entity_face.tscn" id="5_daesp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
 size = Vector2(16, 176)
@@ -41,5 +43,13 @@ shape = SubResource("RectangleShape2D_3hmyv")
 debug_color = Color(0, 0.6, 0.7, 0.1)
 
 [node name="GameboyEntity" parent="." instance=ExtResource("3_h4evd")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nihl0")
+autoplay = true
+
+[node name="GameboyEntityFace" parent="." instance=ExtResource("5_daesp")]
+visible = false
+z_index = 50
 
 [connection signal="final_flash" from="GameboyEntity" to="." method="_on_gameboy_entity_final_flash"]

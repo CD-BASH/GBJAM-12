@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://1mkdltceacu4"]
+[gd_scene load_steps=8 format=4 uid="uid://1mkdltceacu4"]
 
 [ext_resource type="PackedScene" uid="uid://k01xokc321v8" path="res://Scenes/Levels/Components/top_view_template.tscn" id="1_363i8"]
 [ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_oeyhv"]
-[ext_resource type="PackedScene" uid="uid://c1atiatmntqtd" path="res://Scenes/Enemies/gamion_turret.tscn" id="3_a36oa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sqa72"]
 size = Vector2(80, 32)
@@ -49,8 +48,3 @@ debug_color = Color(2.69532e-06, 0.88757, 0.402031, 0.42)
 position = Vector2(88, 72)
 shape = SubResource("RectangleShape2D_vuda2")
 debug_color = Color(2.69532e-06, 0.88757, 0.402031, 0.42)
-
-[node name="Enemie_turret" parent="." index="5" instance=ExtResource("3_a36oa")]
-position = Vector2(139, 71)
-angle = 270
-enemy = 1

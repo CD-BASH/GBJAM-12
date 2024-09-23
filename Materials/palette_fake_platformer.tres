@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c3tbk77gsradf"]
+
+[ext_resource type="Shader" path="res://Shaders/palette_switch.gdshader" id="1_5orit"]
+
+[resource]
+shader = ExtResource("1_5orit")
+shader_parameter/palette_light = Color(0.811765, 0.670588, 0.317647, 1)
+shader_parameter/palette_mid_light = Color(0.615686, 0.396078, 0.298039, 1)
+shader_parameter/palette_mid_dark = Color(0.301961, 0.133333, 0.172549, 1)
+shader_parameter/palette_dark = Color(0.129412, 0.0431373, 0.105882, 1)

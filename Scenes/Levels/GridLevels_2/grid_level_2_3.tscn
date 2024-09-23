@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct1fd6kxlais2"]
+[gd_scene load_steps=6 format=3 uid="uid://ct1fd6kxlais2"]
 
 [ext_resource type="PackedScene" uid="uid://bmk5c7p7binxt" path="res://Scenes/Levels/Components/grid_level_template.tscn" id="1_ub41b"]
 [ext_resource type="PackedScene" uid="uid://b10fljy2pfobh" path="res://Scenes/Levels/GridLevels_2/grid_level_2_4.tscn" id="2_8m8g3"]
 [ext_resource type="PackedScene" uid="uid://bblaijw4oppxy" path="res://Scenes/Levels/GridLevels_2/SideViews/side_view_2_3.tscn" id="2_vvj4x"]
 [ext_resource type="PackedScene" uid="uid://cmfc2ltoq1ovj" path="res://Scenes/Levels/GridLevels_2/TopViews/top_view_2_3.tscn" id="3_1mgho"]
+[ext_resource type="AudioStream" uid="uid://cgawhill680jj" path="res://Assets/Audio/Music/SpookyTrapSong_VarientGlitch.mp3" id="5_iysox"]
 
 [node name="GridLevel_2-3" node_paths=PackedStringArray("side_view", "top_view") instance=ExtResource("1_ub41b")]
-starting_view = 1
 next_level_scene = ExtResource("2_8m8g3")
 side_view = NodePath("SideView_2-3")
 top_view = NodePath("TopView_2-3")
@@ -19,3 +19,6 @@ position = Vector2(136, 24)
 visible = false
 
 [node name="TopView_2-3" parent="." index="2" instance=ExtResource("3_1mgho")]
+
+[node name="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("5_iysox")
