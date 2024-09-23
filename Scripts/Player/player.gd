@@ -16,6 +16,15 @@ class_name Player
 @export var controle_view: PlayerControlTypes
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var coyote_timer : Timer = $CoyoteTimer
+
+@export_subgroup("JumpParameter")
+@export var max_jump_height = 5.0
+@export var gravity_multiplier_at_apex = 3.0
+@export var gravity_exponent = 3.0
+
+## sounds 
+@onready var jump_sound = $Jump
 
 var can_move := true
 var is_spawn = false
@@ -65,18 +74,27 @@ func death():
 		PlayerControlTypes.TOP_VIEW:
 			animated_sprite_2d.play("death_top")
 
+func adjusted_gravity() -> float:
+	var apex_proximity = clamp(abs(velocity.y) / max_jump_height, 0.0, 1.0)
+	return gravity * lerp(1.0, gravity_multiplier_at_apex, pow(apex_proximity, gravity_exponent))
+
 func side_view_movement(delta) -> void:
 	var direction = 0.0
 	if !is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += adjusted_gravity() * delta
 		if velocity.y > 900.0:
 			velocity.y = 900
-			
+	
 	if can_move:
 		direction = Input.get_axis("left_dPad","right_dPad")
+		
+		## jump
+		if Input.is_action_just_pressed("up_dPad") and (is_on_floor() or !coyote_timer.is_stopped()):
+			velocity.y = -jump_force
+			jump_sound.pitch_scale = randf_range(0.9,1.1)
+			jump_sound.play()
+		
 		if is_on_floor():
-			if Input.is_action_just_pressed("up_dPad"):
-				velocity.y = -jump_force
 			if direction == 0:
 				animated_sprite_2d.play("side_idle")
 			else:
@@ -86,12 +104,17 @@ func side_view_movement(delta) -> void:
 				animated_sprite_2d.play("jump_up")
 			else:
 				animated_sprite_2d.play("jump_down")
-				
+	
 	if direction != 0:
 		animated_sprite_2d.flip_h = (direction == -1)
 	
 	velocity.x = direction * movement_speed
+	
+	var was_on_the_floor = is_on_floor()
 	move_and_slide()
+	if was_on_the_floor && !is_on_floor():
+		print_debug("not on the floor anymore")
+		coyote_timer.start()
  
 
 func top_down_view_movement(delta, top_view: bool) -> void:
