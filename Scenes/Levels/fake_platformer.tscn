@@ -1,18 +1,16 @@
-[gd_scene load_steps=13 format=4 uid="uid://ca6mt5f3l8nrl"]
+[gd_scene load_steps=14 format=4 uid="uid://ca6mt5f3l8nrl"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/fake_platformer.gd" id="1_c7eok"]
+[ext_resource type="PackedScene" uid="uid://01apfh5bl6gd" path="res://Scenes/Levels/GridLevels_0/grid_level_introduction.tscn" id="2_a3e3c"]
 [ext_resource type="Script" path="res://Scripts/Levels/game_manager_Fake_Platformer.gd" id="2_um8bw"]
 [ext_resource type="FontFile" uid="uid://bpqwnndow7ci8" path="res://Assets/UI/Fonts/Early GameBoy.ttf" id="3_u0rim"]
 [ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="4_qfs85"]
 [ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="5_ubykv"]
 [ext_resource type="PackedScene" uid="uid://bg2ctqo2p0r3g" path="res://Scenes/Collectibles/pumkins.tscn" id="6_7qfnx"]
+[ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="6_fmv2w"]
 [ext_resource type="PackedScene" uid="uid://34288j0numi1" path="res://Scenes/Environment/fake_platformer_tileset.tscn" id="7_4nk0s"]
 [ext_resource type="PackedScene" uid="uid://dfrea1cmc4qfj" path="res://Scenes/Enemies/fake_enemy.tscn" id="8_qbpq1"]
 [ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="9_ooicy"]
-
-[sub_resource type="Theme" id="Theme_jlanm"]
-default_font = ExtResource("3_u0rim")
-default_font_size = 8
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
 size = Vector2(16, 176)
@@ -22,6 +20,7 @@ size = Vector2(16, 176)
 
 [node name="Fake Platformer" type="Node2D" groups=["grid_level"]]
 script = ExtResource("1_c7eok")
+next_scene_to_load = ExtResource("2_a3e3c")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -49,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme = SubResource("Theme_jlanm")
+theme = ExtResource("6_fmv2w")
 
 [node name="Label" type="Label" parent="GameManager/CanvasLayer/GameBoySpeech"]
 use_parent_material = true

@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var next_scene_to_load: PackedScene = null
+
 @onready var player = $Player
 @onready var game_boy_speech: Control = $GameManager/CanvasLayer/GameBoySpeech
 @onready var first_transition_screen: CanvasLayer = $Player/FirstTransitionScreen
@@ -7,6 +9,7 @@ extends Node2D
 
 var level_stopped := false
 var sequence_started := false
+
 
 func _ready() -> void:
 	game_boy_speech.visible = false
@@ -26,7 +29,9 @@ func end_level_sequence():
 	first_transition_screen.play_transition_screen()
 	await get_tree().create_timer(2.0).timeout
 	second_transition_screen.play_transition_screen()
-	
+	await get_tree().create_timer(2.0).timeout
+	get_tree().change_scene_to_packed(next_scene_to_load)
+
 
 func _on_level_timer_timeout() -> void:
 	level_stopped = true

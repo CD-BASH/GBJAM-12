@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://01apfh5bl6gd"]
-
-[ext_resource type="PackedScene" uid="uid://bmk5c7p7binxt" path="res://Scenes/Levels/Components/grid_level_template.tscn" id="1_62pu7"]
-
-[node name="GridLevel_0-0" instance=ExtResource("1_62pu7")]

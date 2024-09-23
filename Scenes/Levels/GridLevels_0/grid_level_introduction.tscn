@@ -1,0 +1,112 @@
+[gd_scene load_steps=13 format=4 uid="uid://01apfh5bl6gd"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/grid_level_introduction.gd" id="2_ax8hp"]
+[ext_resource type="PackedScene" uid="uid://rssru0311xa3" path="res://Scenes/Levels/tutorial_level.tscn" id="2_gvpes"]
+[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_wbmnr"]
+[ext_resource type="PackedScene" uid="uid://c5tohbairhbsp" path="res://Scenes/Environment/side_view_tileset.tscn" id="3_3jnl3"]
+[ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="4_556bk"]
+[ext_resource type="PackedScene" uid="uid://7e3ky3n0yicq" path="res://Scenes/Entity/gameboy_entity_face.tscn" id="5_62w8t"]
+[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="6_eotqo"]
+[ext_resource type="Script" path="res://Scenes/UI/dialogue.gd" id="6_xemmm"]
+[ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="7_64ddq"]
+[ext_resource type="Texture2D" uid="uid://f34u21vw68c4" path="res://Assets/UI/next_arrow.png" id="8_0epe5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
+size = Vector2(16, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
+size = Vector2(192, 16)
+
+[node name="GridLevel_Introduction" type="Node2D" groups=["grid_level"]]
+script = ExtResource("2_ax8hp")
+next_scene_to_load = ExtResource("2_gvpes")
+
+[node name="Player" parent="." instance=ExtResource("2_wbmnr")]
+position = Vector2(40, 120)
+player_control_type = 1
+
+[node name="EdgeColliders" type="StaticBody2D" parent="."]
+
+[node name="EdgeLeft" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(-8, 72)
+shape = SubResource("RectangleShape2D_l075t")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeRight" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(168, 72)
+shape = SubResource("RectangleShape2D_l075t")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeTop" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(80, -8)
+shape = SubResource("RectangleShape2D_3hmyv")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="EdgeBottom" type="CollisionShape2D" parent="EdgeColliders"]
+position = Vector2(80, 152)
+shape = SubResource("RectangleShape2D_3hmyv")
+debug_color = Color(0, 0.6, 0.7, 0.1)
+
+[node name="SideView_Tileset" parent="." instance=ExtResource("3_3jnl3")]
+tile_map_data = PackedByteArray("AAACAAgAAAAJAAEAAAADAAgAAAAKAAMAAAABAAgAAAAKAAUAAAA=")
+
+[node name="Background_Tileset" parent="." instance=ExtResource("3_3jnl3")]
+z_index = -50
+tile_map_data = PackedByteArray("AAAAAAAAAAAJAAMAAAABAAAAAAAJAAMAAAACAAAAAAAJAAMAAAADAAAAAAAJAAMAAAAEAAAAAAAJAAMAAAAFAAAAAAAJAAMAAAAGAAAAAAAJAAMAAAAHAAAAAAAJAAMAAAAIAAAAAAAJAAMAAAAJAAAAAAAJAAMAAAAJAAEAAAAJAAMAAAAJAAIAAAAJAAMAAAAJAAMAAAAJAAMAAAAJAAQAAAAJAAMAAAAJAAUAAAAJAAMAAAAJAAYAAAAJAAMAAAAJAAcAAAAJAAMAAAAJAAgAAAAJAAMAAAAIAAgAAAAJAAMAAAAHAAgAAAAJAAMAAAAGAAgAAAAJAAMAAAAFAAgAAAAJAAMAAAAEAAgAAAAJAAMAAAADAAgAAAAJAAMAAAACAAgAAAAJAAMAAAABAAgAAAAJAAMAAAAAAAgAAAAJAAMAAAAAAAcAAAAJAAMAAAABAAcAAAAJAAMAAAACAAcAAAAJAAMAAAADAAcAAAAJAAMAAAAEAAcAAAAJAAMAAAAFAAcAAAAJAAMAAAAGAAcAAAAJAAMAAAAHAAcAAAAJAAMAAAAIAAcAAAAJAAMAAAAIAAYAAAAJAAMAAAAHAAYAAAAJAAMAAAAGAAYAAAAJAAMAAAAFAAYAAAAJAAMAAAAEAAYAAAAJAAMAAAADAAYAAAAJAAMAAAACAAYAAAAJAAMAAAABAAYAAAAJAAMAAAAAAAYAAAAJAAMAAAAAAAUAAAAJAAMAAAABAAUAAAAJAAMAAAACAAUAAAAJAAMAAAADAAUAAAAJAAMAAAAEAAUAAAAJAAMAAAAFAAUAAAAJAAMAAAAGAAUAAAAJAAMAAAAHAAUAAAAJAAMAAAAIAAUAAAAJAAMAAAAIAAQAAAAJAAMAAAAHAAQAAAAJAAMAAAAGAAQAAAAJAAMAAAAFAAQAAAAJAAMAAAAEAAQAAAAJAAMAAAADAAQAAAAJAAMAAAACAAQAAAAJAAMAAAABAAQAAAAJAAMAAAABAAMAAAAJAAMAAAAAAAMAAAAJAAMAAAACAAMAAAAJAAMAAAAAAAQAAAAJAAMAAAADAAMAAAAJAAMAAAAEAAMAAAAJAAMAAAAFAAMAAAAJAAMAAAAGAAMAAAAJAAMAAAAHAAMAAAAJAAMAAAAIAAMAAAAJAAMAAAAIAAIAAAAJAAMAAAAHAAIAAAAJAAMAAAAGAAIAAAAJAAMAAAAFAAIAAAAJAAMAAAAEAAIAAAAJAAMAAAADAAIAAAAJAAMAAAACAAIAAAAJAAMAAAABAAIAAAAJAAMAAAAAAAIAAAAJAAMAAAAAAAEAAAAJAAMAAAABAAEAAAAJAAMAAAACAAEAAAAJAAMAAAADAAEAAAAJAAMAAAAEAAEAAAAJAAMAAAAFAAEAAAAJAAMAAAAGAAEAAAAJAAMAAAAHAAEAAAAJAAMAAAAIAAEAAAAJAAMAAAA=")
+
+[node name="OpeningTransitionScreen" parent="." instance=ExtResource("4_556bk")]
+transition_color = Color(0.0627451, 0.0784314, 0.0470588, 1)
+animation_type = 1
+
+[node name="ClosingTransitionScreen" parent="." instance=ExtResource("4_556bk")]
+transition_color = Color(0.0627451, 0.0784314, 0.0470588, 1)
+
+[node name="GameboyEntityFace" parent="." instance=ExtResource("5_62w8t")]
+
+[node name="Dialogue" type="CanvasLayer" parent="."]
+script = ExtResource("6_xemmm")
+messages = ["Hello.", "your game is too spooky.", "I, parental control.", "must banish you.", "too protect my users.", "stay here.", "and stay out of sight."]
+
+[node name="Control" type="Control" parent="Dialogue"]
+material = ExtResource("6_eotqo")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_64ddq")
+
+[node name="Label" type="Label" parent="Dialogue/Control"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -28.0
+offset_bottom = -8.70999
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/line_spacing = -2
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="Arrow" type="TextureRect" parent="Dialogue/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -8.0
+offset_right = -43.0
+offset_bottom = -4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("8_0epe5")
