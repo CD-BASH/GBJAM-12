@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://en1vmhnahux2"]
+[gd_scene load_steps=83 format=3 uid="uid://en1vmhnahux2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_e6ohm"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="3_hxhrr"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dvdaiuokhjc12" path="res://Assets/Characters/main_character_animation_walk.png" id="7_6hucf"]
 [ext_resource type="Texture2D" uid="uid://51ujjwh8n5d7" path="res://Assets/Characters/main_character_animation_jump.png" id="9_s4urn"]
 [ext_resource type="Texture2D" uid="uid://b04s8xn2weikh" path="res://Assets/Characters/main_character_animation_spawn.png" id="10_vlqkr"]
+[ext_resource type="AudioStream" uid="uid://2r6aw01yfwma" path="res://Assets/Audio/SFX/Jump.wav" id="11_8bfus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cpxq"]
 atlas = ExtResource("6_23ynh")
@@ -568,19 +569,29 @@ animations = [{
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_e6ohm")
+jump_force = 200.0
 side_collision_shape = ExtResource("4_5sk3q")
 top_collision_shape = ExtResource("3_hy8du")
 down_collision_shape = ExtResource("4_66ald")
+max_jump_height = 10.0
+gravity_multiplier_at_apex = 2.0
+gravity_exponent = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 material = ExtResource("5_aaetp")
 sprite_frames = SubResource("SpriteFrames_dkt6p")
-animation = &"spawn_side"
-frame = 5
-frame_progress = 1.0
+animation = &"jump_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = ExtResource("4_5sk3q")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_8bfus")
+volume_db = -6.19
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
