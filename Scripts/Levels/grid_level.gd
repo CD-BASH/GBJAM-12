@@ -47,7 +47,7 @@ func _ready() -> void:
 	player_index_original = player.z_index
 	set_new_view(starting_view)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	get_player_position_on_grid()
 	
 	if listen_to_player_inputs:
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 			set_new_view(ViewMode.TOP_VIEW)
 		if Input.is_action_just_pressed("b_btn"):
 			set_new_view(ViewMode.SIDE_VIEW)
-		
+	
 	if (player_in_depth_safe_zone && player_in_altitude_safe_zone):
 		player_is_safe = true
 		print("PLAYER IS SAFE")

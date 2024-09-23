@@ -21,14 +21,6 @@ func _process(delta):
 		if current_rotation.is_equal_approx(target_rotation):
 			is_rotating = false
 
-func _input(event):
-	if Input.is_action_just_pressed("a_btn"):
-		pass
-		##RotateUp()
-	if Input.is_action_just_pressed("b_btn"):
-		pass
-		##RotateDown()
-
 func RotateUp ()-> void : 
 	var rotation_90_degrees = Quaternion(Vector3(1, 0, 0), deg_to_rad(90))
 	target_rotation = target_rotation * rotation_90_degrees

@@ -60,7 +60,7 @@ func change_enemy_animation():
 		EnemyChoice.GAMION_TOP:
 			animated_sprite_2d.play("gamion_top")
 	
-func _process(delta):
+func _process(_delta):
 	if raycast_chosen != null and raycast_chosen.is_colliding():
 		#debbugging feature can be erase 
 		print("I SEE YOU!")

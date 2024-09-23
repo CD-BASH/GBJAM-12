@@ -5,7 +5,7 @@
 [ext_resource type="Shape2D" uid="uid://c0rqt6ufncj7d" path="res://Assets/Characters/main_character_top_collision_shape.tres" id="3_hy8du"]
 [ext_resource type="Shape2D" uid="uid://clbvq40o76grm" path="res://Assets/Characters/main_character_side_collision_shape.tres" id="4_5sk3q"]
 [ext_resource type="Shape2D" uid="uid://bcpimkwpk06d" path="res://Assets/Characters/main_character_down_collision_shape.tres" id="4_66ald"]
-[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="5_aaetp"]
+[ext_resource type="Material" path="res://Materials/palette_grid_levels.tres" id="5_aaetp"]
 [ext_resource type="Texture2D" uid="uid://dikn51ypr1api" path="res://Assets/Characters/main_character_animation_death.png" id="6_23ynh"]
 [ext_resource type="Texture2D" uid="uid://dvdaiuokhjc12" path="res://Assets/Characters/main_character_animation_walk.png" id="7_6hucf"]
 [ext_resource type="Texture2D" uid="uid://51ujjwh8n5d7" path="res://Assets/Characters/main_character_animation_jump.png" id="9_s4urn"]

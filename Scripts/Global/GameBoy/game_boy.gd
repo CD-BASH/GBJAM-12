@@ -1,5 +1,4 @@
 extends Node2D
-
 signal first_flash
 signal second_flash
 signal final_flash
@@ -28,7 +27,7 @@ func _ready():
 	game_boy_start.emit()
 	sound_array = [first_clic, second_clic, final_clic]
 	#Calculate total time that the game designer wants and dividing it into the amount of segment(sounds count)
-	wait_time = total_time / sound_array.size()
+	wait_time = total_time / sound_array.size() 
 	timer_handler()
 
 func _on_timer_timeout():

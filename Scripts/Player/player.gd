@@ -94,7 +94,7 @@ func side_view_movement(delta) -> void:
 	move_and_slide()
  
 
-func top_down_view_movement(delta, top_view: bool) -> void:
+func top_down_view_movement(_delta, top_view: bool) -> void:
 	var horizontal_direction = 0.0
 	var vertical_direction = 0.0
 	

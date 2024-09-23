@@ -12,6 +12,7 @@ render_priority = 0
 shader = ExtResource("3_eu7xj")
 
 [sub_resource type="QuadMesh" id="QuadMesh_ocly2"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_vpnfv")
 size = Vector2(1.11, 1)
 
@@ -21,6 +22,7 @@ render_priority = 0
 shader = ExtResource("3_eu7xj")
 
 [sub_resource type="QuadMesh" id="QuadMesh_fpmlr"]
+resource_local_to_scene = true
 material = SubResource("ShaderMaterial_yid2r")
 size = Vector2(1.11, 1)
 
@@ -41,6 +43,8 @@ main_game = NodePath("MainGame")
 [node name="MainGame" type="Marker2D" parent="."]
 
 [node name="GridLevel_1-1" parent="MainGame" instance=ExtResource("2_ph060")]
+
+[node name="test" type="Marker2D" parent="."]
 
 [node name="container" type="SubViewportContainer" parent="."]
 clip_contents = true

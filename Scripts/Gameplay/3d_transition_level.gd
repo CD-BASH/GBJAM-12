@@ -20,12 +20,21 @@ func _ready():
 	print_debug(bool(child_game.starting_view))
 	SetMainGameHiarachyStart()
 
-func _process(delta):
-	if Input.is_action_just_pressed("a_btn") and is_up == false and transition_animation_done == true:
-		ChangeTextureViewportUP()
+func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("test_button"):
+		print_debug("pressed t")
+		main_game.set_visible(false) 
 
-	if Input.is_action_just_pressed("b_btn") and is_up == true and transition_animation_done == true:
-		ChangeTextureViewportDown()
+
+	"""	
+	if child_game.listen_to_player_inputs:
+		if Input.is_action_just_pressed("a_btn") and is_up == false and transition_animation_done == true:
+			ChangeTextureViewportUP()
+
+		if Input.is_action_just_pressed("b_btn") and is_up == true and transition_animation_done == true:
+			ChangeTextureViewportDown()
+	"""	
 
 func ChangeTextureViewportUP() -> void : 
 		TimerStart()
@@ -73,4 +82,4 @@ func SetMainGameHiarachyStart() -> void :
 
 func _on_timer_timeout():
 	transition_animation_done = true
-	SetMainGameHiarachyStart()
+	main_game.reparent(self)
