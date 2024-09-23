@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=4 uid="uid://cs0ung6ycj00b"]
+
+[ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="1_61vd0"]
+[ext_resource type="PackedScene" uid="uid://34288j0numi1" path="res://Scenes/Environment/fake_platformer_tileset.tscn" id="2_im84l"]
+[ext_resource type="Script" path="res://Scenes/Levels/main_menu.gd" id="2_jagxa"]
+[ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="3_hsy5s"]
+[ext_resource type="PackedScene" uid="uid://ca6mt5f3l8nrl" path="res://Scenes/Levels/fake_platformer.tscn" id="3_wmar8"]
+[ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="4_ik146"]
+[ext_resource type="AudioStream" uid="uid://rsb4lrbp147i" path="res://Assets/Audio/Music/SpookyTown.mp3" id="7_6o1ul"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwev1"]
+atlas = ExtResource("4_ik146")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_830gu"]
+atlas = ExtResource("4_ik146")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fp8u"]
+atlas = ExtResource("4_ik146")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73txk"]
+atlas = ExtResource("4_ik146")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7q4j2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwev1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_830gu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3fp8u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73txk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_61vd0")
+script = ExtResource("2_jagxa")
+next_scene = ExtResource("3_wmar8")
+
+[node name="FakePlatformer_Tileset" parent="." instance=ExtResource("2_im84l")]
+z_index = 50
+tile_map_data = PackedByteArray("AAAAAAYAAAAGAAEAAAAAAAcAAAAFAAMAAAAAAAgAAAAGAAIAAAABAAYAAAAHAAEAAAABAAcAAAAGAAIAAAACAAcAAAAGAAEAAAACAAgAAAAGAAIAAAADAAcAAAAGAAEAAAADAAgAAAAGAAIAAAAEAAcAAAAGAAEAAAAEAAgAAAAGAAIAAAAFAAcAAAAGAAEAAAAFAAgAAAAGAAMAAAAGAAcAAAAGAAEAAAAGAAgAAAAGAAIAAAAHAAcAAAAGAAEAAAAHAAgAAAAGAAIAAAAIAAYAAAAFAAEAAAAIAAcAAAAGAAIAAAAIAAgAAAAGAAIAAAAJAAYAAAAGAAEAAAAJAAcAAAAHAAIAAAAJAAgAAAAHAAMAAAABAAgAAAAFAAIAAAACAAYAAAAFAAAAAAAEAAYAAAAGAAAAAAADAAYAAAANAAIAAAAGAAYAAAANAAIAAAAFAAYAAAAJAAAAAAAJAAUAAAAJAAAAAAAIAAUAAAAKAAAAAAAHAAYAAAAJAAAAAAABAAUAAAAGAAAAAAAAAAUAAAAFAAAAAAAGAAUAAAANAAEAAAADAAUAAAANAAEAAAA=")
+
+[node name="FakePlatformer_Background" parent="." instance=ExtResource("2_im84l")]
+z_index = -50
+tile_map_data = PackedByteArray("AAAAAAEAAAABAAMAAAAAAAAAAAACAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAAFAAAAAAACAAIAAAAGAAAAAAACAAIAAAAHAAAAAAACAAIAAAAIAAAAAAABAAMAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAJAAAAAAACAAIAAAAJAAIAAAADAAIAAAAJAAMAAAACAAIAAAAJAAQAAAACAAIAAAAAAAQAAAACAAIAAAAAAAMAAAABAAIAAAAAAAIAAAACAAIAAAABAAIAAAACAAIAAAABAAEAAAABAAEAAAABAAMAAAACAAIAAAABAAQAAAACAAIAAAAIAAQAAAABAAEAAAAHAAQAAAACAAIAAAAGAAQAAAACAAIAAAAFAAQAAAACAAIAAAAEAAQAAAABAAMAAAADAAQAAAACAAIAAAACAAQAAAACAAIAAAACAAMAAAABAAEAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAADAAEAAAACAAIAAAACAAEAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAAFAAMAAAACAAIAAAAGAAMAAAABAAMAAAAHAAMAAAACAAIAAAAIAAMAAAACAAIAAAAIAAIAAAACAAIAAAAHAAEAAAACAAIAAAAHAAIAAAACAAIAAAAGAAIAAAACAAIAAAAFAAIAAAACAAIAAAAEAAIAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAGAAEAAAACAAIAAAAAAAgAAAACAAIAAAABAAYAAAACAAIAAAABAAcAAAACAAIAAAABAAgAAAACAAIAAAACAAYAAAACAAIAAAACAAcAAAACAAIAAAACAAgAAAACAAIAAAADAAYAAAACAAIAAAADAAcAAAACAAIAAAADAAgAAAACAAIAAAAEAAYAAAACAAIAAAAEAAcAAAACAAIAAAAEAAgAAAACAAIAAAAFAAYAAAACAAIAAAAFAAcAAAACAAIAAAAFAAgAAAACAAIAAAAGAAYAAAACAAIAAAAGAAcAAAACAAIAAAAGAAgAAAACAAIAAAAHAAYAAAACAAIAAAAHAAcAAAACAAIAAAAHAAgAAAACAAIAAAAIAAYAAAACAAIAAAAIAAcAAAACAAIAAAAIAAgAAAACAAIAAAAJAAYAAAACAAIAAAAJAAcAAAACAAIAAAAJAAgAAAACAAIAAAAAAAUAAAACAAIAAAAAAAcAAAACAAIAAAABAAUAAAACAAIAAAACAAUAAAADAAIAAAADAAUAAAACAAIAAAAEAAUAAAACAAIAAAAFAAUAAAACAAIAAAAGAAUAAAABAAIAAAAHAAUAAAACAAIAAAAIAAUAAAACAAIAAAAJAAUAAAACAAIAAAA=")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 46.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.811765, 0.670588, 0.317647, 1)
+theme_override_font_sizes/font_size = 16
+text = "Pumpy's "
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 34.0
+offset_right = 147.0
+offset_bottom = 49.0
+text = "Spooky Worlds"
+
+[node name="Label_start" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -16.0
+offset_right = -32.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.301961, 0.133333, 0.172549, 1)
+theme_override_constants/line_spacing = -1
+theme_override_font_sizes/font_size = 8
+text = "press start to play"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("3_hsy5s")
+position = Vector2(22, 88)
+sprite_frames = SubResource("SpriteFrames_7q4j2")
+autoplay = "default"
+frame_progress = 0.118547
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_6o1ul")
+autoplay = true

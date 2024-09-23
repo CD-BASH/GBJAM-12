@@ -11,3 +11,9 @@ func idle_left() -> void:
 
 func speak_left() -> void:
 	self.play("speak_left")
+
+func search() -> void: 
+	self.play("search")
+
+func found() -> void: 
+	self.play("found")

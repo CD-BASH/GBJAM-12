@@ -1,16 +1,17 @@
-[gd_scene load_steps=83 format=3 uid="uid://en1vmhnahux2"]
+[gd_scene load_steps=84 format=3 uid="uid://en1vmhnahux2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_e6ohm"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="3_hxhrr"]
 [ext_resource type="Shape2D" uid="uid://c0rqt6ufncj7d" path="res://Assets/Characters/main_character_top_collision_shape.tres" id="3_hy8du"]
 [ext_resource type="Shape2D" uid="uid://clbvq40o76grm" path="res://Assets/Characters/main_character_side_collision_shape.tres" id="4_5sk3q"]
 [ext_resource type="Shape2D" uid="uid://bcpimkwpk06d" path="res://Assets/Characters/main_character_down_collision_shape.tres" id="4_66ald"]
-[ext_resource type="Material" path="res://Materials/palette_grid_levels.tres" id="5_aaetp"]
+[ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="5_aaetp"]
 [ext_resource type="Texture2D" uid="uid://dikn51ypr1api" path="res://Assets/Characters/main_character_animation_death.png" id="6_23ynh"]
 [ext_resource type="Texture2D" uid="uid://dvdaiuokhjc12" path="res://Assets/Characters/main_character_animation_walk.png" id="7_6hucf"]
 [ext_resource type="Texture2D" uid="uid://51ujjwh8n5d7" path="res://Assets/Characters/main_character_animation_jump.png" id="9_s4urn"]
 [ext_resource type="Texture2D" uid="uid://b04s8xn2weikh" path="res://Assets/Characters/main_character_animation_spawn.png" id="10_vlqkr"]
 [ext_resource type="AudioStream" uid="uid://2r6aw01yfwma" path="res://Assets/Audio/SFX/Jump.wav" id="11_8bfus"]
+[ext_resource type="AudioStream" uid="uid://chros0s1id348" path="res://Assets/Audio/SFX/SpawnDeath.wav" id="12_pqn4d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cpxq"]
 atlas = ExtResource("6_23ynh")
@@ -345,7 +346,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death_side",
-"speed": 10.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -383,7 +384,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"death_top",
-"speed": 5.0
+"speed": 18.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -581,7 +582,8 @@ gravity_exponent = 5.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_dkt6p")
-animation = &"jump_down"
+animation = &"death_top"
+frame_progress = 0.0392317
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -593,6 +595,10 @@ one_shot = true
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_8bfus")
+volume_db = -6.19
+
+[node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_pqn4d")
 volume_db = -6.19
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

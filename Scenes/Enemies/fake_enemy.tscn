@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://dfrea1cmc4qfj"]
+[gd_scene load_steps=20 format=3 uid="uid://dfrea1cmc4qfj"]
 
 [ext_resource type="Texture2D" uid="uid://cmixdpcguoa4g" path="res://Assets/Enemies/fake_enemy.png" id="1_es2jk"]
 [ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="1_leuxu"]
 [ext_resource type="Script" path="res://Scripts/Enemies/fake_enemy.gd" id="1_m1e0n"]
+[ext_resource type="AudioStream" uid="uid://beilk8ap3h47m" path="res://Assets/Audio/SFX/Death.mp3" id="4_xvbgw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xy35e"]
 atlas = ExtResource("1_es2jk")
@@ -123,5 +124,8 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_f0wpx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xvbgw")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

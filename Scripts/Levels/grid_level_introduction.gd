@@ -2,7 +2,6 @@ extends Node2D
 
 @export var next_scene_to_load: PackedScene = null
 
-@onready var player: Player = $Player
 @onready var opening_transition_screen: CanvasLayer = $OpeningTransitionScreen
 @onready var closing_transition_screen: CanvasLayer = $ClosingTransitionScreen
 @onready var gameboy_entity_face: AnimatedSprite2D = $GameboyEntityFace
@@ -11,7 +10,6 @@ extends Node2D
 var started_second_sequence = false
 
 func _ready() -> void:
-	player.can_move = false
 	opening_transition_screen.play_transition_screen()
 	gameboy_entity_face.idle()
 	first_sequence()

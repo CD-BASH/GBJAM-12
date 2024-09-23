@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bmk5c7p7binxt" path="res://Scenes/Levels/Components/grid_level_template.tscn" id="1_t5x2c"]
 [ext_resource type="PackedScene" uid="uid://0fcpdwcca7m0" path="res://Scenes/Levels/GridLevels_1/SideViews/side_view_1_9.tscn" id="2_a5wjt"]
-[ext_resource type="PackedScene" uid="uid://bmic6bbwrrq04" path="res://Scenes/Levels/GridLevels_1/grid_level_1_10.tscn" id="2_tyvqa"]
+[ext_resource type="PackedScene" uid="uid://bp5s5egam2y1d" path="res://Scenes/Levels/GridLevels_2/grid_level_2_1.tscn" id="2_q7tmf"]
 [ext_resource type="PackedScene" uid="uid://7irngwcnqvcn" path="res://Scenes/Levels/GridLevels_1/TopViews/top_view_1_9.tscn" id="3_2j3rv"]
 
 [node name="GridLevel_1-9" node_paths=PackedStringArray("side_view", "top_view") instance=ExtResource("1_t5x2c")]
-next_level_scene = ExtResource("2_tyvqa")
+next_level_scene = ExtResource("2_q7tmf")
 side_view = NodePath("SideView_1-9")
 top_view = NodePath("TopView_1-9")
 ground_level = 8.0

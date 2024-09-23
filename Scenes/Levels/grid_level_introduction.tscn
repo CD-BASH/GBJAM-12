@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=4 uid="uid://01apfh5bl6gd"]
+[gd_scene load_steps=20 format=4 uid="uid://01apfh5bl6gd"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level_introduction.gd" id="2_ax8hp"]
 [ext_resource type="PackedScene" uid="uid://rssru0311xa3" path="res://Scenes/Levels/tutorial_level.tscn" id="2_gvpes"]
-[ext_resource type="PackedScene" uid="uid://en1vmhnahux2" path="res://Scenes/Player/player.tscn" id="2_wbmnr"]
 [ext_resource type="PackedScene" uid="uid://c5tohbairhbsp" path="res://Scenes/Environment/side_view_tileset.tscn" id="3_3jnl3"]
 [ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="4_556bk"]
 [ext_resource type="PackedScene" uid="uid://7e3ky3n0yicq" path="res://Scenes/Entity/gameboy_entity_face.tscn" id="5_62w8t"]
@@ -10,6 +9,9 @@
 [ext_resource type="Script" path="res://Scenes/UI/dialogue.gd" id="6_xemmm"]
 [ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="7_64ddq"]
 [ext_resource type="Texture2D" uid="uid://f34u21vw68c4" path="res://Assets/UI/next_arrow.png" id="8_0epe5"]
+[ext_resource type="AudioStream" uid="uid://djtkhtsowgpex" path="res://Assets/Audio/Music/QuestionMark.mp3" id="11_whbcv"]
+[ext_resource type="AudioStream" uid="uid://dsex8krkv1jdy" path="res://Assets/Audio/Music/AmbienceloopDark.mp3" id="12_fx3k2"]
+[ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="12_iaafk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l075t"]
 size = Vector2(16, 176)
@@ -17,13 +19,45 @@ size = Vector2(16, 176)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmyv"]
 size = Vector2(192, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk7nb"]
+atlas = ExtResource("12_iaafk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qpv3"]
+atlas = ExtResource("12_iaafk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ei35"]
+atlas = ExtResource("12_iaafk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctuwy"]
+atlas = ExtResource("12_iaafk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q5ajq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk7nb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qpv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ei35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ctuwy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="GridLevel_Introduction" type="Node2D" groups=["grid_level"]]
 script = ExtResource("2_ax8hp")
 next_scene_to_load = ExtResource("2_gvpes")
-
-[node name="Player" parent="." instance=ExtResource("2_wbmnr")]
-position = Vector2(40, 120)
-player_control_type = 1
 
 [node name="EdgeColliders" type="StaticBody2D" parent="."]
 
@@ -65,7 +99,7 @@ transition_color = Color(0.0627451, 0.0784314, 0.0470588, 1)
 
 [node name="Dialogue" type="CanvasLayer" parent="."]
 script = ExtResource("6_xemmm")
-messages = ["Hello.", "your game is too spooky.", "I, parental control.", "must banish you.", "too protect my users.", "stay here.", "and stay out of sight."]
+messages = ["Hello.", "your game is too spooky.", "I, parental control.", "must banish you.", "to protect my users.", "stay here.", "and stay out of sight.", "i'll keep an eye on you."]
 
 [node name="Control" type="Control" parent="Dialogue"]
 material = ExtResource("6_eotqo")
@@ -93,7 +127,7 @@ grow_vertical = 0
 theme_override_constants/line_spacing = -2
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
+autowrap_mode = 2
 
 [node name="Arrow" type="TextureRect" parent="Dialogue/Control"]
 visible = false
@@ -110,3 +144,16 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("8_0epe5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_whbcv")
+autoplay = true
+
+[node name="AudioStreamPlayer_Ambiant" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_fx3k2")
+autoplay = true
+
+[node name="Player" type="AnimatedSprite2D" parent="."]
+material = ExtResource("6_eotqo")
+position = Vector2(40, 120)
+sprite_frames = SubResource("SpriteFrames_q5ajq")

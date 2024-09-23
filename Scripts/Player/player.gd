@@ -25,6 +25,8 @@ class_name Player
 
 ## sounds 
 @onready var jump_sound = $Jump
+@onready var spawn_sound: AudioStreamPlayer2D = $SpawnSound
+
 
 var can_move := true
 var is_spawn = false
@@ -58,6 +60,7 @@ func _physics_process(delta: float) -> void:
 				collision_shape_2d.shape = down_collision_shape
 
 func spawn():
+	spawn_sound.play()
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:
 			animated_sprite_2d.play("spawn_side")
