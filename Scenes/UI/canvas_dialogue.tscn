@@ -8,6 +8,7 @@
 
 [node name="canvas_dialogue" type="CanvasLayer"]
 script = ExtResource("1_yuwdm")
+text_dialogue = ["Hello", "BYE", "WOW", "AMAZING"]
 
 [node name="back_ground_text_image" type="TextureRect" parent="."]
 offset_top = 94.0

@@ -15,6 +15,8 @@ extends Node2D
 #@export var gameboy_off := true
 
 @onready var player: CharacterBody2D = $Player
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var gameboy_entity_face: AnimatedSprite2D = $GameboyEntityFace
 
 var cell_size := 16.0
 var current_view: ViewMode
@@ -40,6 +42,7 @@ enum ViewMode
 }
 	
 func _ready() -> void:
+	gameboy_entity_face.visible = false
 	initialize_gameboy_entity()
 	get_player_position_on_grid()
 	player_altitude = starting_altitude
@@ -137,6 +140,7 @@ func reset_safe_zone_states():
 
 #region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
+	audio_stream_player.stop()
 	set_new_view(flash_view)
 	if !gameboy_entity.is_boss_level:
 		if player_is_safe: level_completed()
@@ -145,11 +149,15 @@ func _on_gameboy_entity_final_flash() -> void:
 		if player_is_safe:
 			gameboy_entity._ready()
 			gameboy_entity.num_clics = 0
+			await get_tree().create_timer(1.0).timeout
+			audio_stream_player.play()
 		else:
 			level_failed() 
 		
 		
 func level_completed() -> void:
+	gameboy_entity_face.visible = true
+	gameboy_entity_face.search()
 	listen_to_player_inputs = false
 	player.can_move = false
 	print("Well Done!")
@@ -160,6 +168,8 @@ func level_completed() -> void:
 		get_tree().quit()
 
 func level_failed() -> void:
+	gameboy_entity_face.visible = true
+	gameboy_entity_face.found()
 	listen_to_player_inputs = false
 	player.can_move = false
 	player.death()

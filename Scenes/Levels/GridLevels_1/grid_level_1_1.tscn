@@ -13,3 +13,4 @@ top_view = NodePath("TopView_1-1")
 [node name="SideView_1-1" parent="." index="1" instance=ExtResource("2_rpql5")]
 
 [node name="TopView_1-1" parent="." index="2" instance=ExtResource("3_lk02r")]
+visible = false

@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://0fcpdwcca7m0"]
+[gd_scene load_steps=6 format=4 uid="uid://0fcpdwcca7m0"]
 
 [ext_resource type="PackedScene" uid="uid://dvrps6603n0lc" path="res://Scenes/Levels/Components/side_view_template.tscn" id="1_q5anc"]
 [ext_resource type="PackedScene" uid="uid://cya74lrpmvd7" path="res://Scenes/Levels/Components/detection_area.tscn" id="2_o1cdy"]
-[ext_resource type="PackedScene" uid="uid://c1atiatmntqtd" path="res://Scenes/Enemies/gamion_turret.tscn" id="3_ci7sd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lf8bw"]
 size = Vector2(16, 8)
@@ -73,11 +72,3 @@ debug_color = Color(0.676107, 0.676107, 0.676107, 0.42)
 [node name="CollisionShape2D" parent="SafeZoneAreas/SafeZoneAltitude_DetectionArea_1" index="0"]
 position = Vector2(152, 32)
 shape = SubResource("RectangleShape2D_7nejx")
-
-[node name="Enemie_turret" parent="." index="6" instance=ExtResource("3_ci7sd")]
-position = Vector2(104, 55)
-angle = 270
-
-[node name="Enemie_turret2" parent="." index="7" instance=ExtResource("3_ci7sd")]
-position = Vector2(72, 88)
-angle = 270

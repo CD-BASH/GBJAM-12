@@ -11,7 +11,7 @@ var is_typing = false
 var is_changing_msg = false
 
 #array of different texte message that you want to be 
-var text_dialogue = []
+@export var text_dialogue = []
 var current_char_index = 0
 
 #Speed for the letter to be showed
@@ -22,7 +22,7 @@ var transition_time = 1
 
 
 func _ready():
-	text_dialogue = []
+
 	transition_timer.wait_time = transition_time
 	letter_timer.stop()
 	transition_timer.stop()

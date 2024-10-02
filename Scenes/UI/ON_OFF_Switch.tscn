@@ -39,6 +39,7 @@ script = ExtResource("1_osklk")
 shape = SubResource("RectangleShape2D_3n15w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = ExtResource("1_lrkmc")
 sprite_frames = SubResource("SpriteFrames_13xrk")
 animation = &"Change"
 frame_progress = 0.653094
