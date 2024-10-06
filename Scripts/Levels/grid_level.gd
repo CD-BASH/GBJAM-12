@@ -15,11 +15,13 @@ extends Node2D
 #@export var gameboy_off := true
 
 @onready var player: CharacterBody2D = $Player
+@onready var view_transition: CanvasLayer = $ViewTransition
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var gameboy_entity_face: AnimatedSprite2D = $GameboyEntityFace
 
 var cell_size := 16.0
 var current_view: ViewMode
+var next_view: ViewMode
 var listen_to_player_inputs := true
 var wait_time_after_flash := 2.0
 
@@ -52,12 +54,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	get_player_position_on_grid()
-	
+	 
 	if listen_to_player_inputs:
 		if Input.is_action_just_pressed("a_btn"):
-			set_new_view(ViewMode.TOP_VIEW)
+			next_view = ViewMode.TOP_VIEW
+			if next_view != current_view:
+				view_transition.top_view_transition()
 		if Input.is_action_just_pressed("b_btn"):
-			set_new_view(ViewMode.SIDE_VIEW)
+			next_view = ViewMode.SIDE_VIEW
+			if next_view != current_view:
+				view_transition.side_view_transition()
 		
 	if (player_in_depth_safe_zone && player_in_altitude_safe_zone):
 		player_is_safe = true
@@ -90,6 +96,9 @@ func set_new_view(view: ViewMode) -> void:
 				new_player_position(player_depth)
 	player.player_control_type = view
 	current_view = view
+
+func _on_view_transition_switch_view() -> void:
+	set_new_view(next_view)
 #endregion
 
 
@@ -141,6 +150,7 @@ func reset_safe_zone_states():
 #region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
 	audio_stream_player.stop()
+	view_transition.visible = false
 	set_new_view(flash_view)
 	if !gameboy_entity.is_boss_level:
 		if player_is_safe: level_completed()
