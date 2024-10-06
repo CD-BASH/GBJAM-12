@@ -16,7 +16,6 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $Player
 @onready var view_transition: CanvasLayer = $ViewTransition
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var gameboy_entity_face: AnimatedSprite2D = $GameboyEntityFace
 
 var cell_size := 16.0
@@ -51,6 +50,7 @@ func _ready() -> void:
 	player_depth = starting_depth
 	player_index_original = player.z_index
 	set_new_view(starting_view)
+	MusicPlayer.resume()
 
 func _process(delta: float) -> void:
 	get_player_position_on_grid()
@@ -149,7 +149,7 @@ func reset_safe_zone_states():
 
 #region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
-	audio_stream_player.stop()
+	#MusicPlayer.pause()
 	view_transition.visible = false
 	set_new_view(flash_view)
 	if !gameboy_entity.is_boss_level:
@@ -160,7 +160,7 @@ func _on_gameboy_entity_final_flash() -> void:
 			gameboy_entity._ready()
 			gameboy_entity.num_clics = 0
 			await get_tree().create_timer(1.0).timeout
-			audio_stream_player.play()
+			MusicPlayer.resume()
 		else:
 			level_failed() 
 		
