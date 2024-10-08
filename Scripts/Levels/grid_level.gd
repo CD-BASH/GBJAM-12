@@ -15,8 +15,6 @@ extends Node2D
 @export var switch_music: bool
 ## Takes an index from the music player track selection.
 @export var music_track: int
-#need to be turn to false on the levels with switch. 2 for Grid Music, 3 for the glitched version.
-#@export var gameboy_off := true
 
 @onready var player: CharacterBody2D = $Player
 @onready var view_transition: CanvasLayer = $ViewTransition
@@ -38,13 +36,12 @@ var player_in_altitude_safe_zone := true
 var player_is_safe := false
 var gameboy_entity
 
-
 enum ViewMode
 {
 	SIDE_VIEW,
 	TOP_VIEW,
-	DOWN_VIEW
 }
+
 	
 func _ready() -> void:
 	gameboy_entity_face.visible = false
@@ -139,12 +136,10 @@ func track_safe_zone_depth(state: bool) -> void:
 	if current_view != ViewMode.TOP_VIEW: return
 	player_in_depth_safe_zone = state
 	player.z_index = player_index_behind_platforms
-	print("player depth safe " + str(state))
 
 func track_safe_zone_altitude(state: bool) -> void:
 	if current_view != ViewMode.SIDE_VIEW: return
 	player_in_altitude_safe_zone = state
-	print("player altitude safe " + str(state))
 	if !state: reset_safe_zone_states()
 
 func reset_safe_zone_states():
@@ -158,19 +153,9 @@ func _on_gameboy_entity_final_flash() -> void:
 	MusicPlayer.pause_grid_music()
 	view_transition.visible = false
 	set_new_view(flash_view)
-	if !gameboy_entity.is_boss_level:
-		if player_is_safe: level_completed()
-		else: level_failed()
-	else:
-		if player_is_safe:
-			gameboy_entity._ready()
-			gameboy_entity.num_clics = 0
-			await get_tree().create_timer(1.0).timeout
-			MusicPlayer.resume_grid_music()
-		else:
-			level_failed() 
-		
-		
+	if player_is_safe: level_completed()
+	else: level_failed()
+
 func level_completed() -> void:
 	gameboy_entity_face.visible = true
 	gameboy_entity_face.search()

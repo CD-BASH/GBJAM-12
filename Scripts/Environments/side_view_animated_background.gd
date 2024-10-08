@@ -24,6 +24,7 @@ var scroll_speed
 var scroll_direction
 var bg_texture
 
+
 func _enter_tree() -> void:
 	gameboy_entity = get_tree().get_first_node_in_group("gameboy_entity")
 	if gameboy_entity != null:
@@ -32,12 +33,10 @@ func _enter_tree() -> void:
 		gameboy_entity.final_flash.connect(final_flash_effect)
 		gameboy_entity.game_boy_start.connect(_ready)
 
-
 func _ready() -> void:
 	scroll_speed = starting_scroll_speed
 	scroll_direction = starting_scroll_direction
 	sprite.texture = starting_bg_texture
-
 
 func _process(delta):
 	sprite.region_rect.position += delta * scroll_direction * scroll_speed

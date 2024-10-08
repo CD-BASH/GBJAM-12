@@ -21,7 +21,6 @@ func _enter_tree() -> void:
 		gameboy_entity.final_flash.connect(final_flash_effect)
 		gameboy_entity.game_boy_start.connect(_ready)
 
-
 func _ready() -> void:
 	sprite.texture = starting_bg_texture
 

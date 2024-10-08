@@ -6,6 +6,7 @@ extends Control
 
 var blink = true
 
+
 func _ready() -> void:
 	MusicPlayer.select_track(0)
 	MusicPlayer.play()
@@ -16,6 +17,7 @@ func _process(delta: float) -> void:
 	
 	if blink:
 		blink_start()
+
 
 func blink_start():
 	blink = false
