@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="1_61vd0"]
 [ext_resource type="PackedScene" uid="uid://34288j0numi1" path="res://Scenes/Environment/fake_platformer_tileset.tscn" id="2_im84l"]
-[ext_resource type="Script" path="res://Scenes/Levels/main_menu.gd" id="2_jagxa"]
+[ext_resource type="Script" path="res://Scripts/Levels/main_menu.gd" id="2_jagxa"]
 [ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="3_hsy5s"]
 [ext_resource type="PackedScene" uid="uid://ca6mt5f3l8nrl" path="res://Scenes/Levels/fake_platformer.tscn" id="3_wmar8"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="4_ik146"]
