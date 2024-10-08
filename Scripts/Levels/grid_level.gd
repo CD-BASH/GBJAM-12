@@ -11,7 +11,11 @@ extends Node2D
 @export_range(0, 9, 0.5) var starting_altitude := 7.5
 @export_range(0, 9, 0.5) var starting_depth := 7.5
 @export_range(0, 9, 0.5) var ground_level := 7.5
-#need to be turn to false on the levels with switch
+@export_category("Music")
+@export var switch_music: bool
+## Takes an index from the music player track selection.
+@export var music_track: int
+#need to be turn to false on the levels with switch. 2 for Grid Music, 3 for the glitched version.
 #@export var gameboy_off := true
 
 @onready var player: CharacterBody2D = $Player
@@ -50,7 +54,9 @@ func _ready() -> void:
 	player_depth = starting_depth
 	player_index_original = player.z_index
 	set_new_view(starting_view)
-	MusicPlayer.resume()
+	if switch_music:
+		MusicPlayer.select_track(music_track)
+	MusicPlayer.resume_grid_music()
 
 func _process(delta: float) -> void:
 	get_player_position_on_grid()
@@ -149,7 +155,7 @@ func reset_safe_zone_states():
 
 #region End Level Sequences
 func _on_gameboy_entity_final_flash() -> void:
-	#MusicPlayer.pause()
+	MusicPlayer.pause_grid_music()
 	view_transition.visible = false
 	set_new_view(flash_view)
 	if !gameboy_entity.is_boss_level:
@@ -160,7 +166,7 @@ func _on_gameboy_entity_final_flash() -> void:
 			gameboy_entity._ready()
 			gameboy_entity.num_clics = 0
 			await get_tree().create_timer(1.0).timeout
-			MusicPlayer.resume()
+			MusicPlayer.resume_grid_music()
 		else:
 			level_failed() 
 		

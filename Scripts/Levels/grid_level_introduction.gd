@@ -10,6 +10,8 @@ extends Node2D
 var started_second_sequence = false
 
 func _ready() -> void:
+	MusicPlayer.select_track(4)
+	MusicPlayer.play()
 	opening_transition_screen.play_transition_screen()
 	gameboy_entity_face.idle()
 	first_sequence()
@@ -33,3 +35,4 @@ func second_sequence() -> void:
 	closing_transition_screen.play_transition_screen()
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_packed(next_scene_to_load)
+	MusicPlayer.stop()

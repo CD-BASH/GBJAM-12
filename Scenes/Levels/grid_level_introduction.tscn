@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://01apfh5bl6gd"]
+[gd_scene load_steps=19 format=4 uid="uid://01apfh5bl6gd"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level_introduction.gd" id="2_ax8hp"]
 [ext_resource type="PackedScene" uid="uid://rssru0311xa3" path="res://Scenes/Levels/tutorial_level.tscn" id="2_gvpes"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Scenes/UI/dialogue.gd" id="6_xemmm"]
 [ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="7_64ddq"]
 [ext_resource type="Texture2D" uid="uid://f34u21vw68c4" path="res://Assets/UI/next_arrow.png" id="8_0epe5"]
-[ext_resource type="AudioStream" uid="uid://djtkhtsowgpex" path="res://Assets/Audio/Music/QuestionMark.mp3" id="11_whbcv"]
 [ext_resource type="AudioStream" uid="uid://dsex8krkv1jdy" path="res://Assets/Audio/Music/AmbienceloopDark.mp3" id="12_fx3k2"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="12_iaafk"]
 
@@ -144,10 +143,6 @@ offset_bottom = -4.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("8_0epe5")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_whbcv")
-autoplay = true
 
 [node name="AudioStreamPlayer_Ambiant" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_fx3k2")

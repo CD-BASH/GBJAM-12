@@ -6,6 +6,10 @@ extends Control
 
 var blink = true
 
+func _ready() -> void:
+	MusicPlayer.select_track(0)
+	MusicPlayer.play()
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("a_btn") or Input.is_action_just_pressed("start_btn") or Input.is_action_just_pressed("select_btn"):
 		get_tree().change_scene_to_packed(next_scene)
