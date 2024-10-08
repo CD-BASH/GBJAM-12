@@ -22,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0627451, 0.0784314, 0.0470588, 1)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="ThankYou_Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 8.0
@@ -33,7 +33,7 @@ text = "Thank you for playing"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="Control"]
+[node name="GameBy_Label" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 40.0
@@ -44,7 +44,8 @@ text = "a game by:"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="Control"]
+[node name="Names_Label" type="Label" parent="Control"]
+material = ExtResource("2_jjyfa")
 layout_mode = 0
 offset_top = 56.0
 offset_right = 160.0

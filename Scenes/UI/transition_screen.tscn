@@ -402,7 +402,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"swipe_content",
-"speed": 15.0
+"speed": 24.0
 }]
 
 [node name="TransitionScreen" type="CanvasLayer"]

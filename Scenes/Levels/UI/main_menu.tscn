@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cs0ung6ycj00b"]
+[gd_scene load_steps=14 format=4 uid="uid://cs0ung6ycj00b"]
 
 [ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="1_61vd0"]
 [ext_resource type="PackedScene" uid="uid://34288j0numi1" path="res://Scenes/Environment/fake_platformer_tileset.tscn" id="2_im84l"]
@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="3_hsy5s"]
 [ext_resource type="PackedScene" uid="uid://ca6mt5f3l8nrl" path="res://Scenes/Levels/fake_platformer.tscn" id="3_wmar8"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="4_ik146"]
+[ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="7_crrpq"]
+[ext_resource type="AudioStream" uid="uid://b5uedcrt5o3q6" path="res://Assets/Audio/SFX/Up.wav" id="8_xka0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwev1"]
 atlas = ExtResource("4_ik146")
@@ -62,7 +64,7 @@ tile_map_data = PackedByteArray("AAAAAAYAAAAGAAEAAAAAAAcAAAAFAAMAAAAAAAgAAAAGAAI
 z_index = -50
 tile_map_data = PackedByteArray("AAAAAAEAAAABAAMAAAAAAAAAAAACAAIAAAABAAAAAAACAAIAAAACAAAAAAACAAIAAAADAAAAAAACAAIAAAAEAAAAAAACAAIAAAAFAAAAAAACAAIAAAAGAAAAAAACAAIAAAAHAAAAAAACAAIAAAAIAAAAAAABAAMAAAAIAAEAAAACAAIAAAAJAAEAAAACAAIAAAAJAAAAAAACAAIAAAAJAAIAAAADAAIAAAAJAAMAAAACAAIAAAAJAAQAAAACAAIAAAAAAAQAAAACAAIAAAAAAAMAAAABAAIAAAAAAAIAAAACAAIAAAABAAIAAAACAAIAAAABAAEAAAABAAEAAAABAAMAAAACAAIAAAABAAQAAAACAAIAAAAIAAQAAAABAAEAAAAHAAQAAAACAAIAAAAGAAQAAAACAAIAAAAFAAQAAAACAAIAAAAEAAQAAAABAAMAAAADAAQAAAACAAIAAAACAAQAAAACAAIAAAACAAMAAAABAAEAAAACAAIAAAACAAIAAAADAAIAAAACAAIAAAADAAEAAAACAAIAAAACAAEAAAACAAIAAAADAAMAAAACAAIAAAAEAAMAAAACAAIAAAAFAAMAAAACAAIAAAAGAAMAAAABAAMAAAAHAAMAAAACAAIAAAAIAAMAAAACAAIAAAAIAAIAAAACAAIAAAAHAAEAAAACAAIAAAAHAAIAAAACAAIAAAAGAAIAAAACAAIAAAAFAAIAAAACAAIAAAAEAAIAAAACAAIAAAAEAAEAAAACAAIAAAAFAAEAAAACAAIAAAAGAAEAAAACAAIAAAAAAAgAAAACAAIAAAABAAYAAAACAAIAAAABAAcAAAACAAIAAAABAAgAAAACAAIAAAACAAYAAAACAAIAAAACAAcAAAACAAIAAAACAAgAAAACAAIAAAADAAYAAAACAAIAAAADAAcAAAACAAIAAAADAAgAAAACAAIAAAAEAAYAAAACAAIAAAAEAAcAAAACAAIAAAAEAAgAAAACAAIAAAAFAAYAAAACAAIAAAAFAAcAAAACAAIAAAAFAAgAAAACAAIAAAAGAAYAAAACAAIAAAAGAAcAAAACAAIAAAAGAAgAAAACAAIAAAAHAAYAAAACAAIAAAAHAAcAAAACAAIAAAAHAAgAAAACAAIAAAAIAAYAAAACAAIAAAAIAAcAAAACAAIAAAAIAAgAAAACAAIAAAAJAAYAAAACAAIAAAAJAAcAAAACAAIAAAAJAAgAAAACAAIAAAAAAAUAAAACAAIAAAAAAAcAAAACAAIAAAABAAUAAAACAAIAAAACAAUAAAADAAIAAAADAAUAAAACAAIAAAAEAAUAAAACAAIAAAAFAAUAAAACAAIAAAAGAAUAAAABAAIAAAAHAAUAAAACAAIAAAAIAAUAAAACAAIAAAAJAAUAAAACAAIAAAA=")
 
-[node name="Label" type="Label" parent="."]
+[node name="Pumpy_Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -77,7 +79,7 @@ theme_override_font_sizes/font_size = 16
 text = "Pumpy's "
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="SubTitle" type="Label" parent="."]
 layout_mode = 0
 offset_left = 47.0
 offset_top = 34.0
@@ -86,7 +88,7 @@ offset_bottom = 49.0
 theme_override_colors/font_color = Color(0.615686, 0.396078, 0.298039, 1)
 text = "Spooky Worlds"
 
-[node name="Label_start" type="Label" parent="."]
+[node name="Start_Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -111,3 +113,10 @@ position = Vector2(22, 88)
 sprite_frames = SubResource("SpriteFrames_7q4j2")
 autoplay = "default"
 frame_progress = 0.118547
+
+[node name="TransitionScreen" parent="." instance=ExtResource("7_crrpq")]
+transition_color = Color(0.615686, 0.396078, 0.298039, 1)
+animation_type = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xka0r")
