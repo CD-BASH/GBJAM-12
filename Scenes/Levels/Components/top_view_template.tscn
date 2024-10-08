@@ -14,6 +14,9 @@ tilemaps = [NodePath("TopView_Tileset")]
 
 [node name="TopView_Tileset" parent="." instance=ExtResource("3_vi7u4")]
 
+[node name="TopView_Tileset_Details" parent="." instance=ExtResource("3_vi7u4")]
+z_index = -35
+
 [node name="AltitudeAreas" type="Node2D" parent="."]
 
 [node name="Altitude_DetectionArea_1" parent="AltitudeAreas" instance=ExtResource("3_fphc2")]
