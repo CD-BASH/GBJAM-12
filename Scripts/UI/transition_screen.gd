@@ -13,7 +13,6 @@ enum AnimationType {
 }
 
 
-
 func play_transition_screen() -> void:
 	animated_sprite_2d.modulate = transition_color;
 	

@@ -80,6 +80,10 @@ limit_right = 1007
 limit_bottom = 144
 drag_horizontal_enabled = true
 
+[node name="MainMenuTransitionScreen" parent="Player" instance=ExtResource("9_ooicy")]
+transition_color = Color(0.615686, 0.396078, 0.298039, 1)
+animation_type = 3
+
 [node name="FirstTransitionScreen" parent="Player" instance=ExtResource("9_ooicy")]
 transition_color = Color(0.129412, 0.0431373, 0.105882, 1)
 animation_type = 2

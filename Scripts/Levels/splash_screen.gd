@@ -12,7 +12,7 @@ func _ready() -> void:
 	godot.visible = false
 	jameux.visible = false
 	splash_sequence()
-	
+
 
 func splash_sequence() -> void:
 	await get_tree().create_timer(0.5).timeout
@@ -26,4 +26,3 @@ func splash_sequence() -> void:
 	audio_stream_player.play()
 	await get_tree().create_timer(3.0).timeout
 	get_tree().change_scene_to_packed(next_scene)
-	

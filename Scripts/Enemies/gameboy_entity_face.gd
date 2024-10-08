@@ -1,8 +1,5 @@
 extends AnimatedSprite2D
 
-
-
-
 func idle() -> void:
 	self.play("idle")
 

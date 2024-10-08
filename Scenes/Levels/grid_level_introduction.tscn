@@ -1,12 +1,12 @@
 [gd_scene load_steps=19 format=4 uid="uid://01apfh5bl6gd"]
 
 [ext_resource type="Script" path="res://Scripts/Levels/grid_level_introduction.gd" id="2_ax8hp"]
-[ext_resource type="PackedScene" uid="uid://rssru0311xa3" path="res://Scenes/Levels/tutorial_level.tscn" id="2_gvpes"]
+[ext_resource type="PackedScene" uid="uid://rssru0311xa3" path="res://Scenes/Levels/UI/tutorial_level.tscn" id="2_gvpes"]
 [ext_resource type="PackedScene" uid="uid://c5tohbairhbsp" path="res://Scenes/Environment/side_view_tileset.tscn" id="3_3jnl3"]
 [ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="4_556bk"]
-[ext_resource type="PackedScene" uid="uid://7e3ky3n0yicq" path="res://Scenes/Entity/gameboy_entity_face.tscn" id="5_62w8t"]
+[ext_resource type="PackedScene" uid="uid://7e3ky3n0yicq" path="res://Scenes/Enemies/gameboy_entity_face.tscn" id="5_62w8t"]
 [ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="6_eotqo"]
-[ext_resource type="Script" path="res://Scenes/UI/dialogue.gd" id="6_xemmm"]
+[ext_resource type="Script" path="res://Scripts/UI/dialogue.gd" id="6_xemmm"]
 [ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="7_64ddq"]
 [ext_resource type="Texture2D" uid="uid://f34u21vw68c4" path="res://Assets/UI/next_arrow.png" id="8_0epe5"]
 [ext_resource type="AudioStream" uid="uid://dsex8krkv1jdy" path="res://Assets/Audio/Music/AmbienceloopDark.mp3" id="12_fx3k2"]
@@ -111,6 +111,7 @@ grow_vertical = 2
 theme = ExtResource("7_64ddq")
 
 [node name="Label" type="Label" parent="Dialogue/Control"]
+material = ExtResource("6_eotqo")
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 3
@@ -130,6 +131,7 @@ autowrap_mode = 2
 
 [node name="Arrow" type="TextureRect" parent="Dialogue/Control"]
 visible = false
+material = ExtResource("6_eotqo")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

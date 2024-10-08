@@ -19,6 +19,7 @@ script = ExtResource("1_xvuk4")
 next_scene_to_load = ExtResource("2_0y2jx")
 
 [node name="Control" type="Control" parent="."]
+material = ExtResource("4_j7ifd")
 layout_mode = 3
 anchors_preset = 0
 offset_right = 160.0
@@ -35,7 +36,8 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0627451, 0.0784314, 0.0470588, 1)
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Hide_Label" type="Label" parent="Control"]
+material = ExtResource("4_j7ifd")
 layout_mode = 0
 offset_left = 8.0
 offset_top = 8.0
@@ -45,7 +47,8 @@ theme_override_constants/line_spacing = -1
 text = "Hide from the parental control"
 autowrap_mode = 2
 
-[node name="Label2" type="Label" parent="Control"]
+[node name="InputA_Label" type="Label" parent="Control"]
+material = ExtResource("4_j7ifd")
 layout_mode = 0
 offset_left = 8.0
 offset_top = 40.0
@@ -57,7 +60,8 @@ to switch in top view"
 vertical_alignment = 2
 autowrap_mode = 2
 
-[node name="Label3" type="Label" parent="Control"]
+[node name="InputB_Label" type="Label" parent="Control"]
+material = ExtResource("4_j7ifd")
 layout_mode = 0
 offset_left = 8.0
 offset_top = 88.0
@@ -70,6 +74,7 @@ vertical_alignment = 2
 autowrap_mode = 2
 
 [node name="Arrow" type="TextureRect" parent="Control"]
+material = ExtResource("4_j7ifd")
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

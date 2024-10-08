@@ -1,10 +1,9 @@
-[gd_scene load_steps=84 format=3 uid="uid://en1vmhnahux2"]
+[gd_scene load_steps=83 format=3 uid="uid://en1vmhnahux2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_e6ohm"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="3_hxhrr"]
 [ext_resource type="Shape2D" uid="uid://c0rqt6ufncj7d" path="res://Assets/Characters/main_character_top_collision_shape.tres" id="3_hy8du"]
 [ext_resource type="Shape2D" uid="uid://clbvq40o76grm" path="res://Assets/Characters/main_character_side_collision_shape.tres" id="4_5sk3q"]
-[ext_resource type="Shape2D" uid="uid://bcpimkwpk06d" path="res://Assets/Characters/main_character_down_collision_shape.tres" id="4_66ald"]
 [ext_resource type="Material" uid="uid://d2mt3xis20ka2" path="res://Materials/palette_grid_levels.tres" id="5_aaetp"]
 [ext_resource type="Texture2D" uid="uid://dikn51ypr1api" path="res://Assets/Characters/main_character_animation_death.png" id="6_23ynh"]
 [ext_resource type="Texture2D" uid="uid://dvdaiuokhjc12" path="res://Assets/Characters/main_character_animation_walk.png" id="7_6hucf"]
@@ -574,7 +573,6 @@ script = ExtResource("1_e6ohm")
 jump_force = 200.0
 side_collision_shape = ExtResource("4_5sk3q")
 top_collision_shape = ExtResource("3_hy8du")
-down_collision_shape = ExtResource("4_66ald")
 max_jump_height = 10.0
 gravity_multiplier_at_apex = 2.0
 gravity_exponent = 5.0

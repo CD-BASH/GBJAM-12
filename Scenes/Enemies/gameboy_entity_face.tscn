@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://7e3ky3n0yicq"]
 
 [ext_resource type="Texture2D" uid="uid://cgtsek6hmqmr8" path="res://Assets/GameboyEntity/gemboy_entity.png" id="1_p6di4"]
-[ext_resource type="Script" path="res://Scripts/Global/GameBoy/gameboy_entity_face.gd" id="2_2tjcy"]
+[ext_resource type="Script" path="res://Scripts/Enemies/gameboy_entity_face.gd" id="2_2tjcy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_orpkf"]
 atlas = ExtResource("1_p6di4")

@@ -6,12 +6,14 @@ extends Node2D
 @onready var game_boy_speech: Control = $GameManager/CanvasLayer/GameBoySpeech
 @onready var first_transition_screen: CanvasLayer = $Player/FirstTransitionScreen
 @onready var second_transition_screen: CanvasLayer = $Player/SecondTransitionScreen
+@onready var main_menu_transition_screen: CanvasLayer = $Player/MainMenuTransitionScreen
 
 var level_stopped := false
 var sequence_started := false
 
 
 func _ready() -> void:
+	main_menu_transition_screen.play_transition_screen()
 	game_boy_speech.visible = false
 
 func _process(delta: float) -> void:

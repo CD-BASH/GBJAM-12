@@ -9,6 +9,7 @@ extends Node2D
 
 var started_second_sequence = false
 
+
 func _ready() -> void:
 	MusicPlayer.select_track(4)
 	MusicPlayer.play()
@@ -21,14 +22,13 @@ func _process(delta: float) -> void:
 		started_second_sequence = true
 		second_sequence()
 
+
 func first_sequence() -> void:
 	await get_tree().create_timer(2.0).timeout
 	gameboy_entity_face.idle_left()
 	await get_tree().create_timer(2.0).timeout
 	dialogue.dialogue_is_in_process = true
 	gameboy_entity_face.speak_left()
-	
-	
 
 func second_sequence() -> void:
 	gameboy_entity_face.idle()

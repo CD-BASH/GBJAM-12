@@ -23,7 +23,6 @@ func _ready() -> void:
 #region Signals
 func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
-		print("Body entered")
 		match area_type:
 			AreaType.DEPTH_PUSH:
 				grid_level.player_depth = area_depth_push_value

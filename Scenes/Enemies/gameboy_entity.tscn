@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ywm5h8dkpwjh"]
 
-[ext_resource type="Script" path="res://Scripts/Global/GameBoy/game_boy.gd" id="1_s02ok"]
-[ext_resource type="AudioStream" uid="uid://djnhmy6dxw4bm" path="res://Assets/Audio/SFX/retro-blip-236676.mp3" id="2_e3xso"]
-[ext_resource type="AudioStream" uid="uid://b5vt5cf0ijm1" path="res://Assets/Audio/SFX/retro-select-236670.mp3" id="3_ykpoy"]
-[ext_resource type="AudioStream" uid="uid://c8uk0txrr05tm" path="res://Assets/Audio/SFX/retro-video-game-death-95730.mp3" id="4_w77lq"]
+[ext_resource type="Script" path="res://Scripts/Enemies/game_boy.gd" id="1_s02ok"]
+[ext_resource type="AudioStream" uid="uid://djnhmy6dxw4bm" path="res://Assets/Audio/SFX/Bib_First.mp3" id="2_e3xso"]
+[ext_resource type="AudioStream" uid="uid://b5vt5cf0ijm1" path="res://Assets/Audio/SFX/Bip_Second.mp3" id="3_ykpoy"]
+[ext_resource type="AudioStream" uid="uid://c8uk0txrr05tm" path="res://Assets/Audio/SFX/Bip_Final.mp3" id="4_w77lq"]
 
 [node name="gameboy_entity" type="Node2D" groups=["gameboy_entity"]]
 script = ExtResource("1_s02ok")

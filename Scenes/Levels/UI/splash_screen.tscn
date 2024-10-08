@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://dnbqknxwxil72"]
 
 [ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="1_g3aeu"]
-[ext_resource type="Script" path="res://Scenes/Levels/splash_screen.gd" id="1_id2xi"]
-[ext_resource type="PackedScene" uid="uid://cs0ung6ycj00b" path="res://Scenes/Levels/main_menu.tscn" id="2_m0sqt"]
+[ext_resource type="Script" path="res://Scripts/Levels/splash_screen.gd" id="1_id2xi"]
+[ext_resource type="PackedScene" uid="uid://cs0ung6ycj00b" path="res://Scenes/Levels/UI/main_menu.tscn" id="2_m0sqt"]
 [ext_resource type="Texture2D" uid="uid://x46a5nertpek" path="res://Assets/UI/splash_screen_godot.png" id="2_ul36v"]
 [ext_resource type="Texture2D" uid="uid://bs2iegw3i7vdg" path="res://Assets/UI/jameux_splash.png" id="4_0qrmx"]
 [ext_resource type="PackedScene" uid="uid://dudg2maq1rrmx" path="res://Scenes/UI/transition_screen.tscn" id="4_tlk7i"]
