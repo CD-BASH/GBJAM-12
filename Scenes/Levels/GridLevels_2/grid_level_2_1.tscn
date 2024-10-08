@@ -17,6 +17,6 @@ music_track = 3
 position = Vector2(24, 24)
 
 [node name="SideView_2-1" parent="." index="1" instance=ExtResource("2_rjwwe")]
-visible = false
 
 [node name="TopView_2-1" parent="." index="2" instance=ExtResource("3_63isa")]
+visible = false

@@ -15,6 +15,6 @@ starting_depth = 1.5
 position = Vector2(136, 24)
 
 [node name="SideView_2-3" parent="." index="1" instance=ExtResource("2_vvj4x")]
-visible = false
 
 [node name="TopView_2-3" parent="." index="2" instance=ExtResource("3_1mgho")]
+visible = false
