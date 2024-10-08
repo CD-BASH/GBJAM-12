@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cs0ung6ycj00b"]
+[gd_scene load_steps=12 format=4 uid="uid://cs0ung6ycj00b"]
 
 [ext_resource type="Theme" uid="uid://dsq7kkj3dlkb5" path="res://Assets/UI/Fonts/main_font_theme.tres" id="1_61vd0"]
 [ext_resource type="PackedScene" uid="uid://34288j0numi1" path="res://Scenes/Environment/fake_platformer_tileset.tscn" id="2_im84l"]
@@ -6,7 +6,6 @@
 [ext_resource type="Material" uid="uid://c3tbk77gsradf" path="res://Materials/palette_fake_platformer.tres" id="3_hsy5s"]
 [ext_resource type="PackedScene" uid="uid://ca6mt5f3l8nrl" path="res://Scenes/Levels/fake_platformer.tscn" id="3_wmar8"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="4_ik146"]
-[ext_resource type="AudioStream" uid="uid://rsb4lrbp147i" path="res://Assets/Audio/Music/SpookyTown.mp3" id="7_6o1ul"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bwev1"]
 atlas = ExtResource("4_ik146")
@@ -84,6 +83,7 @@ offset_left = 47.0
 offset_top = 34.0
 offset_right = 147.0
 offset_bottom = 49.0
+theme_override_colors/font_color = Color(0.615686, 0.396078, 0.298039, 1)
 text = "Spooky Worlds"
 
 [node name="Label_start" type="Label" parent="."]
@@ -111,7 +111,3 @@ position = Vector2(22, 88)
 sprite_frames = SubResource("SpriteFrames_7q4j2")
 autoplay = "default"
 frame_progress = 0.118547
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_6o1ul")
-autoplay = true

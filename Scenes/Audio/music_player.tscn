@@ -1,0 +1,17 @@
+[gd_scene load_steps=7 format=3 uid="uid://djlcrl72vs2sa"]
+
+[ext_resource type="Script" path="res://Scripts/Audio/music_player.gd" id="1_l4wsf"]
+[ext_resource type="AudioStream" uid="uid://rsb4lrbp147i" path="res://Assets/Audio/Music/SpookyTown.mp3" id="2_x2fdc"]
+[ext_resource type="AudioStream" uid="uid://c2aj2tjdp2hj3" path="res://Assets/Audio/Music/SpookyTrapSong_varient_01.mp3" id="3_5ayfb"]
+[ext_resource type="AudioStream" uid="uid://csx23j5seglsx" path="res://Assets/Audio/Music/GlitchTown.mp3" id="3_nkqli"]
+[ext_resource type="AudioStream" uid="uid://cgawhill680jj" path="res://Assets/Audio/Music/SpookyTrapSong_VarientGlitch.mp3" id="5_408ww"]
+[ext_resource type="AudioStream" uid="uid://djtkhtsowgpex" path="res://Assets/Audio/Music/QuestionMark.mp3" id="6_pim6t"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_l4wsf")
+spooky_town_music = ExtResource("2_x2fdc")
+spooky_town_glitch_music = ExtResource("3_nkqli")
+grid_music = ExtResource("3_5ayfb")
+grid_glitch_music = ExtResource("5_408ww")
+question_mark_music = ExtResource("6_pim6t")
+grid_music_sections = Array[float]([0.0, 6.35, 12.52, 19.21])

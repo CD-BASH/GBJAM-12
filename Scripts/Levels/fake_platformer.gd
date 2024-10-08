@@ -1,14 +1,11 @@
 extends Node2D
 
 @export var next_scene_to_load: PackedScene = null
-@export var glitch_music: AudioStream
 
 @onready var player = $Player
 @onready var game_boy_speech: Control = $GameManager/CanvasLayer/GameBoySpeech
 @onready var first_transition_screen: CanvasLayer = $Player/FirstTransitionScreen
 @onready var second_transition_screen: CanvasLayer = $Player/SecondTransitionScreen
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-
 
 var level_stopped := false
 var sequence_started := false
@@ -23,8 +20,8 @@ func _process(delta: float) -> void:
 
 
 func end_level_sequence():
-	audio_stream_player.stream = glitch_music
-	audio_stream_player.play()
+	MusicPlayer.select_track(1)
+	MusicPlayer.play()
 	sequence_started = true
 	game_boy_speech.visible = true
 	player.can_move = false

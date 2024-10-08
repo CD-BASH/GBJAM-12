@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://Assets/UI/splash_screen_godot-load.png"
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicPlayer="*res://Scenes/Audio/music_player.tscn"
+
 [display]
 
 window/size/viewport_width=160
