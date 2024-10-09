@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bmk5c7p7binxt" path="res://Scenes/Levels/Components/grid_level_template.tscn" id="1_s12xo"]
 [ext_resource type="PackedScene" uid="uid://djeo2k7tnmeej" path="res://Scenes/Levels/GridLevels_1/grid_level_1_7.tscn" id="2_mwcgt"]
 [ext_resource type="PackedScene" uid="uid://vwlo1hhwluaa" path="res://Scenes/Levels/GridLevels_1/TopViews/top_view_1_6.tscn" id="2_uwvas"]
-[ext_resource type="PackedScene" uid="uid://t6clneq887hm" path="res://Scenes/Levels/GridLevels_1/SideViews/side_view_1_6.tscn" id="3_r31gn"]
+[ext_resource type="PackedScene" uid="uid://caagbfh68royf" path="res://Scenes/Levels/GridLevels_1/SideViews/side_view_1_6.tscn" id="3_6dbvd"]
 
 [node name="GridLevel_1-8" node_paths=PackedStringArray("side_view", "top_view") instance=ExtResource("1_s12xo")]
 next_level_scene = ExtResource("2_mwcgt")
 side_view = NodePath("SideView_1-8")
 top_view = NodePath("TopView_1-8")
 
-[node name="SideView_1-8" parent="." index="1" instance=ExtResource("3_r31gn")]
+[node name="SideView_1-8" parent="." index="1" instance=ExtResource("3_6dbvd")]
 
 [node name="TopView_1-8" parent="." index="2" instance=ExtResource("2_uwvas")]
 visible = false
