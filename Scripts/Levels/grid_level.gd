@@ -60,13 +60,14 @@ func _process(delta: float) -> void:
 	 
 	if listen_to_player_inputs:
 		if Input.is_action_just_pressed("a_btn"):
-			next_view = ViewMode.TOP_VIEW
-			if next_view != current_view:
-				view_transition.top_view_transition()
-		if Input.is_action_just_pressed("b_btn"):
-			next_view = ViewMode.SIDE_VIEW
-			if next_view != current_view:
-				view_transition.side_view_transition()
+			if current_view == ViewMode.SIDE_VIEW:
+				next_view = ViewMode.TOP_VIEW
+				if next_view != current_view:
+					view_transition.top_view_transition()
+			if current_view == ViewMode.TOP_VIEW:
+				next_view = ViewMode.SIDE_VIEW
+				if next_view != current_view:
+					view_transition.side_view_transition()
 		
 	if (player_in_depth_safe_zone && player_in_altitude_safe_zone):
 		player_is_safe = true
@@ -88,15 +89,15 @@ func initialize_gameboy_entity():
 func set_new_view(view: ViewMode) -> void:
 	match view:
 		ViewMode.SIDE_VIEW:
+			new_player_position(player_altitude)
 			if side_view != null:
 				side_view.activate_view(true)
 				top_view.activate_view(false)
-			new_player_position(player_altitude)
 		ViewMode.TOP_VIEW:
+			new_player_position(player_depth)
 			if top_view != null:
 				side_view.activate_view(false)
 				top_view.activate_view(true)
-				new_player_position(player_depth)
 	player.player_control_type = view
 	current_view = view
 

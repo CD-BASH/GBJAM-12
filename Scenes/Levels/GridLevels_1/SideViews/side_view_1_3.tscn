@@ -27,14 +27,15 @@ tile_map_data = PackedByteArray("AAAAAAgAAAAJAAEAAAABAAgAAAAJAAEAAAACAAgAAAAJAAE
 tile_map_data = PackedByteArray("AAAAAAcAAAAKAAAAAAABAAcAAAAGAAgAAAACAAcAAAAKAAAAAAADAAcAAAAGAAgAAAAEAAcAAAAKAAAAAAAFAAcAAAAKAAAAAAAGAAcAAAAIAAcAAAAHAAcAAAAKAAAAAAAIAAcAAAAKAAgAAAAJAAcAAAAKAAAAAAAHAAUAAAAKAAAAAAAGAAUAAAAKAAAAAAAEAAQAAAAKAAAAAAADAAQAAAAKAAAAAAACAAQAAAAKAAAAAAAEAAIAAAAKAAAAAAAIAAUAAAADAAAAAAAFAAQAAAADAAAAAAABAAQAAAABAAIAAAAFAAUAAAABAAAAAAA=")
 
 [node name="Depth_DetectionArea_1" parent="DepthAreas" index="0"]
-area_depth_push_value = 7.0
+area_depth_push_value = 6.0
 
 [node name="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_1" index="0"]
 position = Vector2(112, 92)
 shape = SubResource("RectangleShape2D_jcelk")
 
 [node name="Depth_DetectionArea_2" parent="DepthAreas" index="1" instance=ExtResource("2_ikmeb")]
-area_depth_push_value = 5.0
+area_depth_push_value = 4.0
+area_altitude_push_value = 3.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DepthAreas/Depth_DetectionArea_2" index="0"]
 position = Vector2(56, 68)
