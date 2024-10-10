@@ -52,11 +52,10 @@ material = ExtResource("4_j7ifd")
 layout_mode = 0
 offset_left = 8.0
 offset_top = 40.0
-offset_right = 96.76
-offset_bottom = 73.66
+offset_right = 104.0
+offset_bottom = 77.0
 theme_override_constants/line_spacing = -1
-text = "use input a
-to switch in top view"
+text = "Press space to switch between top and side view"
 vertical_alignment = 2
 autowrap_mode = 2
 
@@ -68,8 +67,7 @@ offset_top = 88.0
 offset_right = 96.76
 offset_bottom = 121.605
 theme_override_constants/line_spacing = -1
-text = "use input b
-to switch in side view"
+text = "Use depth to hide behind 2d scenery"
 vertical_alignment = 2
 autowrap_mode = 2
 
