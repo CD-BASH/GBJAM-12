@@ -4,6 +4,8 @@ This repository holds the game project to be submitted at the [GBJAM-12](https:/
 
 The project is built upon the Godot engine, **version 4.3**, available [here](https://github.com/godotengine/godot/releases/download/4.3-stable/Godot_v4.3-stable_win64.exe.zip). We cannot used the .NET version to export the game into web support.
 
+The most recent game's version can be played directly on [itch.io](https://charlesdouc.itch.io/cd-yesterday-at-823-pm-pumpys-spooky-worlds).
+
 ## Contributing
 
 We use a lightweight convention on top of commit messages.  
