@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://en1vmhnahux2"]
+[gd_scene load_steps=84 format=3 uid="uid://en1vmhnahux2"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_e6ohm"]
 [ext_resource type="Texture2D" uid="uid://w5au68fkpc1m" path="res://Assets/Characters/main_character_animation_idle.png" id="3_hxhrr"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b04s8xn2weikh" path="res://Assets/Characters/main_character_animation_spawn.png" id="10_vlqkr"]
 [ext_resource type="AudioStream" uid="uid://2r6aw01yfwma" path="res://Assets/Audio/SFX/Jump.wav" id="11_8bfus"]
 [ext_resource type="AudioStream" uid="uid://chros0s1id348" path="res://Assets/Audio/SFX/SpawnDeath.wav" id="12_pqn4d"]
+[ext_resource type="AudioStream" uid="uid://beilk8ap3h47m" path="res://Assets/Audio/SFX/Death.mp3" id="12_wkagk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cpxq"]
 atlas = ExtResource("6_23ynh")
@@ -381,7 +382,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hv5ng")
 }],
-"loop": true,
+"loop": false,
 "name": &"death_top",
 "speed": 18.0
 }, {
@@ -580,8 +581,7 @@ gravity_exponent = 5.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 use_parent_material = true
 sprite_frames = SubResource("SpriteFrames_dkt6p")
-animation = &"death_top"
-frame_progress = 0.0392317
+animation = &"death_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
@@ -597,6 +597,10 @@ volume_db = -6.19
 
 [node name="SpawnSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_pqn4d")
+volume_db = -6.19
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_wkagk")
 volume_db = -6.19
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

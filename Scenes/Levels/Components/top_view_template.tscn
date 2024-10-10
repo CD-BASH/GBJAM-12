@@ -9,6 +9,7 @@
 script = ExtResource("1_7acs2")
 background = NodePath("TopView_AnimatedBackground")
 tilemaps = [NodePath("TopView_Tileset")]
+wait_for_player_position = true
 
 [node name="TopView_AnimatedBackground" parent="." instance=ExtResource("2_n3llr")]
 

@@ -11,6 +11,6 @@ side_view = NodePath("SideView_1-8")
 top_view = NodePath("TopView_1-8")
 
 [node name="SideView_1-8" parent="." index="1" instance=ExtResource("3_6dbvd")]
+visible = false
 
 [node name="TopView_1-8" parent="." index="2" instance=ExtResource("2_uwvas")]
-visible = false

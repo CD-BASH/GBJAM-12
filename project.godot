@@ -14,6 +14,7 @@ config/name="GBJAM-12"
 run/main_scene="res://Scenes/Levels/UI/splash_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 boot_splash/image="res://Assets/UI/splash_screen_godot-load.png"
+boot_splash/fullsize=false
 config/icon="res://icon.svg"
 
 [autoload]

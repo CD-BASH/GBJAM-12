@@ -21,6 +21,8 @@ class_name Player
 @onready var coyote_timer : Timer = $CoyoteTimer
 @onready var jump_sound = $Jump
 @onready var spawn_sound: AudioStreamPlayer2D = $SpawnSound
+@onready var death_sound: AudioStreamPlayer2D = $DeathSound
+
 
 var can_move := true
 var is_spawn = false
@@ -63,7 +65,9 @@ func spawn():
 	is_spawn = true
 
 func death():
+	if is_dead: return
 	is_dead = true
+	death_sound.play()
 	match player_control_type:
 		PlayerControlTypes.SIDE_VIEW:
 			animated_sprite_2d.play("death_side")
